@@ -118,7 +118,7 @@ templatesFiles.forEach(function(groupName) {
                         if (index == null) {
                             return outputFile;
                         } else {
-                            return nodePath.join(baseHtmlOutputFile, engine.name + '.' + index + '.html');
+                            return nodePath.join(baseHtmlOutputFile, index + '.' + engine.name + '.html');
                         }
                     },
                     engine: engine,

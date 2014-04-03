@@ -10,3 +10,4 @@ benchmarks:
 .PHONY: clean
 clean:
 	$(BIN)/rhtmlc . --clean
+	rm -rf output
