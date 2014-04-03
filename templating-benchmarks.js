@@ -61,7 +61,12 @@ templatesFiles.forEach(function(groupName) {
 
         var groupFilenames = fs.readdirSync(groupDir);
         groupFilenames.forEach(function(filename) {
-            if (filename.charAt(0) === '.') {
+            if (filename.charAt(0) === '.' || (!filename.startsWith('template') && !filename.startsWith('data'))) {
+                return;
+            }
+
+            if (filename.startsWith('template') && filename.endsWith('.js')) {
+                // Skip compiled files
                 return;
             }
 
@@ -76,7 +81,6 @@ templatesFiles.forEach(function(groupName) {
                 var firstDot = filename.indexOf('.');
                 var lastDot = filename.lastIndexOf('.');
                 var ext = filename.substring(lastDot + 1);
-                var nameNoExt = filename.substring(0, lastDot);
 
                 var engine = enginesByExt[ext];
                 if (!engine) {
@@ -205,7 +209,7 @@ function warmup(callback) {
 
                             // Compare the sizes
                             var minifiedBuffer = new Buffer(minified, 'utf8');
-                            console.log(nodePath.basename(templateInfo.outputCompileMinifiedFile) + ': ' + gzippedBuffer.length + ' bytes gzipped (' + minifiedBuffer.length + ' bytes uncompressed)');
+                            // console.log(nodePath.basename(templateInfo.outputCompileMinifiedFile) + ': ' + gzippedBuffer.length + ' bytes gzipped (' + minifiedBuffer.length + ' bytes uncompressed)');
 
                             sizeInfo.gzipped[templateInfo.description] = gzippedBuffer.length;
                             sizeInfo.uncompressed[templateInfo.description] = minifiedBuffer.length;
