@@ -1,0 +1,10 @@
+[
+    {
+        "name": "Frank",
+        "colors": ["red", "green", "blue"]
+    },
+    {
+        "name": "John",
+        "colors": []
+    }
+]

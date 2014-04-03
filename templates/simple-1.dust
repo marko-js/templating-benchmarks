@@ -1,0 +1,15 @@
+Hello {name}!
+   
+{?colors} 
+<ul>
+    {#colors}
+    <li class="color">{.}</li>
+    {/colors}
+</ul>
+{/colors}
+
+{^colors}
+<div>
+    No colors!
+</div>
+{/colors}

@@ -1,0 +1,50 @@
+<div class="search-results-container">
+    
+    <div class="searching" id="searching">
+        <div class="wait-indicator-icon"/> Searching...
+    </div>
+
+    <div id="resultsContainer">
+        <div class="hd">
+            <span class="count"><span id="count">${data.totalCount}</span> results</span>
+            <div class="view-modifiers">
+                <div class="view-select">
+                    View: 
+                    <div class="view-icon view-icon-selected" id="viewIconGallery">
+                        <i class="icon-th"/>
+                    </div>
+                    <div class="view-icon" id="viewIconList">
+                        <i class="icon-th-list"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="resultsTarget">
+            <div class="search-results view-${data.view}">
+                <div class="search-item" c:for="searchRecord in data.searchRecords; for-loop=true">
+                    <div class="search-item-container drop-shadow">
+                        <div class="img-container">
+                            <img src="${searchRecord.imgUrl}">
+                        </div>
+                        <h4 class="title">
+                            <a href="${searchRecord.viewItemUrl}">${searchRecord.title}</a>
+                        </h4>
+                        
+                        ${searchRecord.description}
+
+                        <div c:if="searchRecord.featured">
+                            Featured!
+                        </div>
+
+                        <div c:if="notEmpty(searchRecord.sizes)">
+                            Sizes available:<ul>
+                                <li c:for="size in searchRecord.sizes; for-loop=true">${size}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

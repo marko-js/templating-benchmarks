@@ -1,0 +1,12 @@
+<div c:for="account in data.accounts">
+    <div c:if="account.accountStatus === 'closed'">
+        Your account has been closed!
+    </div>
+    <div c:if="account.accountStatus === 'suspended'">
+        Your account has been temporarily suspended
+    </div>
+    <div c:else>
+        Bank balance:
+        <span class="{?account.balance<0;negative;positive}">${account.formattedBalance}</span>
+    </div>
+</div>

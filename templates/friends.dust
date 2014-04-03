@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Friends</title>
+</head>
+<body>
+    <div class="friends">
+        {#friends}
+        <div class="friend">
+            <ul>
+                <li>Name: {getFullNameDust}</li>
+                <li>
+                    Balance: {balance}
+                </li>
+                <li>
+                    Age: {age}
+                </li>
+                <li>
+                    Address: {address}
+                </li>
+                <li>
+                    Image: <img src="{picture}">
+                </li>
+                <li>
+                    Company: {company}
+                </li>
+                <li>
+                    Email: <a href="mailto:{email}">{email}</a>
+                </li>
+                <li>
+                    About: {about}
+                </li>
+                {?tags}
+                <li>
+                    Tags:
+                    <ul>
+                        {#tags}
+                        <li>
+                            {.}
+                        </li>
+                        {/tags}
+                    </ul>
+                </li>
+                {/tags}
+                {?friends}
+                <li>
+                    Friends:
+                    <ul>
+                        {#friends}
+                        <li>
+                            {name} ({id})
+                        </li>
+                        {/friends}
+                    </ul>
+                </li>
+                {/friends}
+            </ul>
+        </div>
+        {/friends}
+    </div>
+</body>
+</html>
