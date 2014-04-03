@@ -1,69 +1,19 @@
-var raptorTemplates = require('raptor-templates');
-var dust = require('dustjs-linkedin');
-var jade = require('jade');
-
 var async = require('raptor-async');
 var fs = require('fs');
 var nodePath = require('path');
 var UglifyJS = require("uglify-js");
 var zlib = require('zlib');
-require('dustjs-helpers');
+
 require('raptor-ecma/es6');
 
-var engines = [
-    {
-        name: 'raptor',
-        ext: 'rhtml',
-        render: function(templatePath, data, callback) {
-            raptorTemplates.render(templatePath, data, function(err, output) {
-                // console.log('R: ' + output);
-                setImmediate(function() {
-                    callback(err, output);    
-                });
-            });
-        },
-        compile: function(src, templatePath, templateName, callback) {
-            var compiled = require('raptor-templates/compiler').compile(src, templatePath);
-            callback(null, compiled);
+var enginesDir = nodePath.join(__dirname, 'engines');
+
+var engines = fs.readdirSync(enginesDir)
+    .map(function(filename) {
+        if (filename.endsWith('.js')) {
+            return require(nodePath.join(enginesDir, filename));    
         }
-    },
-    {
-        name: 'dust',
-        ext: 'dust',
-        render: function(templatePath, data, callback) {
-            dust.render(templatePath, data, function(err, output) {
-                // console.log('D: ' + output);
-                setImmediate(function() {
-                    callback(err, output);    
-                });
-            });
-        },
-        compile: function(src, templatePath, templateName, callback) {
-            var compiled = dust.compile(src, templateName);
-            callback(null, compiled);
-        }
-    },
-    {
-        name: 'jade',
-        ext: 'jade',
-        cache: {},
-        render: function(templatePath, data, callback) {
-            var fn = this.cache[templatePath];
-            var html = fn(data);
-            setImmediate(function() {
-                callback(null, html);    
-            });
-        },
-        compile: function(src, templatePath, templateName, callback) {
-            var compiled = jade.compileClient(src);
-            callback(null, compiled);
-        },
-        load: function(src, templatePath, templateName, callback) {
-            this.cache[templatePath] = jade.compile(src);
-            callback();
-        }
-    }
-];
+    });
 
 var enginesByExt = {};
 engines.forEach(function(engine) {
@@ -95,70 +45,95 @@ if (!fs.existsSync(outputHtmldDir)) {
 var templatesFiles = fs.readdirSync(templatesDir);
 var templateGroupsLookup = {};
 var templateGroups;
-templatesFiles.forEach(function(filename) {
-        var path = nodePath.join(templatesDir, filename);
-        var firstDot = filename.indexOf('.');
-        var lastDot = filename.lastIndexOf('.');
-        var ext = filename.substring(lastDot + 1);
-        var groupName = filename.substring(0, firstDot);
-        var nameNoExt = filename.substring(0, lastDot);
+templatesFiles.forEach(function(groupName) {
+        var groupDir = nodePath.join(templatesDir, groupName);
+        var statSync = fs.statSync(groupDir);
+
+        if (!statSync.isDirectory()) {
+            return;
+        }
+
         var group = templateGroupsLookup[groupName] || (templateGroupsLookup[groupName] = {
             name: groupName,
-            templates: []
+            templates: [],
+            data: {}
         });
 
-        if (filename.endsWith('.data.js')) {
-            group.data = require(path);
-        } else if (ext === 'json') {
-            group.data = JSON.parse(fs.readFileSync(path, 'utf8'));
-        } else {
-            var engine = enginesByExt[ext];
-            if (!engine) {
-                console.log('Ignoring "' + filename + '"');
+        var groupFilenames = fs.readdirSync(groupDir);
+        groupFilenames.forEach(function(filename) {
+            if (filename.charAt(0) === '.') {
                 return;
             }
 
+            var path = nodePath.join(groupDir, filename);
 
-            var secondDot = filename.indexOf('.', firstDot+1);
-            var variant = null;
-            
-            if (secondDot !== -1) {
-                // This is a template variant
-                variant = filename.substring(firstDot+1, secondDot);
+            if (filename === 'data.js') {
+                group.data = require(path);
+            } else if (filename === 'data.json') {
+                group.data = JSON.parse(fs.readFileSync(path, 'utf8'));
+            } else {
+                // Should be a template
+                var firstDot = filename.indexOf('.');
+                var lastDot = filename.lastIndexOf('.');
+                var ext = filename.substring(lastDot + 1);
+                var nameNoExt = filename.substring(0, lastDot);
+
+                var engine = enginesByExt[ext];
+                if (!engine) {
+                    console.log('No templating engine found for "' + filename + '". Ignoring file');
+                    return;
+                }
+
+                var secondDot = filename.indexOf('.', firstDot+1);
+                var variant = null;
+                
+                if (secondDot !== -1) {
+                    // This is a template variant
+                    variant = filename.substring(firstDot+1, secondDot);
+                }
+
+                var baseHtmlOutputFile = nodePath.join(outputHtmldDir, groupName);
+                try {
+                    fs.mkdirSync(baseHtmlOutputFile);    
+                } catch(e) {}
+
+                try {
+                    fs.mkdirSync(nodePath.join(outputCompiledDir, groupName));    
+                } catch(e) {}
+
+                try {
+                    fs.mkdirSync(nodePath.join(outputCompiledMinifiedDir, groupName));    
+                } catch(e) {}
+
+                var outputFile = nodePath.join(baseHtmlOutputFile, engine.name + '.html');
+                var outputCompileFile = nodePath.join(outputCompiledDir, groupName, engine.name + '.js');
+                var outputCompileMinifiedFile = nodePath.join(outputCompiledMinifiedDir, groupName, engine.name + '.min.js');
+
+                group.templates.push({
+                    getHtmlOutputFile: function(index) {
+                        if (index == null) {
+                            return outputFile;
+                        } else {
+                            return nodePath.join(baseHtmlOutputFile, engine.name + '.' + index + '.html');
+                        }
+                    },
+                    engine: engine,
+                    templateFile: path,
+                    description: engine.name + (variant ? ' (' + variant + ')' : ''),
+                    outputFile: outputFile,
+                    compileName: filename.substring(0, lastDot),
+                    outputCompileFile: outputCompileFile,
+                    outputCompileMinifiedFile: outputCompileMinifiedFile
+                });
             }
-
-            var baseHtmlOutputFile = nodePath.join(outputHtmldDir, filename);
-            var outputFile = baseHtmlOutputFile + '.html';
-
-            var outputCompileFile = nodePath.join(outputCompiledDir, filename + '.js');
-            var outputCompileMinifiedFile = nodePath.join(outputCompiledMinifiedDir, filename + '.min.js');
-
-            group.templates.push({
-                getHtmlOutputFile: function(index) {
-                    if (index == null) {
-                        return outputFile;
-                    } else {
-                        return nodePath.join(outputHtmldDir, nameNoExt + '.' + index + '.' + ext + '.html');
-                    }
-                },
-                engine: engine,
-                templateFile: path,
-                description: engine.name + (variant ? ' (' + variant + ')' : ''),
-                outputFile: outputFile,
-                compileName: filename.substring(0, lastDot),
-                outputCompileFile: outputCompileFile,
-                outputCompileMinifiedFile: outputCompileMinifiedFile
-            });
-        }
+        });
     });
 
 templateGroups = Object.keys(templateGroupsLookup).map(function(groupName) {
     return templateGroupsLookup[groupName];
 });
 
-dust.onLoad = function(path, callback){
-    fs.readFile(path, 'UTF-8', callback);
-};
+
 
 var warmedUp = false;
 
