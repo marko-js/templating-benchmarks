@@ -112,7 +112,7 @@ To register a new templating engine, simple create a new module under the `engin
 
 ## Compiled Size
 
-```json
+```
                     friends
                dust » 498 bytes gzipped (1512 bytes uncompressed)
              raptor » 446 bytes gzipped (931 bytes uncompressed)
