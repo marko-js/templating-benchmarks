@@ -113,45 +113,51 @@ To register a new templating engine, simple create a new module under the `engin
 ## Compiled Size
 
 ```
-                    friends
-               dust » 498 bytes gzipped (1512 bytes uncompressed)
-             raptor » 446 bytes gzipped (931 bytes uncompressed)
-                    ✓  raptor
-                    ✗  dust (10.44% larger)
+                      friends
+                 dust » 498 bytes gzipped (1512 bytes uncompressed)
+               raptor » 446 bytes gzipped (931 bytes uncompressed)
 
-                    if-expression
-               dust » 385 bytes gzipped (1051 bytes uncompressed)
-             raptor » 256 bytes gzipped (435 bytes uncompressed)
-                    ✓  raptor
-                    ✗  dust (33.51% larger)
+                      ✓  raptor
+                      ✗  dust (10.44% larger)
 
-                    reverse-helper
-               dust » 138 bytes gzipped (302 bytes uncompressed)
-             raptor » 132 bytes gzipped (189 bytes uncompressed)
-                    ✓  raptor
-                    ✗  dust (4.35% larger)
+                      if-expression
+                 dust » 385 bytes gzipped (1051 bytes uncompressed)
+               raptor » 256 bytes gzipped (435 bytes uncompressed)
 
-                    search-results
-               dust » 556 bytes gzipped (1575 bytes uncompressed)
-raptor (native-for) » 546 bytes gzipped (1228 bytes uncompressed)
-             raptor » 505 bytes gzipped (1175 bytes uncompressed)
-                    ✓  raptor
-                    ✗  raptor (native-for) (7.51% larger)
-                    ✗  dust (9.17% larger)
+                      ✓  raptor
+                      ✗  dust (33.51% larger)
 
-                    simple-1
-               dust » 255 bytes gzipped (493 bytes uncompressed)
-               jade » 328 bytes gzipped (617 bytes uncompressed)
-             raptor » 183 bytes gzipped (252 bytes uncompressed)
-                    ✓  raptor
-                    ✗  dust (28.24% larger)
-                    ✗  jade (44.21% larger)
+                      reverse-helper
+                 dust » 138 bytes gzipped (302 bytes uncompressed)
+               raptor » 132 bytes gzipped (189 bytes uncompressed)
 
-                    simple-2
-               dust » 275 bytes gzipped (718 bytes uncompressed)
-             raptor » 221 bytes gzipped (473 bytes uncompressed)
-                    ✓  raptor
-                    ✗  dust (19.64% larger)
+                      ✓  raptor
+                      ✗  dust (4.35% larger)
+
+                      search-results
+                 dust » 556 bytes gzipped (1575 bytes uncompressed)
+  raptor (native-for) » 546 bytes gzipped (1228 bytes uncompressed)
+               raptor » 505 bytes gzipped (1175 bytes uncompressed)
+
+                      ✓  raptor
+                      ✗  raptor (native-for) (7.51% larger)
+                      ✗  dust (9.17% larger)
+
+                      simple-1
+                 dust » 255 bytes gzipped (493 bytes uncompressed)
+                 jade » 328 bytes gzipped (617 bytes uncompressed)
+               raptor » 183 bytes gzipped (252 bytes uncompressed)
+
+                      ✓  raptor
+                      ✗  dust (28.24% larger)
+                      ✗  jade (44.21% larger)
+
+                      simple-2
+                 dust » 275 bytes gzipped (718 bytes uncompressed)
+               raptor » 221 bytes gzipped (473 bytes uncompressed)
+
+                      ✓  raptor
+                      ✗  dust (19.64% larger)
 ```
 
 # Contribute

@@ -34,6 +34,8 @@ module.exports = function(runner, utils) {
                 benchLine(template, color(gzippedSizes[template] + ' bytes gzipped (' + uncompressedSizes[template] + ' bytes uncompressed)\n', 'cyan'));
             });
 
+            console.log();
+
             sortedSizes.sort(function (a, b) {
                 a = a.size;
                 b = b.size;
