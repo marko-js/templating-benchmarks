@@ -78,7 +78,7 @@ To register a new templating engine, simple create a new module under the `engin
 
                       template: simple-1
          100,713 op/s » dust
-          60,399 op/s » jade
+          57,667 op/s » jade
          119,182 op/s » raptor
 
                       template: simple-2
