@@ -64,26 +64,30 @@ To register a new templating engine, simple create a new module under the `engin
 
 ```
                       template: friends
-             670 op/s » dust
-           1,972 op/s » raptor
+             766 op/s » dust
+           2,193 op/s » raptor
 
                       template: if-expression
-          45,524 op/s » dust
-         165,653 op/s » raptor
+          44,745 op/s » dust
+         178,528 op/s » raptor
+
+                      template: reverse-helper
+         188,334 op/s » dust
+         258,338 op/s » raptor
 
                       template: search-results
-          10,779 op/s » dust
-          25,674 op/s » raptor (native-for)
-          21,943 op/s » raptor
+          10,926 op/s » dust
+          25,422 op/s » raptor (native-for)
+          22,468 op/s » raptor
 
                       template: simple-1
-         100,713 op/s » dust
-          57,667 op/s » jade
-         119,182 op/s » raptor
+         101,948 op/s » dust
+          60,421 op/s » jade
+         126,462 op/s » raptor
 
                       template: simple-2
-         108,469 op/s » dust
-         195,345 op/s » raptor
+         112,581 op/s » dust
+         198,171 op/s » raptor
 ```
 
 ## Compiled Size
