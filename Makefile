@@ -5,7 +5,7 @@ main: benchmarks
 
 .PHONY: benchmarks
 benchmarks:
-	$(BIN)/matcha templating-benchmarks.js
+	$(BIN)/matcha templating-benchmarks.js -R ./reporter.js
 
 .PHONY: clean
 clean:

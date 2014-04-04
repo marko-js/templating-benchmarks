@@ -224,6 +224,7 @@ function warmup(callback) {
     });
 
     async.series(work, function(err, results) {
+        exports.sizes = sizes;
         fs.writeFileSync(nodePath.join(outputDir, 'sizes.json'), JSON.stringify(sizes, null, 4), 'utf8');
         callback(err);
     });
