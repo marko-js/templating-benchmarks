@@ -109,9 +109,9 @@ templatesFiles.forEach(function(groupName) {
                     fs.mkdirSync(nodePath.join(outputCompiledMinifiedDir, groupName));    
                 } catch(e) {}
 
-                var outputFile = nodePath.join(baseHtmlOutputFile, engine.name + '.html');
-                var outputCompileFile = nodePath.join(outputCompiledDir, groupName, engine.name + '.js');
-                var outputCompileMinifiedFile = nodePath.join(outputCompiledMinifiedDir, groupName, engine.name + '.min.js');
+                var outputFile = nodePath.join(baseHtmlOutputFile, engine.name + (variant ? '.' + variant : '') + '.html');
+                var outputCompileFile = nodePath.join(outputCompiledDir, groupName, engine.name + (variant ? '.' + variant : '') + '.js');
+                var outputCompileMinifiedFile = nodePath.join(outputCompiledMinifiedDir, groupName, engine.name + (variant ? '.' + variant : '') + '.min.js');
 
                 group.templates.push({
                     getHtmlOutputFile: function(index) {
