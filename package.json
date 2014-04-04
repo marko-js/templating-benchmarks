@@ -14,7 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "dustjs-linkedin": "^2.3.4",
-    "raptor-templates": "^0.2.24-beta",
+    "raptor-templates": "^0.2.27-beta",
     "raptor-async": "^0.2.2-beta",
     "uglify-js": "^2.4.13",
     "dustjs-helpers": "^1.2.0",
