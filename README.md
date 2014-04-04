@@ -64,26 +64,26 @@ To register a new templating engine, simple create a new module under the `engin
 
 ```
                       template: friends
-             699 op/s » dust
-           1,876 op/s » raptor
+             670 op/s » dust
+           1,972 op/s » raptor
 
                       template: if-expression
-          43,184 op/s » dust
-         172,679 op/s » raptor
+          45,524 op/s » dust
+         165,653 op/s » raptor
 
                       template: search-results
-           9,207 op/s » dust
-          23,793 op/s » raptor (native-for)
-          22,006 op/s » raptor
+          10,779 op/s » dust
+          25,674 op/s » raptor (native-for)
+          21,943 op/s » raptor
 
                       template: simple-1
-          96,575 op/s » dust
-          60,587 op/s » jade
-         113,307 op/s » raptor
+         100,713 op/s » dust
+          60,399 op/s » jade
+         119,182 op/s » raptor
 
                       template: simple-2
-         111,627 op/s » dust
-         187,372 op/s » raptor
+         108,469 op/s » dust
+         195,345 op/s » raptor
 ```
 
 ## Compiled Size
@@ -102,23 +102,23 @@ To register a new templating engine, simple create a new module under the `engin
     },
     "if-expression": {
         "gzipped": {
-            "dust": 372,
+            "dust": 385,
             "raptor": 256
         },
         "uncompressed": {
-            "dust": 987,
+            "dust": 1051,
             "raptor": 435
         }
     },
     "search-results": {
         "gzipped": {
             "dust": 556,
-            "raptor (native-for)": 560,
+            "raptor (native-for)": 546,
             "raptor": 505
         },
         "uncompressed": {
             "dust": 1575,
-            "raptor (native-for)": 1751,
+            "raptor (native-for)": 1228,
             "raptor": 1175
         }
     },
