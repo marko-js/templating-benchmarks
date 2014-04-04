@@ -7,5 +7,4 @@
 *.orig
 .DS_Store
 coverage
-/output
 *.rhtml.js
