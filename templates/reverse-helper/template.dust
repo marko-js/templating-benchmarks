@@ -1,3 +1,5 @@
-{#names}
-    {@reverse str=. /}
-{/names}
+{@reverse str=A /}
+{@reverse str=B /}
+{@reverse str=C /}
+{@reverse str=D /}
+{@reverse str=E /}
