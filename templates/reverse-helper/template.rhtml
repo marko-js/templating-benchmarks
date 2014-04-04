@@ -1,0 +1,5 @@
+<c:require module="../../helpers/util" var="util"/>
+
+<c:for each="name in data.names">
+    $!{util.reverse(name)}
+</c:for>

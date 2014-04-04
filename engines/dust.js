@@ -5,6 +5,9 @@ dust.onLoad = function(path, callback){
     fs.readFile(path, 'UTF-8', callback);
 };
 
+
+dust.helpers.reverse = require('../helpers/util').reverseDust;
+
 module.exports = {
     name: 'dust',
     ext: 'dust',
