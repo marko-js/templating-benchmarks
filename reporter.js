@@ -115,6 +115,6 @@ module.exports = function(runner, utils) {
     runner.on('bench end', function (bench) {
         cursor.CR();
         var ops = humanize(bench.ops.toFixed(0));
-        benchLine(bench.title, color(ops + ' op/s', 'cyan') + '\n');
+        benchLine(bench.title, color(padBefore(ops, 9) + ' op/s', 'cyan') + '\n');
     });
 };

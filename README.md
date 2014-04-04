@@ -64,50 +64,50 @@ To register a new templating engine, simple create a new module under the `engin
 
 ```
                       template: friends
-                 dust » 660 op/s
-               raptor » 1,946 op/s
+                 dust »      627 op/s
+               raptor »    1,916 op/s
 
                       ✓  raptor
-                      ✗  dust (66.08% slower)
+                      ✗  dust (67.28% slower)
 
                       template: if-expression
-                 dust » 41,896 op/s
-               raptor » 146,400 op/s
+                 dust »   41,944 op/s
+               raptor »  153,948 op/s
 
                       ✓  raptor
-                      ✗  dust (71.38% slower)
+                      ✗  dust (72.75% slower)
 
                       template: reverse-helper
-                 dust » 204,834 op/s
-               raptor » 264,734 op/s
+                 dust »  200,877 op/s
+               raptor »  249,668 op/s
 
                       ✓  raptor
-                      ✗  dust (22.63% slower)
+                      ✗  dust (19.54% slower)
 
                       template: search-results
-                 dust » 9,436 op/s
-  raptor (native-for) » 21,736 op/s
-               raptor » 19,533 op/s
+                 dust »    9,398 op/s
+  raptor (native-for) »   23,260 op/s
+               raptor »   20,127 op/s
 
                       ✓  raptor (native-for)
-                      ✗  raptor (10.14% slower)
-                      ✗  dust (56.59% slower)
+                      ✗  raptor (13.47% slower)
+                      ✗  dust (59.60% slower)
 
                       template: simple-1
-                 dust » 89,537 op/s
-                 jade » 51,096 op/s
-               raptor » 105,858 op/s
+                 dust »   92,285 op/s
+                 jade »   51,656 op/s
+               raptor »  101,770 op/s
 
                       ✓  raptor
-                      ✗  dust (15.42% slower)
-                      ✗  jade (51.73% slower)
+                      ✗  dust (9.32% slower)
+                      ✗  jade (49.24% slower)
 
                       template: simple-2
-                 dust » 98,874 op/s
-               raptor » 169,314 op/s
+                 dust »   97,084 op/s
+               raptor »  137,864 op/s
 
                       ✓  raptor
-                      ✗  dust (41.60% slower)
+                      ✗  dust (29.58% slower)
 ```
 
 ## Compiled Size
