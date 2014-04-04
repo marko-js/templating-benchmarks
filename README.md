@@ -4,7 +4,7 @@ templating-benchmarks
 This project provides a framework for running benchmarks against multiple templating languages under Node.js. The following templating engine modules are currently integrated:
 
 * [raptor-templates](https://github.com/raptorjs3/raptor-templates)
-* [dustjs-linked](https://github.com/linkedin/dustjs)
+* [dustjs-linkedin](https://github.com/linkedin/dustjs)
 * [jade](https://github.com/visionmedia/jade)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
