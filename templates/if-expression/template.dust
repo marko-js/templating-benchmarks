@@ -1,14 +1,23 @@
 {#accounts}
+<div>
+
     {@select key="{accountStatus}"}
         {@eq value="closed"}
+        <div>
             Your account has been closed!
+        </div>
         {/eq}
         {@eq value="suspended"}
+        <div>
             Your account has been temporarily suspended
+        </div>
         {/eq}
         {@default}
+        <div>
             Bank balance:
             <span class="{@if cond="{balance} < 0"}negative{/if}{@if cond="{balance} >= 0"}postive{/if}">{formattedBalance}</span>
+        </div>
         {/default}
     {/select}
+</div>
 {/accounts}
