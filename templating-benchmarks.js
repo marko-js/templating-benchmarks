@@ -125,7 +125,7 @@ templatesFiles.forEach(function(groupName) {
                     templateFile: path,
                     description: engine.name + (variant ? ' (' + variant + ')' : ''),
                     outputFile: outputFile,
-                    compileName: filename.substring(0, lastDot),
+                    compileName: groupName,
                     outputCompileFile: outputCompileFile,
                     outputCompileMinifiedFile: outputCompileMinifiedFile
                 });

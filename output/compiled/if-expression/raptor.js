@@ -2,6 +2,7 @@ module.exports = function create(helpers) {
   var empty = helpers.e,
       notEmpty = helpers.ne,
       forEach = helpers.f,
+      attr = helpers.a,
       escapeXml = helpers.x;
 
   return function render(data, context) {
@@ -15,12 +16,11 @@ module.exports = function create(helpers) {
         context.w('<div>Your account has been temporarily suspended</div>');
       }
       else {
-        context.w('<div>Bank balance: <span');
-        helpers.a(context, "class", (account.balance<0 ? "negative" : "positive"));
-
-        context.w('>')
-          .w(escapeXml(account.formattedBalance))
-          .w('</span></div>');
+        context.w('<div>Bank balance: <span' +
+          attr("class", (account.balance<0 ? "negative" : "positive")) +
+          '>' +
+          escapeXml(account.formattedBalance) +
+          '</span></div>');
       }
 
       context.w('</div>');

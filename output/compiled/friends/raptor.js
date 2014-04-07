@@ -3,40 +3,40 @@ module.exports = function create(helpers) {
       notEmpty = helpers.ne,
       forEach = helpers.f,
       escapeXml = helpers.x,
+      attr = helpers.a,
       escapeXmlAttr = helpers.xa;
 
   return function render(data, context) {
     context.w('<!doctype html> <html lang="en"><head><meta charset="UTF-8"><title>Friends</title></head><body><div class="friends">');
 
     forEach(data.friends, function(friend) {
-      context.w('<div class="friend"><ul><li>Name: ')
-        .w(escapeXml(data.getFullNameRaptor(friend)))
-        .w('</li><li>Balance: ')
-        .w(escapeXml(friend.balance))
-        .w('</li><li>Age: ')
-        .w(escapeXml(friend.age))
-        .w('</li><li>Address: ')
-        .w(escapeXml(friend.address))
-        .w('</li><li>Image: <img');
-      helpers.a(context, "src", friend.picture);
-
-      context.w('></li><li>Company: ')
-        .w(escapeXml(friend.company))
-        .w('</li><li>Email: <a href="mailto:')
-        .w(escapeXmlAttr(friend.email))
-        .w('">')
-        .w(escapeXml(friend.email))
-        .w('</a></li><li>About: ')
-        .w(escapeXml(friend.about))
-        .w('</li>');
+      context.w('<div class="friend"><ul><li>Name: ' +
+        escapeXml(data.getFullNameRaptor(friend)) +
+        '</li><li>Balance: ' +
+        escapeXml(friend.balance) +
+        '</li><li>Age: ' +
+        escapeXml(friend.age) +
+        '</li><li>Address: ' +
+        escapeXml(friend.address) +
+        '</li><li>Image: <img' +
+        attr("src", friend.picture) +
+        '></li><li>Company: ' +
+        escapeXml(friend.company) +
+        '</li><li>Email: <a href="mailto:' +
+        escapeXmlAttr(friend.email) +
+        '">' +
+        escapeXml(friend.email) +
+        '</a></li><li>About: ' +
+        escapeXml(friend.about) +
+        '</li>');
 
       if (notEmpty(friend.tags)) {
         context.w('<li>Tags: <ul>');
 
         forEach(friend.tags, function(tag) {
-          context.w('<li>')
-            .w(escapeXml(tag))
-            .w('</li>');
+          context.w('<li>' +
+            escapeXml(tag) +
+            '</li>');
         });
 
         context.w('</ul></li>');
@@ -46,11 +46,11 @@ module.exports = function create(helpers) {
         context.w('<li>Friends: <ul>');
 
         forEach(friend.friends, function(friend) {
-          context.w('<li>')
-            .w(escapeXml(friend.name))
-            .w(' (')
-            .w(escapeXml(friend.id))
-            .w(')</li>');
+          context.w('<li>' +
+            escapeXml(friend.name) +
+            ' (' +
+            escapeXml(friend.id) +
+            ')</li>');
         });
 
         context.w('</ul></li>');

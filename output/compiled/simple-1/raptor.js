@@ -5,17 +5,17 @@ module.exports = function create(helpers) {
       forEach = helpers.f;
 
   return function render(data, context) {
-    context.w('Hello ')
-      .w(escapeXml(data.name))
-      .w('! ');
+    context.w('Hello ' +
+      escapeXml(data.name) +
+      '! ');
 
     if (notEmpty(data.colors)) {
       context.w('<ul>');
 
       forEach(data.colors, function(color) {
-        context.w('<li class="color">')
-          .w(escapeXml(color))
-          .w('</li>');
+        context.w('<li class="color">' +
+          escapeXml(color) +
+          '</li>');
       });
 
       context.w('</ul>');
