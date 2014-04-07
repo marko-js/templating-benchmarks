@@ -2,7 +2,7 @@
     <div c:if="account.accountStatus === 'closed'">
         Your account has been closed!
     </div>
-    <div c:if="account.accountStatus === 'suspended'">
+    <div c:else-if="account.accountStatus === 'suspended'">
         Your account has been temporarily suspended
     </div>
     <div c:else>

@@ -12,11 +12,11 @@
     "if-expression": {
         "gzipped": {
             "dust": 385,
-            "raptor": 256
+            "raptor": 251
         },
         "uncompressed": {
             "dust": 1051,
-            "raptor": 435
+            "raptor": 434
         }
     },
     "reverse-helper": {

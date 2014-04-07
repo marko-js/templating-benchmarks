@@ -11,8 +11,7 @@ module.exports = function create(helpers) {
       if (account.accountStatus === 'closed') {
         context.w('<div>Your account has been closed!</div>');
       }
-
-      if (account.accountStatus === 'suspended') {
+      else if (account.accountStatus === 'suspended') {
         context.w('<div>Your account has been temporarily suspended</div>');
       }
       else {
