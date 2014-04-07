@@ -17,6 +17,9 @@ This project provides a framework for running benchmarks against multiple templa
 - [Current Results](#current-results)
 	- [Performance](#performance)
 	- [Compiled Size](#compiled-size)
+- [Client-side Runtime Sizes](#client-side-runtime-sizes)
+	- [Raptor Templates](#raptor-templates)
+	- [Dust](#dust)
 - [Contribute](#contribute)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -159,6 +162,28 @@ To register a new templating engine, simple create a new module under the `engin
                       ✓  raptor
                       ✗  dust (19.64% larger)
 ```
+
+# Client-side Runtime Sizes
+
+Below are the approximate runtime sizes for each engine:
+
+## Raptor Templates
+
+| Modules        | Size |
+| ------------- |:-------------:| -----:|
+| `raptor-templates` | ~1.2KB gzipped (2.7KB uncompressed) |
+| `raptor-templates` +<br>`raptor-render-context` + <br>`raptor-xml/util` | ~2.33KB gzipped (6.3KB uncompressed) |
+
+_NOTE:_ Sizes are approximate because overhead associated with the CommonJS module loader varies. Size based on code as of April 7, 2014.
+
+## Dust
+
+| Modules        | Size |
+| ------------- |:-------------:| -----:|
+| `dust-core` | 3.41KB gzipped (10.07KB uncompressed) |
+| `dust-core` +<br>`dust-helpers` | 4.7KB gzipped (14.2KB uncompressed) |
+
+_NOTE:_ Size based on code as of April 7, 2014.
 
 # Contribute
 
