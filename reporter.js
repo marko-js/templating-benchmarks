@@ -192,7 +192,7 @@ module.exports = function(runner, utils) {
     });
 
     runner.on('suite start', function (suite) {
-        cursor.write(padBefore('', 23) + suite.title + '\n');
+        performanceLine(padBefore('', 23) + suite.title);
     });
 
     runner.on('suite end', function (suite) {

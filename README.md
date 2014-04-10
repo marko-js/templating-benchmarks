@@ -71,35 +71,43 @@ To register a new templating engine, simple create a new module under the `engin
 ```
                       RUNTIME PERFORMANCE
                       ===================
+                      friends
                   ✓ raptor »    2,576 op/s (fastest)
                     ✗ dust »      763 op/s (70.38% slower)
 
+                      if-expression
                   ✓ raptor »  191,542 op/s (fastest)
                     ✗ dust »   43,954 op/s (77.05% slower)
 
+                      projects-escaped
      ✓ raptor (native-for) »   74,540 op/s (fastest)
                   ✗ raptor »   71,733 op/s (3.77% slower)
               ✗ handlebars »   64,552 op/s (13.40% slower)
                     ✗ dust »   46,398 op/s (37.75% slower)
 
+                      projects-unescaped
      ✓ raptor (native-for) »  225,864 op/s (fastest)
               ✗ handlebars »  216,699 op/s (4.06% slower)
                   ✗ raptor »  208,477 op/s (7.70% slower)
                     ✗ dust »   79,154 op/s (64.96% slower)
 
+                      reverse-helper
                   ✓ raptor »  294,460 op/s (fastest)
                     ✗ dust »  241,357 op/s (18.03% slower)
 
+                      search-results
      ✓ raptor (native-for) »   35,274 op/s (fastest)
                   ✗ raptor »   29,444 op/s (16.53% slower)
                     ✗ dust »   10,724 op/s (69.60% slower)
 
+                      simple-1
      ✓ raptor (native-for) »  126,811 op/s (fastest)
               ✗ handlebars »  125,599 op/s (0.96% slower)
                   ✗ raptor »  123,882 op/s (2.31% slower)
                     ✗ dust »  105,435 op/s (16.86% slower)
                     ✗ jade »   60,726 op/s (52.11% slower)
 
+                      simple-2
                   ✓ raptor »  208,220 op/s (fastest)
                     ✗ dust »  115,406 op/s (44.57% slower)
 ```
