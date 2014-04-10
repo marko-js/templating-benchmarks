@@ -1,9 +1,9 @@
-module.exports = function create(helpers) {
-  var empty = helpers.e,
-      notEmpty = helpers.ne,
-      forEach = helpers.f,
-      attr = helpers.a,
-      escapeXml = helpers.x;
+module.exports = function create(__helpers) {
+  var empty = __helpers.e,
+      notEmpty = __helpers.ne,
+      forEach = __helpers.f,
+      attr = __helpers.a,
+      escapeXml = __helpers.x;
 
   return function render(data, context) {
     forEach(data.accounts, function(account) {

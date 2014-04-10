@@ -238,7 +238,7 @@ templateGroups.forEach(function(templateGroup) {
         return;
     }
 
-    suite('template: ' + templateGroup.name, function () {
+    suite(templateGroup.name, function () {
         before(function(next) {
             warmup(next);
         });

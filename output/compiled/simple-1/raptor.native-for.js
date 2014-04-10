@@ -1,8 +1,8 @@
-module.exports = function create(helpers) {
-  var empty = helpers.e,
-      notEmpty = helpers.ne,
-      escapeXml = helpers.x,
-      forLoop = helpers.fl;
+module.exports = function create(__helpers) {
+  var empty = __helpers.e,
+      notEmpty = __helpers.ne,
+      escapeXml = __helpers.x,
+      forLoop = __helpers.fl;
 
   return function render(data, context) {
     context.w('Hello ' +

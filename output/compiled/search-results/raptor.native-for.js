@@ -1,10 +1,10 @@
-module.exports = function create(helpers) {
-  var empty = helpers.e,
-      notEmpty = helpers.ne,
-      escapeXml = helpers.x,
-      escapeXmlAttr = helpers.xa,
-      forLoop = helpers.fl,
-      attr = helpers.a;
+module.exports = function create(__helpers) {
+  var empty = __helpers.e,
+      notEmpty = __helpers.ne,
+      escapeXml = __helpers.x,
+      escapeXmlAttr = __helpers.xa,
+      forLoop = __helpers.fl,
+      attr = __helpers.a;
 
   return function render(data, context) {
     context.w('<div class="search-results-container"><div class="searching" id="searching"><div class="wait-indicator-icon"></div> Searching...</div><div id="resultsContainer"><div class="hd"><span class="count"><span id="count">' +

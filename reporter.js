@@ -1,40 +1,111 @@
 
+var ansi = require('ansi');
+var cursor = ansi(process.stdout);
+var fs = require('fs');
 
 module.exports = function(runner, utils) {
     /*jshint loopfunc:true */
 
     var color = utils.color;
     var humanize = utils.humanize;
-    var padBefore = utils.padBefore;
-    var cursor = utils.cursor;
+    
+    
 
+    function removeColors(str) {
+        return str.replace(/\033\[[0-9;]*m/g, '');
+    }
 
-    function benchLine(label, value) {
-        process.stdout.write(color(padBefore(label + ' » ', 25), 'gray') +
-                value);
+    function padBefore(str, padding) {
+        var withoutColors = removeColors(str);
+        if (withoutColors.length < padding) {
+            str = new Array(padding - withoutColors.length).join(' ') + str;
+        }
+
+        return str;
+    }
+
+    function resultLine(label, value, options) {
+        options = options || {};
+
+        var withoutColors = removeColors(label);
+        var padding;
+
+        var padSize = 27;
+        
+        var winner = options && options.winner;
+
+        var actualLen = withoutColors.length;
+
+        if (actualLen < padSize) {
+            
+
+            if (winner != null) {
+                actualLen += 2; // space and symbol
+            }
+            padding = new Array(padSize - actualLen).join(' ');
+        }
+
+        
+
+        var symbol = '';
+        if (winner === true) {
+            symbol = color('✓ ', 'green');
+        } else if (winner === false) {
+            symbol = color('✗ ', 'red');
+        }
+
+        return padding + symbol + label + (options.separator === false ? '   ' : ' » ') + value;
+    }
+
+    var resultsMarkdown = {
+        performance: '',
+        size: ''
+    };
+
+    function outLine(prop, str) {
+        str = str || '';
+        cursor.write(str + '\n');
+        resultsMarkdown[prop] += removeColors(str) + '\n';
+    }
+
+    function performanceLine(str) {
+        outLine('performance', str);
+    }
+
+    function sizeLine(str) {
+        outLine('size', str);
     }
 
     function reportSizes() {
-        console.log();
-        console.log(padBefore('', 23) + 'COMPILED SIZE');
-        console.log(padBefore('', 23) + '=============');
+        cursor.write('\n');
+        sizeLine(padBefore('', 23) + 'COMPILED SIZE (gzipped/uncompressed)');
+        sizeLine(padBefore('', 23) + '====================================');
         var sizes = require('./templating-benchmarks').sizes;
         Object.keys(sizes).forEach(function(groupName) {
-            console.log(padBefore('', 23) + groupName);
+            sizeLine(padBefore('', 23) + groupName);
             var gzippedSizes = sizes[groupName].gzipped;
             var uncompressedSizes = sizes[groupName].uncompressed;
 
             var sortedSizes = [];
+            var smallestUncompressed = null;
 
             Object.keys(gzippedSizes).forEach(function(template) {
-                sortedSizes.push({
-                    template: template,
-                    size: gzippedSizes[template]
-                });
-                benchLine(template, color(gzippedSizes[template] + ' bytes gzipped (' + uncompressedSizes[template] + ' bytes uncompressed)\n', 'cyan'));
-            });
+                var uncompressedSize = uncompressedSizes[template];
 
-            console.log();
+                
+
+                var templateSizeInfo = {
+                    template: template,
+                    size: gzippedSizes[template],
+                    uncompressedSize: uncompressedSize
+                };
+
+                if (smallestUncompressed == null || uncompressedSize < smallestUncompressed.uncompressedSize) {
+                    smallestUncompressed = templateSizeInfo;
+                }
+
+                sortedSizes.push(templateSizeInfo);
+            });
 
             sortedSizes.sort(function (a, b) {
                 a = a.size;
@@ -44,29 +115,70 @@ module.exports = function(runner, utils) {
 
             var smallest = sortedSizes[0];
             var smallestSize = smallest.size;
+            var smallestUncompressedSize = smallestUncompressed.uncompressedSize;
 
-            console.log(color(padBefore('✓ ', 25) + ' ' + smallest.template, 'green'));
-            for (var i=1; i<sortedSizes.length; i++) {
+            for (var i=0; i<sortedSizes.length; i++) {
                 var curSize = sortedSizes[i].size;
+                var uncompressedSize = sortedSizes[i].uncompressedSize;
                 var percentLarger = ((curSize - smallestSize) / curSize * 100).toFixed(2);
-                console.log(color(padBefore('✗ ', 25) + ' ' + sortedSizes[i].template + ' (' +  percentLarger + '% larger)', 'red'));
+                var percentLargerUncompressed = ((uncompressedSize - smallestUncompressedSize) / uncompressedSize * 100).toFixed(2);
+
+                var template = sortedSizes[i].template;
+
+                var label;
+
+                if (i === 0) {
+                    label = color(template, 'green');
+                } else {
+                    label = color(template, 'red');
+                }
+
+                var leftColWidth = 20;
+                var rightColWidth = 25;
+
+                sizeLine(
+                    resultLine(
+                        label,
+                        color(padBefore(gzippedSizes[template] + ' bytes gzipped', leftColWidth), 'cyan') + '   ' +
+                            color(padBefore(uncompressedSize + ' bytes uncompressed', rightColWidth), 'cyan'),
+                        {
+                            winner: i === 0
+                        }));
+
+                var perLeftCol = '';
+                var perRightCol = '';
+                
+
+                if (i !== 0) {
+                    perLeftCol = color(percentLarger + '% larger', 'red');
+                } else {
+                    perLeftCol = color('(smallest)', 'green');
+                }
+
+                if (sortedSizes[i] !== smallestUncompressed) {
+                    perRightCol = color(padBefore(percentLargerUncompressed, 5) + '% larger', 'red');
+                } else {
+                    perRightCol = color('(smallest)', 'green');
+                }
+
+                sizeLine(resultLine('', padBefore(perLeftCol, leftColWidth) + '   ' + padBefore(perRightCol, rightColWidth), { separator: false }));
             }
-            console.log();
+            sizeLine();
 
             
         });
     }
 
-    
+
 
     runner.on('start', function () {
-        console.log();
-        console.log(padBefore('', 23) + 'RUNTIME PERFORMANCE');
-        console.log(padBefore('', 23) + '===================');
+        cursor.write('\n');
+        performanceLine(padBefore('', 23) + 'RUNTIME PERFORMANCE');
+        performanceLine(padBefore('', 23) + '===================');
     });
 
     runner.on('end', function (stats) {
-        console.log();
+        cursor.write('\n');
         // console.log(color('  Suites:  ', 'gray') + stats.suites);
         // console.log(color('  Benches: ', 'gray') + stats.benches);
         // console.log(color('  Elapsed: ', 'gray') + humanize(stats.elapsed.toFixed(2)) + ' ms');
@@ -74,21 +186,26 @@ module.exports = function(runner, utils) {
 
         reportSizes();
 
-        
+        var readmeMarkdown = fs.readFileSync('README.md', 'utf8');
+        readmeMarkdown = require('./injector').inject(readmeMarkdown, resultsMarkdown);
+        fs.writeFileSync('README.md', readmeMarkdown, 'utf8');
     });
 
     runner.on('suite start', function (suite) {
-        console.log(padBefore('', 23) + suite.title);
+        cursor.write(padBefore('', 23) + suite.title + '\n');
     });
 
     runner.on('suite end', function (suite) {
-        console.log();
+
 
         var benches = suite.benches.concat([]);
 
         if (benches.length) {
-            
-
+            for (var i=0; i<benches.length; i++) {
+                cursor.up().horizontalAbsolute(0).eraseLine();
+            }
+            // cursor.write('***');
+            // process.exit(0);
 
             benches.sort(function (a, b) {
                 a = a.stats.ops;
@@ -99,24 +216,42 @@ module.exports = function(runner, utils) {
             var fasted = benches[0];
             var fastestOps = fasted.stats.ops;
 
-            console.log(color(padBefore('✓ ', 25) + ' ' + fasted.title, 'green'));
-            for (var i=1; i<benches.length; i++) {
-                var slowerOps = benches[i].stats.ops;
-                var percentSlower = ((fastestOps - slowerOps) / fastestOps * 100).toFixed(2);
-                console.log(color(padBefore('✗ ', 25) + ' ' + benches[i].title + ' (' +  percentSlower + '% slower)', 'red'));
+            for (i=0; i<benches.length; i++) {
+                var bench = benches[i];
+                var ops = bench.stats.ops;
+                var opsFormatted = humanize(bench.stats.ops.toFixed(0));
+                
+
+                var label;
+
+                if (i === 0) {
+                    label = color(bench.title, 'green');
+                } else {
+                    label = color(bench.title, 'red');
+                }
+
+                var value = color(padBefore(opsFormatted, 9) + ' op/s', 'cyan');
+                if (i !== 0) {
+                    var percentSlower = bench.percentSlower = ((fastestOps - ops) / fastestOps * 100).toFixed(2);
+                    value += color(' (' +  percentSlower + '% slower)', 'red');
+                } else {
+                    value += color(' (fastest)', 'green');
+                }
+
+                performanceLine(resultLine(label, value, { winner: i === 0 }));
             }
-            console.log();
+
+            performanceLine();
         }
         
     });
 
     runner.on('bench start', function (bench) {
-        benchLine(bench.title, color('wait', 'yellow'));
+        cursor.write(resultLine(bench.title, color('wait', 'yellow')));
     });
 
     runner.on('bench end', function (bench) {
-        cursor.CR();
         var ops = humanize(bench.ops.toFixed(0));
-        benchLine(bench.title, color(padBefore(ops, 9) + ' op/s', 'cyan') + '\n');
+        cursor.horizontalAbsolute(0).eraseLine().write(resultLine(bench.title, color(padBefore(ops, 9) + ' op/s', 'cyan') + '\n'));
     });
 };

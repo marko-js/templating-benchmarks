@@ -1,8 +1,8 @@
-module.exports = function create(helpers) {
-  var empty = helpers.e,
-      notEmpty = helpers.ne,
-      forEach = helpers.f,
-      attr = helpers.a;
+module.exports = function create(__helpers) {
+  var empty = __helpers.e,
+      notEmpty = __helpers.ne,
+      forEach = __helpers.f,
+      attr = __helpers.a;
 
   return function render(data, context) {
     context.w('<html><head><title>' +

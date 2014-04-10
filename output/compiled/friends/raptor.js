@@ -1,10 +1,10 @@
-module.exports = function create(helpers) {
-  var empty = helpers.e,
-      notEmpty = helpers.ne,
-      forEach = helpers.f,
-      escapeXml = helpers.x,
-      attr = helpers.a,
-      escapeXmlAttr = helpers.xa;
+module.exports = function create(__helpers) {
+  var empty = __helpers.e,
+      notEmpty = __helpers.ne,
+      forEach = __helpers.f,
+      escapeXml = __helpers.x,
+      attr = __helpers.a,
+      escapeXmlAttr = __helpers.xa;
 
   return function render(data, context) {
     context.w('<!doctype html> <html lang="en"><head><meta charset="UTF-8"><title>Friends</title></head><body><div class="friends">');
