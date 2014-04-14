@@ -72,44 +72,44 @@ To register a new templating engine, simple create a new module under the `engin
                       RUNTIME PERFORMANCE
                       ===================
                       friends
-                  ✓ raptor »    2,576 op/s (fastest)
-                    ✗ dust »      763 op/s (70.38% slower)
+                  ✓ raptor »    2,228 op/s (fastest)
+                    ✗ dust »      702 op/s (68.49% slower)
 
                       if-expression
-                  ✓ raptor »  191,542 op/s (fastest)
-                    ✗ dust »   43,954 op/s (77.05% slower)
+                  ✓ raptor »  185,315 op/s (fastest)
+                    ✗ dust »   42,204 op/s (77.23% slower)
 
                       projects-escaped
-     ✓ raptor (native-for) »   74,540 op/s (fastest)
-                  ✗ raptor »   71,733 op/s (3.77% slower)
-              ✗ handlebars »   64,552 op/s (13.40% slower)
-                    ✗ dust »   46,398 op/s (37.75% slower)
+                  ✓ raptor »   64,281 op/s (fastest)
+     ✗ raptor (native-for) »   62,659 op/s (2.52% slower)
+              ✗ handlebars »   59,015 op/s (8.19% slower)
+                    ✗ dust »   43,548 op/s (32.25% slower)
 
                       projects-unescaped
-     ✓ raptor (native-for) »  225,864 op/s (fastest)
-              ✗ handlebars »  216,699 op/s (4.06% slower)
-                  ✗ raptor »  208,477 op/s (7.70% slower)
-                    ✗ dust »   79,154 op/s (64.96% slower)
+     ✓ raptor (native-for) »  215,227 op/s (fastest)
+              ✗ handlebars »  201,522 op/s (6.37% slower)
+                  ✗ raptor »  192,175 op/s (10.71% slower)
+                    ✗ dust »   71,334 op/s (66.86% slower)
 
                       reverse-helper
-                  ✓ raptor »  294,460 op/s (fastest)
-                    ✗ dust »  241,357 op/s (18.03% slower)
+                  ✓ raptor »  273,112 op/s (fastest)
+                    ✗ dust »  203,108 op/s (25.63% slower)
 
                       search-results
-     ✓ raptor (native-for) »   35,274 op/s (fastest)
-                  ✗ raptor »   29,444 op/s (16.53% slower)
-                    ✗ dust »   10,724 op/s (69.60% slower)
+     ✓ raptor (native-for) »   31,213 op/s (fastest)
+                  ✗ raptor »   26,553 op/s (14.93% slower)
+                    ✗ dust »    9,927 op/s (68.20% slower)
 
                       simple-1
-     ✓ raptor (native-for) »  126,811 op/s (fastest)
-              ✗ handlebars »  125,599 op/s (0.96% slower)
-                  ✗ raptor »  123,882 op/s (2.31% slower)
-                    ✗ dust »  105,435 op/s (16.86% slower)
-                    ✗ jade »   60,726 op/s (52.11% slower)
+     ✓ raptor (native-for) »  109,058 op/s (fastest)
+              ✗ handlebars »  108,136 op/s (0.85% slower)
+                  ✗ raptor »  105,234 op/s (3.51% slower)
+                    ✗ dust »   91,500 op/s (16.10% slower)
+                    ✗ jade »   52,179 op/s (52.15% slower)
 
                       simple-2
-                  ✓ raptor »  208,220 op/s (fastest)
-                    ✗ dust »  115,406 op/s (44.57% slower)
+                  ✓ raptor »  182,773 op/s (fastest)
+                    ✗ dust »  103,395 op/s (43.43% slower)
 ```
 <!-- </performance> -->
 

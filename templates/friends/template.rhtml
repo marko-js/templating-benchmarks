@@ -6,7 +6,7 @@
 </head>
 <body>
     <div class="friends">
-        <div class="friend" c:for="friend in data.friends">
+        <div class="friend" c-for="friend in data.friends">
             <ul>
                 <li>Name: ${data.getFullNameRaptor(friend)}</li>
                 <li>
@@ -30,18 +30,18 @@
                 <li>
                     About: ${friend.about}
                 </li>
-                <li c:if="notEmpty(friend.tags)">
+                <li c-if="notEmpty(friend.tags)">
                     Tags:
                     <ul>
-                        <li c:for="tag in friend.tags">
+                        <li c-for="tag in friend.tags">
                             ${tag}
                         </li>
                     </ul>
                 </li>
-                <li c:if="notEmpty(friend.friends)">
+                <li c-if="notEmpty(friend.friends)">
                     Friends:
                     <ul>
-                        <li c:for="friend in friend.friends">
+                        <li c-for="friend in friend.friends">
                             ${friend.name} (${friend.id})
                         </li>
                     </ul>
