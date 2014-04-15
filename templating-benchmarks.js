@@ -230,7 +230,7 @@ function warmup(callback) {
     });
 }
 
-var only = null; //'if-expression';
+var only = 'simple-1'; //'if-expression';
 var fast = false;
 
 templateGroups.forEach(function(templateGroup) {
