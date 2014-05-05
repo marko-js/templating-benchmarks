@@ -72,44 +72,45 @@ To register a new templating engine, simple create a new module under the `engin
                       RUNTIME PERFORMANCE
                       ===================
                       friends
-                  ✓ raptor »    2,228 op/s (fastest)
-                    ✗ dust »      702 op/s (68.49% slower)
+                  ✓ raptor »    1,696 op/s (fastest)
+                    ✗ dust »      737 op/s (56.54% slower)
 
                       if-expression
-                  ✓ raptor »  185,315 op/s (fastest)
-                    ✗ dust »   42,204 op/s (77.23% slower)
+                  ✓ raptor »  198,830 op/s (fastest)
+                    ✗ dust »   45,127 op/s (77.30% slower)
 
                       projects-escaped
-                  ✓ raptor »   64,281 op/s (fastest)
-     ✗ raptor (native-for) »   62,659 op/s (2.52% slower)
-              ✗ handlebars »   59,015 op/s (8.19% slower)
-                    ✗ dust »   43,548 op/s (32.25% slower)
+     ✓ raptor (native-for) »   76,153 op/s (fastest)
+                  ✗ raptor »   71,162 op/s (6.55% slower)
+              ✗ handlebars »   64,944 op/s (14.72% slower)
+                    ✗ dust »   47,198 op/s (38.02% slower)
 
                       projects-unescaped
-     ✓ raptor (native-for) »  215,227 op/s (fastest)
-              ✗ handlebars »  201,522 op/s (6.37% slower)
-                  ✗ raptor »  192,175 op/s (10.71% slower)
-                    ✗ dust »   71,334 op/s (66.86% slower)
+     ✓ raptor (native-for) »  244,322 op/s (fastest)
+              ✗ handlebars »  226,970 op/s (7.10% slower)
+                  ✗ raptor »  205,984 op/s (15.69% slower)
+                    ✗ dust »   75,758 op/s (68.99% slower)
 
                       reverse-helper
-                  ✓ raptor »  273,112 op/s (fastest)
-                    ✗ dust »  203,108 op/s (25.63% slower)
+                  ✓ raptor »  313,428 op/s (fastest)
+                    ✗ dust »  222,446 op/s (29.03% slower)
 
                       search-results
-     ✓ raptor (native-for) »   31,213 op/s (fastest)
-                  ✗ raptor »   26,553 op/s (14.93% slower)
-                    ✗ dust »    9,927 op/s (68.20% slower)
+     ✓ raptor (native-for) »   35,484 op/s (fastest)
+                  ✗ raptor »   28,111 op/s (20.78% slower)
+                    ✗ dust »   10,900 op/s (69.28% slower)
 
                       simple-1
-     ✓ raptor (native-for) »  109,058 op/s (fastest)
-              ✗ handlebars »  108,136 op/s (0.85% slower)
-                  ✗ raptor »  105,234 op/s (3.51% slower)
-                    ✗ dust »   91,500 op/s (16.10% slower)
-                    ✗ jade »   52,179 op/s (52.15% slower)
+              ✓ handlebars »  176,625 op/s (fastest)
+                  ✗ raptor »  174,789 op/s (1.04% slower)
+     ✗ raptor (native-for) »  169,773 op/s (3.88% slower)
+                    ✗ dust »  130,088 op/s (26.35% slower)
+                    ✗ jade »   66,135 op/s (62.56% slower)
+                  ✗ plates »   26,724 op/s (84.87% slower)
 
                       simple-2
-                  ✓ raptor »  182,773 op/s (fastest)
-                    ✗ dust »  103,395 op/s (43.43% slower)
+                  ✓ raptor »  222,140 op/s (fastest)
+                    ✗ dust »  110,580 op/s (50.22% slower)
 ```
 <!-- </performance> -->
 
@@ -127,8 +128,8 @@ To register a new templating engine, simple create a new module under the `engin
                       if-expression
                   ✓ raptor »   248 bytes gzipped     413 bytes uncompressed
                                       (smallest)                 (smallest)
-                    ✗ dust »   388 bytes gzipped    1056 bytes uncompressed
-                                   36.08% larger              60.89% larger
+                    ✗ dust »   380 bytes gzipped     952 bytes uncompressed
+                                   34.74% larger              56.62% larger
 
                       projects-escaped
                   ✓ raptor »   210 bytes gzipped     324 bytes uncompressed
@@ -173,8 +174,8 @@ To register a new templating engine, simple create a new module under the `engin
                                    29.69% larger              51.32% larger
                     ✗ jade »   328 bytes gzipped     617 bytes uncompressed
                                    45.12% larger              61.10% larger
-              ✗ handlebars »   444 bytes gzipped     936 bytes uncompressed
-                                   59.46% larger              74.36% larger
+              ✗ handlebars »   427 bytes gzipped     814 bytes uncompressed
+                                   57.85% larger              70.52% larger
 
                       simple-2
                   ✓ raptor »   217 bytes gzipped     431 bytes uncompressed

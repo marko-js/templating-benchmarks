@@ -162,30 +162,45 @@ function warmup(callback) {
             if (templateInfo.engine.load) {
                 work.push(function(callback) {
                     var src = fs.readFileSync(templateInfo.templateFile, 'utf8');
-                    templateInfo.engine.load(src, templateInfo.templateFile, templateInfo.compileName, callback);
+                    templateInfo.engine.load(src, templateInfo.templateFile, templateInfo.compileName, function(err, template) {
+                        if (err) {
+                            return callback(err);
+                        }
+
+                        templateInfo.loadedTemplate = template;
+
+                        callback();
+                    });
                 });    
+            } else {
+                templateInfo.loadedTemplate = templateInfo.templateFile;
             }
 
             var data = templateGroup.data;
 
-            if (Array.isArray(data)) {
-                data.forEach(function(data, i) {
+            for (var i=0; i<20; i++) {
+                if (Array.isArray(data)) {
+                    data.forEach(function(data, i) {
+                        work.push(function(callback) {
+                            var template = templateInfo.loadedTemplate;
+                            var outputFile = templateInfo.getHtmlOutputFile(i);
+                            templateInfo.engine.render(template, data, function(err, output) {
+                                fs.writeFileSync(outputFile, output, 'utf8');
+                                callback(err);
+                            });
+                        });
+                    });
+                } else {
                     work.push(function(callback) {
-                        var outputFile = templateInfo.getHtmlOutputFile(i);
-                        templateInfo.engine.render(templateInfo.templateFile, data, function(err, output) {
-                            fs.writeFileSync(outputFile, output, 'utf8');
+                        var template = templateInfo.loadedTemplate;
+                        templateInfo.engine.render(template, data, function(err, output) {
+                            fs.writeFileSync(templateInfo.outputFile, output, 'utf8');
                             callback(err);
                         });
                     });
-                });
-            } else {
-                work.push(function(callback) {
-                    templateInfo.engine.render(templateInfo.templateFile, data, function(err, output) {
-                        fs.writeFileSync(templateInfo.outputFile, output, 'utf8');
-                        callback(err);
-                    });
-                });
+                }
             }
+            
 
             if (templateInfo.engine.compile) {
                 work.push(function(callback) {
@@ -230,7 +245,7 @@ function warmup(callback) {
     });
 }
 
-var only = 'simple-1'; //'if-expression';
+var only = null; //'if-expression';
 var fast = false;
 
 templateGroups.forEach(function(templateGroup) {
@@ -244,7 +259,7 @@ templateGroups.forEach(function(templateGroup) {
         });
 
         if (fast) {
-            set('iterations', 1);
+            set('iterations', 10);
             set('type', 'static');    
         } else {
             set('iterations', 100);     // the number of times to run a given bench
@@ -255,16 +270,28 @@ templateGroups.forEach(function(templateGroup) {
         templateGroup.templates.forEach(function(templateInfo) {
             bench(templateInfo.description, function(next) {
                 var data = templateGroup.data;
+                var template = templateInfo.loadedTemplate;
+
+                function done(err) {
+                    if (err) {
+                        next(err);
+                    } else {
+                        setImmediate(function() {
+                            next(null);    
+                        });
+                    }
+                }
+
                 if (Array.isArray(data)) {
                     var work = [];
                     data.forEach(function(data) {
                         work.push(function(callback) {
-                            templateInfo.engine.render(templateInfo.templateFile, data, callback);
+                            templateInfo.engine.render(template, data, callback);
                         });
                     });
-                    async.series(work, next);
+                    async.series(work, done);
                 } else {
-                    templateInfo.engine.render(templateInfo.templateFile, templateGroup.data, next);
+                    templateInfo.engine.render(template, templateGroup.data, done);
                 }
             });
         });     

@@ -7,12 +7,8 @@ module.exports = {
     name: 'handlebars',
     ext: 'hbs',
     cache: {},
-    render: function(templatePath, data, callback) {
-        var fn = this.cache[templatePath];
-        var html = fn(data);
-        setImmediate(function() {
-            callback(null, html);    
-        });
+    render: function(template, data, callback) {
+        callback(null, template(data));
     },
     compile: function(src, templatePath, templateName, callback) {
         var compiled = handlebars.precompile(src);
@@ -20,7 +16,6 @@ module.exports = {
         callback(null, compiled);
     },
     load: function(src, templatePath, templateName, callback) {
-        this.cache[templatePath] = handlebars.compile(src);
-        callback();
+        callback(null, handlebars.compile(src));
     }
 };

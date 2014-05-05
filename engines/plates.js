@@ -2,23 +2,18 @@ module.exports = {
     name: 'plates',
     ext: 'plates',
     cache: {},
-    render: function(templatePath, data, callback) {
-        var cached = this.cache[templatePath];
-        var inputHtml = cached.html;
-        var controller = cached.controller;
+    render: function(template, data, callback) {
+        var inputHtml = template.html;
+        var controller = template.controller;
 
         var outputHtml = controller(inputHtml, data);
-        setImmediate(function() {
-            callback(null, outputHtml);    
-        });
+        callback(null, outputHtml);
     },
     load: function(src, templatePath, templateName, callback) {
         var controllerPath = templatePath + '.controller.js';
-
-        this.cache[templatePath] = {
+        callback(null, {
             controller: require(controllerPath),
             html: src
-        };
-        callback();
+        });
     }
 };

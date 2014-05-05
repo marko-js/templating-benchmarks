@@ -11,11 +11,11 @@
     },
     "if-expression": {
         "gzipped": {
-            "dust": 388,
+            "dust": 380,
             "raptor": 248
         },
         "uncompressed": {
-            "dust": 1056,
+            "dust": 952,
             "raptor": 413
         }
     },
@@ -72,14 +72,14 @@
     "simple-1": {
         "gzipped": {
             "dust": 256,
-            "handlebars": 444,
+            "handlebars": 427,
             "jade": 328,
             "raptor (native-for)": 202,
             "raptor": 180
         },
         "uncompressed": {
             "dust": 493,
-            "handlebars": 936,
+            "handlebars": 814,
             "jade": 617,
             "raptor (native-for)": 267,
             "raptor": 240

@@ -15,7 +15,7 @@
         {@default}
         <div>
             Bank balance:
-            <span class="{@if cond="{balance} < 0"}negative{/if}{@if cond="{balance} >= 0"}postive{/if}">{formattedBalance}</span>
+            <span class="{@if cond="{balance} < 0"}negative{:else}postive{/if}">{formattedBalance}</span>
         </div>
         {/default}
     {/select}

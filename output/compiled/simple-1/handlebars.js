@@ -14,10 +14,7 @@
   var stack1, helper, functionType="function", escapeExpression=this.escapeExpression, buffer = "Hello "
     + escapeExpression(((helper = helpers.name || (depth0 && depth0.name)),(typeof helper === functionType ? helper.call(depth0, {"name":"name","hash":{},"data":data}) : helper)))
     + "!\n   \n";
-  stack1 = helpers['if'].call(depth0, (depth0 && depth0.colors), {"name":"if","hash":{},"fn":this.program(1, data),"inverse":this.noop,"data":data});
-  if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n\n";
-  stack1 = helpers.unless.call(depth0, (depth0 && depth0.colors), {"name":"unless","hash":{},"fn":this.program(4, data),"inverse":this.noop,"data":data});
+  stack1 = helpers['if'].call(depth0, (depth0 && depth0.colors), {"name":"if","hash":{},"fn":this.program(1, data),"inverse":this.program(4, data),"data":data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   return buffer;
 },"useData":true});})();

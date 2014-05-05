@@ -3,13 +3,12 @@ var raptorTemplates = require('raptor-templates');
 module.exports = {
     name: 'raptor',
     ext: 'rhtml',
-    render: function(templatePath, data, callback) {
-        raptorTemplates.render(templatePath, data, function(err, output) {
-            // console.log('R: ' + output);
-            setImmediate(function() {
-                callback(err, output);    
-            });
-        });
+    render: function(template, data, callback) {
+        template.render(data, callback);
+    },
+    load: function(src, templatePath, templateName, callback) {
+        var template = raptorTemplates.load(templatePath);
+        callback(null, template);
     },
     compile: function(src, templatePath, templateName, callback) {
         var compiled = require('raptor-templates/compiler').compile(src, templatePath);
