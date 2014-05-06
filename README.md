@@ -3,13 +3,13 @@ templating-benchmarks
 
 This project provides a framework for running benchmarks against multiple templating languages under Node.js. The following templating engine modules are currently integrated:
 
-Template | Syntax | Streaming | Asynchronous
+Template | Syntax | Streaming | Asynchronous | Auto-escape
 --------------|--------------|-------
-[dustjs-linkedin](https://github.com/linkedin/dustjs) | Text | ✔ | ✔
-[handlebars](https://github.com/wycats/handlebars.js) | Text | ✖ | ✖
-[jade](https://github.com/visionmedia/jade) | Short-hand HTML | ✖ | ✖
-[nunjucks](http://mozilla.github.io/nunjucks/) | Text | ✖ | ✔
-[raptor-templates](https://github.com/raptorjs3/raptor-templates) | HTML | ✔ | ✔
+[dustjs-linkedin](https://github.com/linkedin/dustjs) | Text | ✔ | ✔ | ✔
+[handlebars](https://github.com/wycats/handlebars.js) | Text | ✖ | ✖ | ✔
+[jade](https://github.com/visionmedia/jade) | Short-hand HTML | ✖ | ✖ | ✔
+[nunjucks](http://mozilla.github.io/nunjucks/) | Text | ✖ | ✔ | ✖
+[raptor-templates](https://github.com/raptorjs3/raptor-templates) | HTML | ✔ | ✔ | ✔
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
