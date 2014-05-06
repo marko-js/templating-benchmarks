@@ -76,7 +76,8 @@
             "jade": 328,
             "raptor (native-for)": 202,
             "nunjucks": 384,
-            "raptor": 180
+            "raptor": 180,
+            "swig": 464
         },
         "uncompressed": {
             "dust": 493,
@@ -84,7 +85,8 @@
             "jade": 617,
             "raptor (native-for)": 267,
             "nunjucks": 695,
-            "raptor": 240
+            "raptor": 240,
+            "swig": 1306
         }
     },
     "simple-2": {

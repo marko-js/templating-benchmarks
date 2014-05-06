@@ -47,46 +47,47 @@ Higher numbers are better.
                       RUNTIME PERFORMANCE
                       ===================
                       friends
-                  ✓ raptor »    1,886 op/s (fastest)
-                    ✗ dust »      695 op/s (63.15% slower)
+                  ✓ raptor »    2,123 op/s (fastest)
+                    ✗ dust »      697 op/s (67.17% slower)
 
                       if-expression
-                  ✓ raptor »  205,139 op/s (fastest)
-                    ✗ dust »   55,769 op/s (72.81% slower)
+                  ✓ raptor »  207,556 op/s (fastest)
+                    ✗ dust »   54,224 op/s (73.88% slower)
 
                       projects-escaped
-     ✓ raptor (native-for) »   80,686 op/s (fastest)
-                  ✗ raptor »   77,099 op/s (4.45% slower)
-              ✗ handlebars »   66,750 op/s (17.27% slower)
-                    ✗ dust »   46,790 op/s (42.01% slower)
+     ✓ raptor (native-for) »   81,972 op/s (fastest)
+                  ✗ raptor »   78,601 op/s (4.11% slower)
+              ✗ handlebars »   63,459 op/s (22.58% slower)
+                    ✗ dust »   44,523 op/s (45.69% slower)
 
                       projects-unescaped
-     ✓ raptor (native-for) »  244,272 op/s (fastest)
-                  ✗ raptor »  224,873 op/s (7.94% slower)
-              ✗ handlebars »  209,602 op/s (14.19% slower)
-                    ✗ dust »   77,326 op/s (68.34% slower)
+     ✓ raptor (native-for) »  250,509 op/s (fastest)
+              ✗ handlebars »  243,243 op/s (2.90% slower)
+                  ✗ raptor »  226,052 op/s (9.76% slower)
+                    ✗ dust »   78,591 op/s (68.63% slower)
 
                       reverse-helper
-                  ✓ raptor »  324,255 op/s (fastest)
-                    ✗ dust »  253,249 op/s (21.90% slower)
+                  ✓ raptor »  333,113 op/s (fastest)
+                    ✗ dust »  269,658 op/s (19.05% slower)
 
                       search-results
-     ✓ raptor (native-for) »   32,880 op/s (fastest)
-                  ✗ raptor »   29,589 op/s (10.01% slower)
-                    ✗ dust »   10,653 op/s (67.60% slower)
+     ✓ raptor (native-for) »   35,635 op/s (fastest)
+                  ✗ raptor »   29,656 op/s (16.78% slower)
+                    ✗ dust »   10,840 op/s (69.58% slower)
 
                       simple-1
-     ✓ raptor (native-for) »  158,852 op/s (fastest)
-                  ✗ raptor »  149,525 op/s (5.87% slower)
-              ✗ handlebars »  146,044 op/s (8.06% slower)
-                    ✗ dust »   88,519 op/s (44.28% slower)
-                ✗ nunjucks »   87,084 op/s (45.18% slower)
-                    ✗ jade »   47,718 op/s (69.96% slower)
-                  ✗ plates »   11,199 op/s (92.95% slower)
+     ✓ raptor (native-for) »  167,566 op/s (fastest)
+              ✗ handlebars »  157,048 op/s (6.28% slower)
+                  ✗ raptor »  145,858 op/s (12.95% slower)
+                    ✗ dust »   89,961 op/s (46.31% slower)
+                ✗ nunjucks »   86,974 op/s (48.10% slower)
+                    ✗ swig »   84,815 op/s (49.38% slower)
+                    ✗ jade »   48,681 op/s (70.95% slower)
+                  ✗ plates »   10,829 op/s (93.54% slower)
 
                       simple-2
-                  ✓ raptor »  222,294 op/s (fastest)
-                    ✗ dust »  114,109 op/s (48.67% slower)
+                  ✓ raptor »  214,506 op/s (fastest)
+                    ✗ dust »  112,629 op/s (47.49% slower)
 ```
 <!-- </performance> -->
 
@@ -157,6 +158,8 @@ Lower numbers are better.
                                    53.13% larger              65.47% larger
               ✗ handlebars »   427 bytes gzipped     814 bytes uncompressed
                                    57.85% larger              70.52% larger
+                    ✗ swig »   464 bytes gzipped    1306 bytes uncompressed
+                                   61.21% larger              81.62% larger
 
                       simple-2
                   ✓ raptor »   217 bytes gzipped     431 bytes uncompressed

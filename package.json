@@ -24,8 +24,8 @@
     "raptor-async": "^0.2.2-beta",
     "raptor-ecma": "^0.2.0-beta",
     "raptor-templates": "^0.2.36-beta",
-    "uglify-js": "^2.4.13"
+    "uglify-js": "^2.4.13",
+    "swig": "^1.3.2"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }

@@ -213,7 +213,13 @@ function warmup(callback) {
                         fs.writeFileSync(templateInfo.outputCompileFile, output, 'utf8');
 
                         // Save the minified version to disk
-                        var minified = UglifyJS.minify(templateInfo.outputCompileFile).code;
+                        var minified;
+                        try {
+                            minified = UglifyJS.minify(templateInfo.outputCompileFile).code;    
+                        } catch(e) {
+                            throw new Error('Unable to minify "' + templateInfo.outputCompileFile + '". Exception: ' + (e.stack || e));
+                        }
+                        
                         fs.writeFileSync(templateInfo.outputCompileMinifiedFile, minified, 'utf8');
 
                         zlib.gzip(minified, function(err, gzippedBuffer) {
