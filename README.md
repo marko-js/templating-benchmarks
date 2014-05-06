@@ -3,26 +3,29 @@ templating-benchmarks
 
 This project provides a framework for running benchmarks against multiple templating languages under Node.js. The following templating engine modules are currently integrated:
 
-
-* [dustjs-linkedin](https://github.com/linkedin/dustjs)
-* [handlebars](https://github.com/wycats/handlebars.js)
-* [jade](https://github.com/visionmedia/jade)
-* [raptor-templates](https://github.com/raptorjs3/raptor-templates)
+Template | Syntax | Streaming | Asynchronous
+--------------|--------------|-------
+[dustjs-linkedin](https://github.com/linkedin/dustjs) | Text | ✔ | ✔
+[handlebars](https://github.com/wycats/handlebars.js) | Text | ✖ | ✖
+[jade](https://github.com/visionmedia/jade) | Short-hand HTML | ✖ | ✖
+[nunjucks](http://mozilla.github.io/nunjucks/) | Text | ✖ | ✔
+[raptor-templates](https://github.com/raptorjs3/raptor-templates) | HTML | ✔ | ✔
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
 **Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
 
 - [Run Benchmarks](#run-benchmarks)
-- [Adding a New Comparison Group](#adding-a-new-comparison-group)
-- [Adding a New Template Engine](#adding-a-new-template-engine)
 - [Current Results](#current-results)
-    - [Performance](#performance)
-    - [Compiled Size](#compiled-size)
+	- [Performance](#performance)
+	- [Compiled Size](#compiled-size)
 - [Client-side Runtime Sizes](#client-side-runtime-sizes)
-    - [Raptor Templates](#raptor-templates)
-    - [Dust](#dust)
+	- [Raptor Templates](#raptor-templates)
+	- [Dust](#dust)
 - [Contribute](#contribute)
+	- [Adding a New Comparison Group](#adding-a-new-comparison-group)
+	- [Adding a New Template Engine](#adding-a-new-template-engine)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -32,40 +35,12 @@ This project provides a framework for running benchmarks against multiple templa
 2. `npm install`
 3. `npm test` (or `make`)
 
-# Adding a New Comparison Group
-
-Each comparison group should contain a data file (either `data.json` or `data.js`) and a set of templates to compare. The file extension of the template will be used to determine which engine should be used. If the data file has the `.js` extension then it should be a JavaScript module that exports the data. A sample directory structure is shown below:
-
-```
-templates
-    ├── group1
-    │   ├── data.js
-    │   ├── template.dust
-    │   └── template.rhtml
-    ├── group2
-    │   ├── data.json
-    │   ├── template.dust
-    │   └── template.rhtml
-    ├── group3
-    │   ├── data.json
-    │   ├── template.dust
-    │   ├── template.native-for.rhtml
-    │   └── template.rhtml
-    └── group4
-        ├── data.json
-        ├── template.dust
-        └── template.rhtml
-```
-
-# Adding a New Template Engine
-
-To register a new templating engine, simple create a new module under the `engines` directory and it will automatically be loaded. See existing engine modules for supported methods and properties.
-
-
 # Current Results
 
 
 ## Performance
+
+Higher numbers are better.
 
 <!-- <performance> -->
 ```
@@ -116,6 +91,9 @@ To register a new templating engine, simple create a new module under the `engin
 <!-- </performance> -->
 
 ## Compiled Size
+
+Lower numbers are better.
+
 <!-- <size> -->
 ```
                       COMPILED SIZE (gzipped/uncompressed)
@@ -190,7 +168,7 @@ To register a new templating engine, simple create a new module under the `engin
 
 # Client-side Runtime Sizes
 
-Below are the approximate runtime sizes for each engine:
+Below are the approximate runtime sizes for each engine (lower numbers are better):
 
 ## Raptor Templates
 
@@ -211,5 +189,34 @@ _NOTE:_ Sizes are approximate because overhead associated with the CommonJS modu
 _NOTE:_ Size based on code as of April 7, 2014.
 
 # Contribute
+
+## Adding a New Comparison Group
+
+Each comparison group should contain a data file (either `data.json` or `data.js`) and a set of templates to compare. The file extension of the template will be used to determine which engine should be used. If the data file has the `.js` extension then it should be a JavaScript module that exports the data. A sample directory structure is shown below:
+
+```
+templates
+    ├── group1
+    │   ├── data.js
+    │   ├── template.dust
+    │   └── template.rhtml
+    ├── group2
+    │   ├── data.json
+    │   ├── template.dust
+    │   └── template.rhtml
+    ├── group3
+    │   ├── data.json
+    │   ├── template.dust
+    │   ├── template.native-for.rhtml
+    │   └── template.rhtml
+    └── group4
+        ├── data.json
+        ├── template.dust
+        └── template.rhtml
+```
+
+## Adding a New Template Engine
+
+To register a new templating engine, simple create a new module under the `engines` directory and it will automatically be loaded. See existing engine modules for supported methods and properties.
 
 Pull Requests welcome!
