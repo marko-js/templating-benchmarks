@@ -178,7 +178,7 @@ function warmup(callback) {
 
             var data = templateGroup.data;
 
-            for (var i=0; i<20; i++) {
+            for (var i=0; i<100; i++) {
                 if (Array.isArray(data)) {
                     data.forEach(function(data, i) {
                         work.push(function(callback) {
@@ -256,6 +256,7 @@ templateGroups.forEach(function(templateGroup) {
     suite(templateGroup.name, function () {
         before(function(next) {
             warmup(next);
+            global.gc();
         });
 
         if (fast) {

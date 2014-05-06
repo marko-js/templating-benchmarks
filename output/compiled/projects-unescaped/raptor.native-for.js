@@ -6,9 +6,9 @@ module.exports = function create(__helpers) {
 
   return function render(data, context) {
     context.w('<html><head><title>' +
-      data.title +
+      (data.title) +
       '</title></head><body><p>' +
-      data.text +
+      (data.text) +
       '</p>');
 
     forLoop(data.projects, function(__array,__index,__length,project) {
@@ -16,11 +16,11 @@ module.exports = function create(__helpers) {
         project=__array[__index];
 
         context.w('<a' +
-          attr("href", project.url, false) +
+          attr("href", (project.url), false) +
           '>' +
-          project.name +
+          (project.name) +
           '</a><p>' +
-          project.description +
+          (project.description) +
           '</p>');
       }
     });

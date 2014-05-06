@@ -6,18 +6,18 @@ module.exports = function create(__helpers) {
 
   return function render(data, context) {
     context.w('<html><head><title>' +
-      data.title +
+      (data.title) +
       '</title></head><body><p>' +
-      data.text +
+      (data.text) +
       '</p>');
 
     forEach(data.projects, function(project) {
       context.w('<a' +
-        attr("href", project.url, false) +
+        attr("href", (project.url), false) +
         '>' +
-        project.name +
+        (project.name) +
         '</a><p>' +
-        project.description +
+        (project.description) +
         '</p>');
     });
 

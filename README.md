@@ -72,45 +72,46 @@ To register a new templating engine, simple create a new module under the `engin
                       RUNTIME PERFORMANCE
                       ===================
                       friends
-                  ✓ raptor »    1,818 op/s (fastest)
-                    ✗ dust »      743 op/s (59.13% slower)
+                  ✓ raptor »    1,886 op/s (fastest)
+                    ✗ dust »      695 op/s (63.15% slower)
 
                       if-expression
-                  ✓ raptor »  213,508 op/s (fastest)
-                    ✗ dust »   54,380 op/s (74.53% slower)
+                  ✓ raptor »  205,139 op/s (fastest)
+                    ✗ dust »   55,769 op/s (72.81% slower)
 
                       projects-escaped
-     ✓ raptor (native-for) »   80,563 op/s (fastest)
-                  ✗ raptor »   77,147 op/s (4.24% slower)
-              ✗ handlebars »   65,405 op/s (18.82% slower)
-                    ✗ dust »   45,599 op/s (43.40% slower)
+     ✓ raptor (native-for) »   80,686 op/s (fastest)
+                  ✗ raptor »   77,099 op/s (4.45% slower)
+              ✗ handlebars »   66,750 op/s (17.27% slower)
+                    ✗ dust »   46,790 op/s (42.01% slower)
 
                       projects-unescaped
-     ✓ raptor (native-for) »  249,410 op/s (fastest)
-              ✗ handlebars »  225,979 op/s (9.39% slower)
-                  ✗ raptor »  214,044 op/s (14.18% slower)
-                    ✗ dust »   80,185 op/s (67.85% slower)
+     ✓ raptor (native-for) »  244,272 op/s (fastest)
+                  ✗ raptor »  224,873 op/s (7.94% slower)
+              ✗ handlebars »  209,602 op/s (14.19% slower)
+                    ✗ dust »   77,326 op/s (68.34% slower)
 
                       reverse-helper
-                  ✓ raptor »  314,337 op/s (fastest)
-                    ✗ dust »  220,471 op/s (29.86% slower)
+                  ✓ raptor »  324,255 op/s (fastest)
+                    ✗ dust »  253,249 op/s (21.90% slower)
 
                       search-results
-     ✓ raptor (native-for) »   35,814 op/s (fastest)
-                  ✗ raptor »   29,908 op/s (16.49% slower)
-                    ✗ dust »   10,763 op/s (69.95% slower)
+     ✓ raptor (native-for) »   32,880 op/s (fastest)
+                  ✗ raptor »   29,589 op/s (10.01% slower)
+                    ✗ dust »   10,653 op/s (67.60% slower)
 
                       simple-1
-     ✓ raptor (native-for) »  178,500 op/s (fastest)
-              ✗ handlebars »  178,330 op/s (0.10% slower)
-                  ✗ raptor »  167,573 op/s (6.12% slower)
-                    ✗ dust »  128,250 op/s (28.15% slower)
-                    ✗ jade »   72,637 op/s (59.31% slower)
-                  ✗ plates »   26,617 op/s (85.09% slower)
+     ✓ raptor (native-for) »  158,852 op/s (fastest)
+                  ✗ raptor »  149,525 op/s (5.87% slower)
+              ✗ handlebars »  146,044 op/s (8.06% slower)
+                    ✗ dust »   88,519 op/s (44.28% slower)
+                ✗ nunjucks »   87,084 op/s (45.18% slower)
+                    ✗ jade »   47,718 op/s (69.96% slower)
+                  ✗ plates »   11,199 op/s (92.95% slower)
 
                       simple-2
-                  ✓ raptor »  207,081 op/s (fastest)
-                    ✗ dust »  109,620 op/s (47.06% slower)
+                  ✓ raptor »  222,294 op/s (fastest)
+                    ✗ dust »  114,109 op/s (48.67% slower)
 ```
 <!-- </performance> -->
 
@@ -174,6 +175,8 @@ To register a new templating engine, simple create a new module under the `engin
                                    29.69% larger              51.32% larger
                     ✗ jade »   328 bytes gzipped     617 bytes uncompressed
                                    45.12% larger              61.10% larger
+                ✗ nunjucks »   384 bytes gzipped     695 bytes uncompressed
+                                   53.13% larger              65.47% larger
               ✗ handlebars »   427 bytes gzipped     814 bytes uncompressed
                                    57.85% larger              70.52% larger
 

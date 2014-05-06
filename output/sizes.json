@@ -75,6 +75,7 @@
             "handlebars": 427,
             "jade": 328,
             "raptor (native-for)": 202,
+            "nunjucks": 384,
             "raptor": 180
         },
         "uncompressed": {
@@ -82,6 +83,7 @@
             "handlebars": 814,
             "jade": 617,
             "raptor (native-for)": 267,
+            "nunjucks": 695,
             "raptor": 240
         }
     },

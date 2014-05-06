@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/.bin/matcha templating-benchmarks.js --reporter ./reporter.js"
+    "test": "node_modules/.bin/matcha templating-benchmarks.js --reporter ./reporter.js --expose-gc"
   },
   "repository": {
     "type": "git",
@@ -23,7 +23,8 @@
     "matcha": "^0.5.0",
     "handlebars": "2.0.0-alpha.2",
     "ansi": "^0.2.1",
-    "plates": "0.4.9"
+    "plates": "0.4.9",
+    "nunjucks": "^1.0.5"
   },
   "devDependencies": {
     "matcha": "^0.4.1"
