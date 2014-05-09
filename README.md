@@ -6,6 +6,7 @@ This project provides a framework for running benchmarks against multiple templa
 Template | Syntax | Streaming | Asynchronous | Auto-escape
 ---- | ---- | ---- | ---- | ----
 [dustjs-linkedin](https://github.com/linkedin/dustjs) | Text | ✔ | ✔ | ✔
+[doT](https://github.com/olado/doT) | Text | ✖ | ✖ | ✖
 [handlebars](https://github.com/wycats/handlebars.js) | Text | ✖ | ✖ | ✔
 [jade](https://github.com/visionmedia/jade) | Short-hand HTML | ✖ | ✖ | ✔
 [nunjucks](http://mozilla.github.io/nunjucks/) | Text | ✖ | ✔ | ✖
@@ -48,47 +49,48 @@ Higher numbers are better.
                       RUNTIME PERFORMANCE
                       ===================
                       friends
-                  ✓ raptor »    2,123 op/s (fastest)
-                    ✗ dust »      697 op/s (67.17% slower)
+                  ✓ raptor »    2,700 op/s (fastest)
+                    ✗ dust »    1,186 op/s (56.07% slower)
 
                       if-expression
-                  ✓ raptor »  207,556 op/s (fastest)
-                    ✗ dust »   54,224 op/s (73.88% slower)
+                  ✓ raptor »  211,787 op/s (fastest)
+                    ✗ dust »   63,508 op/s (70.01% slower)
 
                       projects-escaped
-     ✓ raptor (native-for) »   81,972 op/s (fastest)
-                  ✗ raptor »   78,601 op/s (4.11% slower)
-              ✗ handlebars »   63,459 op/s (22.58% slower)
-                    ✗ dust »   44,523 op/s (45.69% slower)
+     ✓ raptor (native-for) »   75,536 op/s (fastest)
+                  ✗ raptor »   72,477 op/s (4.05% slower)
+              ✗ handlebars »   62,955 op/s (16.66% slower)
+                    ✗ dust »   60,891 op/s (19.39% slower)
 
                       projects-unescaped
-     ✓ raptor (native-for) »  250,509 op/s (fastest)
-              ✗ handlebars »  243,243 op/s (2.90% slower)
-                  ✗ raptor »  226,052 op/s (9.76% slower)
-                    ✗ dust »   78,591 op/s (68.63% slower)
+     ✓ raptor (native-for) »  248,180 op/s (fastest)
+              ✗ handlebars »  243,262 op/s (1.98% slower)
+                  ✗ raptor »  223,374 op/s (10.00% slower)
+                    ✗ dust »  160,028 op/s (35.52% slower)
 
                       reverse-helper
-                  ✓ raptor »  333,113 op/s (fastest)
-                    ✗ dust »  269,658 op/s (19.05% slower)
+                    ✓ dust »  321,036 op/s (fastest)
+                  ✗ raptor »  310,189 op/s (3.38% slower)
 
                       search-results
-     ✓ raptor (native-for) »   35,635 op/s (fastest)
-                  ✗ raptor »   29,656 op/s (16.78% slower)
-                    ✗ dust »   10,840 op/s (69.58% slower)
+     ✓ raptor (native-for) »   34,947 op/s (fastest)
+                  ✗ raptor »   29,007 op/s (17.00% slower)
+                    ✗ dust »   19,301 op/s (44.77% slower)
 
                       simple-1
-     ✓ raptor (native-for) »  167,566 op/s (fastest)
-              ✗ handlebars »  157,048 op/s (6.28% slower)
-                  ✗ raptor »  145,858 op/s (12.95% slower)
-                    ✗ dust »   89,961 op/s (46.31% slower)
-                ✗ nunjucks »   86,974 op/s (48.10% slower)
-                    ✗ swig »   84,815 op/s (49.38% slower)
-                    ✗ jade »   48,681 op/s (70.95% slower)
-                  ✗ plates »   10,829 op/s (93.54% slower)
+                     ✓ dot »  204,614 op/s (fastest)
+     ✗ raptor (native-for) »  152,712 op/s (25.37% slower)
+                  ✗ raptor »  145,385 op/s (28.95% slower)
+              ✗ handlebars »  143,841 op/s (29.70% slower)
+                    ✗ dust »  126,876 op/s (37.99% slower)
+                ✗ nunjucks »   82,131 op/s (59.86% slower)
+                    ✗ swig »   79,585 op/s (61.10% slower)
+                    ✗ jade »   46,839 op/s (77.11% slower)
+                  ✗ plates »   10,677 op/s (94.78% slower)
 
                       simple-2
-                  ✓ raptor »  214,506 op/s (fastest)
-                    ✗ dust »  112,629 op/s (47.49% slower)
+                  ✓ raptor »  211,822 op/s (fastest)
+                    ✗ dust »  163,913 op/s (22.62% slower)
 ```
 <!-- </performance> -->
 
@@ -151,6 +153,8 @@ Lower numbers are better.
                                       (smallest)                 (smallest)
      ✗ raptor (native-for) »   202 bytes gzipped     267 bytes uncompressed
                                    10.89% larger              10.11% larger
+                     ✗ dot »   228 bytes gzipped     309 bytes uncompressed
+                                   21.05% larger              22.33% larger
                     ✗ dust »   256 bytes gzipped     493 bytes uncompressed
                                    29.69% larger              51.32% larger
                     ✗ jade »   328 bytes gzipped     617 bytes uncompressed

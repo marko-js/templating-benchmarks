@@ -1,0 +1,13 @@
+Hello {{!it.name}}!
+   
+{{? it.colors && it.colors.length }} 
+<ul>
+    {{~it.colors :color}}
+    <li class="color">{{!color}}</li>
+    {{~}}
+</ul>
+{{??}}
+<div>
+    No colors!
+</div>
+{{?}}

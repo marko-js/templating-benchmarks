@@ -71,6 +71,7 @@
     },
     "simple-1": {
         "gzipped": {
+            "dot": 228,
             "dust": 256,
             "handlebars": 427,
             "jade": 328,
@@ -80,6 +81,7 @@
             "swig": 464
         },
         "uncompressed": {
+            "dot": 309,
             "dust": 493,
             "handlebars": 814,
             "jade": 617,
