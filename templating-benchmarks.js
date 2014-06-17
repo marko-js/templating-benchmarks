@@ -4,7 +4,8 @@ var nodePath = require('path');
 var UglifyJS = require("uglify-js");
 var zlib = require('zlib');
 
-require('raptor-ecma/es6');
+require('raptor-polyfill/string/endsWith');
+require('raptor-polyfill/string/startsWith');
 
 var enginesDir = nodePath.join(__dirname, 'engines');
 
