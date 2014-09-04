@@ -49,48 +49,48 @@ Higher numbers are better.
                       RUNTIME PERFORMANCE
                       ===================
                       friends
-                  ✓ raptor »    2,700 op/s (fastest)
-                    ✗ dust »    1,186 op/s (56.07% slower)
+                  ✓ raptor »    2,498 op/s (fastest)
+                    ✗ dust »    1,238 op/s (50.44% slower)
 
                       if-expression
-                  ✓ raptor »  211,787 op/s (fastest)
-                    ✗ dust »   63,508 op/s (70.01% slower)
+                  ✓ raptor »  194,311 op/s (fastest)
+                    ✗ dust »   65,076 op/s (66.51% slower)
 
                       projects-escaped
-     ✓ raptor (native-for) »   75,536 op/s (fastest)
-                  ✗ raptor »   72,477 op/s (4.05% slower)
-              ✗ handlebars »   62,955 op/s (16.66% slower)
-                    ✗ dust »   60,891 op/s (19.39% slower)
+     ✓ raptor (native-for) »   76,182 op/s (fastest)
+                  ✗ raptor »   73,479 op/s (3.55% slower)
+              ✗ handlebars »   64,066 op/s (15.90% slower)
+                    ✗ dust »   60,290 op/s (20.86% slower)
 
                       projects-unescaped
-     ✓ raptor (native-for) »  248,180 op/s (fastest)
-              ✗ handlebars »  243,262 op/s (1.98% slower)
-                  ✗ raptor »  223,374 op/s (10.00% slower)
-                    ✗ dust »  160,028 op/s (35.52% slower)
+              ✓ handlebars »  229,905 op/s (fastest)
+     ✗ raptor (native-for) »  208,228 op/s (9.43% slower)
+                  ✗ raptor »  191,329 op/s (16.78% slower)
+                    ✗ dust »  163,019 op/s (29.09% slower)
 
                       reverse-helper
-                    ✓ dust »  321,036 op/s (fastest)
-                  ✗ raptor »  310,189 op/s (3.38% slower)
+                    ✓ dust »  328,690 op/s (fastest)
+                  ✗ raptor »  290,700 op/s (11.56% slower)
 
                       search-results
-     ✓ raptor (native-for) »   34,947 op/s (fastest)
-                  ✗ raptor »   29,007 op/s (17.00% slower)
-                    ✗ dust »   19,301 op/s (44.77% slower)
+     ✓ raptor (native-for) »   32,618 op/s (fastest)
+                  ✗ raptor »   27,994 op/s (14.18% slower)
+                    ✗ dust »   18,850 op/s (42.21% slower)
 
                       simple-1
-                     ✓ dot »  204,614 op/s (fastest)
-     ✗ raptor (native-for) »  152,712 op/s (25.37% slower)
-                  ✗ raptor »  145,385 op/s (28.95% slower)
-              ✗ handlebars »  143,841 op/s (29.70% slower)
-                    ✗ dust »  126,876 op/s (37.99% slower)
-                ✗ nunjucks »   82,131 op/s (59.86% slower)
-                    ✗ swig »   79,585 op/s (61.10% slower)
-                    ✗ jade »   46,839 op/s (77.11% slower)
-                  ✗ plates »   10,677 op/s (94.78% slower)
+                     ✓ dot »  208,381 op/s (fastest)
+     ✗ raptor (native-for) »  152,013 op/s (27.05% slower)
+              ✗ handlebars »  150,315 op/s (27.87% slower)
+                  ✗ raptor »  138,900 op/s (33.34% slower)
+                    ✗ dust »  133,786 op/s (35.80% slower)
+                    ✗ swig »   83,204 op/s (60.07% slower)
+                ✗ nunjucks »   83,178 op/s (60.08% slower)
+                    ✗ jade »   45,051 op/s (78.38% slower)
+                  ✗ plates »   10,716 op/s (94.86% slower)
 
                       simple-2
-                  ✓ raptor »  211,822 op/s (fastest)
-                    ✗ dust »  163,913 op/s (22.62% slower)
+                  ✓ raptor »  206,443 op/s (fastest)
+                    ✗ dust »  165,539 op/s (19.81% slower)
 ```
 <!-- </performance> -->
 
@@ -103,74 +103,74 @@ Lower numbers are better.
                       COMPILED SIZE (gzipped/uncompressed)
                       ====================================
                       friends
-                  ✓ raptor »   435 bytes gzipped     862 bytes uncompressed
+                  ✓ raptor »   437 bytes gzipped     866 bytes uncompressed
                                       (smallest)                 (smallest)
                     ✗ dust »   494 bytes gzipped    1511 bytes uncompressed
-                                   11.94% larger              42.95% larger
+                                   11.54% larger              42.69% larger
 
                       if-expression
-                  ✓ raptor »   248 bytes gzipped     413 bytes uncompressed
+                  ✓ raptor »   250 bytes gzipped     417 bytes uncompressed
                                       (smallest)                 (smallest)
                     ✗ dust »   380 bytes gzipped     952 bytes uncompressed
-                                   34.74% larger              56.62% larger
+                                   34.21% larger              56.20% larger
 
                       projects-escaped
-                  ✓ raptor »   210 bytes gzipped     324 bytes uncompressed
+                  ✓ raptor »   213 bytes gzipped     330 bytes uncompressed
                                       (smallest)                 (smallest)
-     ✗ raptor (native-for) »   235 bytes gzipped     351 bytes uncompressed
-                                   10.64% larger               7.69% larger
+     ✗ raptor (native-for) »   238 bytes gzipped     357 bytes uncompressed
+                                   10.50% larger               7.56% larger
                     ✗ dust »   271 bytes gzipped     604 bytes uncompressed
-                                   22.51% larger              46.36% larger
+                                   21.40% larger              45.36% larger
               ✗ handlebars »   519 bytes gzipped    1377 bytes uncompressed
-                                   59.54% larger              76.47% larger
+                                   58.96% larger              76.03% larger
 
                       projects-unescaped
-                  ✓ raptor »   207 bytes gzipped     309 bytes uncompressed
+                  ✓ raptor »   215 bytes gzipped     330 bytes uncompressed
                                       (smallest)                 (smallest)
-     ✗ raptor (native-for) »   233 bytes gzipped     336 bytes uncompressed
-                                   11.16% larger               8.04% larger
+     ✗ raptor (native-for) »   241 bytes gzipped     357 bytes uncompressed
+                                   10.79% larger               7.56% larger
                     ✗ dust »   278 bytes gzipped     636 bytes uncompressed
-                                   25.54% larger              51.42% larger
+                                   22.66% larger              48.11% larger
               ✗ handlebars »   497 bytes gzipped    1430 bytes uncompressed
-                                   58.35% larger              78.39% larger
+                                   56.74% larger              76.92% larger
 
                       reverse-helper
-                  ✓ raptor »   132 bytes gzipped     177 bytes uncompressed
-                                      (smallest)                 (smallest)
-                    ✗ dust »   135 bytes gzipped     308 bytes uncompressed
-                                    2.22% larger              42.53% larger
+                    ✓ dust »   135 bytes gzipped     308 bytes uncompressed
+                                      (smallest)              35.71% larger
+                  ✗ raptor »   139 bytes gzipped     198 bytes uncompressed
+                                    2.88% larger                 (smallest)
 
                       search-results
-                  ✓ raptor »   497 bytes gzipped    1136 bytes uncompressed
+                  ✓ raptor »   501 bytes gzipped    1140 bytes uncompressed
                                       (smallest)                 (smallest)
-     ✗ raptor (native-for) »   537 bytes gzipped    1189 bytes uncompressed
-                                    7.45% larger               4.46% larger
+     ✗ raptor (native-for) »   541 bytes gzipped    1193 bytes uncompressed
+                                    7.39% larger               4.44% larger
                     ✗ dust »   552 bytes gzipped    1581 bytes uncompressed
-                                    9.96% larger              28.15% larger
+                                    9.24% larger              27.89% larger
 
                       simple-1
-                  ✓ raptor »   180 bytes gzipped     240 bytes uncompressed
+                  ✓ raptor »   184 bytes gzipped     244 bytes uncompressed
                                       (smallest)                 (smallest)
-     ✗ raptor (native-for) »   202 bytes gzipped     267 bytes uncompressed
-                                   10.89% larger              10.11% larger
+     ✗ raptor (native-for) »   205 bytes gzipped     271 bytes uncompressed
+                                   10.24% larger               9.96% larger
                      ✗ dot »   228 bytes gzipped     309 bytes uncompressed
-                                   21.05% larger              22.33% larger
-                    ✗ dust »   256 bytes gzipped     493 bytes uncompressed
-                                   29.69% larger              51.32% larger
+                                   19.30% larger              21.04% larger
+                    ✗ dust »   254 bytes gzipped     453 bytes uncompressed
+                                   27.56% larger              46.14% larger
                     ✗ jade »   328 bytes gzipped     617 bytes uncompressed
-                                   45.12% larger              61.10% larger
+                                   43.90% larger              60.45% larger
                 ✗ nunjucks »   384 bytes gzipped     695 bytes uncompressed
-                                   53.13% larger              65.47% larger
+                                   52.08% larger              64.89% larger
               ✗ handlebars »   427 bytes gzipped     814 bytes uncompressed
-                                   57.85% larger              70.52% larger
+                                   56.91% larger              70.02% larger
                     ✗ swig »   464 bytes gzipped    1306 bytes uncompressed
-                                   61.21% larger              81.62% larger
+                                   60.34% larger              81.32% larger
 
                       simple-2
-                  ✓ raptor »   217 bytes gzipped     431 bytes uncompressed
+                  ✓ raptor »   220 bytes gzipped     435 bytes uncompressed
                                       (smallest)                 (smallest)
                     ✗ dust »   276 bytes gzipped     718 bytes uncompressed
-                                   21.38% larger              39.97% larger
+                                   20.29% larger              39.42% larger
 ```
 <!-- </size> -->
 

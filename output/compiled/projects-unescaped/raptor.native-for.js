@@ -1,14 +1,15 @@
 module.exports = function create(__helpers) {
-  var empty = __helpers.e,
+  var str = __helpers.s,
+      empty = __helpers.e,
       notEmpty = __helpers.ne,
       forLoop = __helpers.fl,
       attr = __helpers.a;
 
   return function render(data, context) {
     context.w('<html><head><title>' +
-      (data.title) +
+      str(data.title) +
       '</title></head><body><p>' +
-      (data.text) +
+      str(data.text) +
       '</p>');
 
     forLoop(data.projects, function(__array,__index,__length,project) {
@@ -16,11 +17,11 @@ module.exports = function create(__helpers) {
         project=__array[__index];
 
         context.w('<a' +
-          attr("href", (project.url), false) +
+          attr("href", str(project.url), false) +
           '>' +
-          (project.name) +
+          str(project.name) +
           '</a><p>' +
-          (project.description) +
+          str(project.description) +
           '</p>');
       }
     });

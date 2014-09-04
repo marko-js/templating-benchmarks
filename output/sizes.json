@@ -2,103 +2,103 @@
     "friends": {
         "gzipped": {
             "dust": 494,
-            "raptor": 435
+            "raptor": 437
         },
         "uncompressed": {
             "dust": 1511,
-            "raptor": 862
+            "raptor": 866
         }
     },
     "if-expression": {
         "gzipped": {
             "dust": 380,
-            "raptor": 248
+            "raptor": 250
         },
         "uncompressed": {
             "dust": 952,
-            "raptor": 413
+            "raptor": 417
         }
     },
     "projects-escaped": {
         "gzipped": {
             "dust": 271,
             "handlebars": 519,
-            "raptor (native-for)": 235,
-            "raptor": 210
+            "raptor (native-for)": 238,
+            "raptor": 213
         },
         "uncompressed": {
             "dust": 604,
             "handlebars": 1377,
-            "raptor (native-for)": 351,
-            "raptor": 324
+            "raptor (native-for)": 357,
+            "raptor": 330
         }
     },
     "projects-unescaped": {
         "gzipped": {
             "dust": 278,
             "handlebars": 497,
-            "raptor (native-for)": 233,
-            "raptor": 207
+            "raptor (native-for)": 241,
+            "raptor": 215
         },
         "uncompressed": {
             "dust": 636,
             "handlebars": 1430,
-            "raptor (native-for)": 336,
-            "raptor": 309
+            "raptor (native-for)": 357,
+            "raptor": 330
         }
     },
     "reverse-helper": {
         "gzipped": {
             "dust": 135,
-            "raptor": 132
+            "raptor": 139
         },
         "uncompressed": {
             "dust": 308,
-            "raptor": 177
+            "raptor": 198
         }
     },
     "search-results": {
         "gzipped": {
             "dust": 552,
-            "raptor (native-for)": 537,
-            "raptor": 497
+            "raptor (native-for)": 541,
+            "raptor": 501
         },
         "uncompressed": {
             "dust": 1581,
-            "raptor (native-for)": 1189,
-            "raptor": 1136
+            "raptor (native-for)": 1193,
+            "raptor": 1140
         }
     },
     "simple-1": {
         "gzipped": {
             "dot": 228,
-            "dust": 256,
+            "dust": 254,
             "handlebars": 427,
             "jade": 328,
-            "raptor (native-for)": 202,
+            "raptor (native-for)": 205,
             "nunjucks": 384,
-            "raptor": 180,
+            "raptor": 184,
             "swig": 464
         },
         "uncompressed": {
             "dot": 309,
-            "dust": 493,
+            "dust": 453,
             "handlebars": 814,
             "jade": 617,
-            "raptor (native-for)": 267,
+            "raptor (native-for)": 271,
             "nunjucks": 695,
-            "raptor": 240,
+            "raptor": 244,
             "swig": 1306
         }
     },
     "simple-2": {
         "gzipped": {
             "dust": 276,
-            "raptor": 217
+            "raptor": 220
         },
         "uncompressed": {
             "dust": 718,
-            "raptor": 431
+            "raptor": 435
         }
     }
 }

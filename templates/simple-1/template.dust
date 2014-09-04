@@ -6,9 +6,7 @@ Hello {name}!
     <li class="color">{.}</li>
     {/colors}
 </ul>
-{/colors}
-
-{^colors}
+{:else}
 <div>
     No colors!
 </div>
