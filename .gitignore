@@ -7,4 +7,4 @@
 *.orig
 .DS_Store
 coverage
-*.rhtml.js
+*.marko.js

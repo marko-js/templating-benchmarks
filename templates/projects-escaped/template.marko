@@ -4,12 +4,12 @@
     </head>
     <body>
         <p>${data.text}</p>
-        <c-for each="project in data.projects" for-loop="true">
+        <for each="project in data.projects">
             <a href="${project.url}">${project.name}</a>
             <p>${project.description}</p>
-        </c-for>
-        <c-if test="empty(data.projects)">
+        </for>
+        <if test="empty(data.projects)">
             No projects
-        </c-if>
+        </if>
     </body>
 </html>

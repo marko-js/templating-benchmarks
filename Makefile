@@ -9,5 +9,5 @@ benchmarks:
 
 .PHONY: clean
 clean:
-	$(BIN)/rhtmlc . --clean
+	$(BIN)/markoc . --clean
 	rm -rf output

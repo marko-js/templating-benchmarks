@@ -22,7 +22,7 @@
 
         <div id="resultsTarget">
             <div class="search-results view-${data.view}">
-                <div class="search-item" c-for="searchRecord in data.searchRecords">
+                <div class="search-item" for="searchRecord in data.searchRecords">
                     <div class="search-item-container drop-shadow">
                         <div class="img-container">
                             <img src="${searchRecord.imgUrl}">
@@ -33,13 +33,13 @@
                         
                         ${searchRecord.description}
 
-                        <div c-if="searchRecord.featured">
+                        <div if="searchRecord.featured">
                             Featured!
                         </div>
 
-                        <div c-if="notEmpty(searchRecord.sizes)">
+                        <div if="notEmpty(searchRecord.sizes)">
                             Sizes available:<ul>
-                                <li c-for="size in searchRecord.sizes">${size}</li>
+                                <li for="size in searchRecord.sizes">${size}</li>
                             </ul>
                         </div>
                     </div>

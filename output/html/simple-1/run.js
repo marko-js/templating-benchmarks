@@ -1,4 +1,4 @@
-require('raptor-templates')
-    .load('hello.rhtml')
+require('marko')
+    .load('hello.marko')
     .stream({ name: 'Frank' })
     .pipe(process.stdout);
