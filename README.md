@@ -9,8 +9,8 @@ Template | Syntax | Streaming | Asynchronous | Auto-escape
 [doT](https://github.com/olado/doT) | Text | ✖ | ✖ | ✖
 [handlebars](https://github.com/wycats/handlebars.js) | Text | ✖ | ✖ | ✔
 [jade](https://github.com/visionmedia/jade) | Short-hand HTML | ✖ | ✖ | ✔
-[nunjucks](http://mozilla.github.io/nunjucks/) | Text | ✖ | ✔ | ✖
 [marko](https://github.com/raptorjs3/marko) | HTML | ✔ | ✔ | ✔
+[nunjucks](http://mozilla.github.io/nunjucks/) | Text | ✖ | ✔ | ✖
 [swig](http://mozilla.github.io/nunjucks/) | Text | ✖ | ✖ | ✔
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
