@@ -5,8 +5,8 @@ module.exports = function create(__helpers) {
       escapeXml = __helpers.x,
       forEach = __helpers.f;
 
-  return function render(data, context) {
-    context.w('<div><h1 class="header">' +
+  return function render(data, out) {
+    out.s('<div><h1 class="header">' +
       escapeXml(data.header) +
       '</h1><h2 class="header2">' +
       escapeXml(data.header2) +
@@ -21,11 +21,11 @@ module.exports = function create(__helpers) {
       '</h6><ul class="list">');
 
     forEach(data.list, function(item) {
-      context.w('<li class="item">' +
+      out.s('<li class="item">' +
         escapeXml(item) +
         '</li>');
     });
 
-    context.w('</ul></div>');
+    out.s('</ul></div>');
   };
 }

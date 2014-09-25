@@ -6,25 +6,25 @@ module.exports = function create(__helpers) {
       attr = __helpers.a,
       escapeXml = __helpers.x;
 
-  return function render(data, context) {
+  return function render(data, out) {
     forEach(data.accounts, function(account) {
-      context.w('<div>');
+      out.s('<div>');
 
       if (account.accountStatus === 'closed') {
-        context.w('<div>Your account has been closed!</div>');
+        out.s('<div>Your account has been closed!</div>');
       }
       else if (account.accountStatus === 'suspended') {
-        context.w('<div>Your account has been temporarily suspended</div>');
+        out.s('<div>Your account has been temporarily suspended</div>');
       }
       else {
-        context.w('<div>Bank balance: <span' +
+        out.s('<div>Bank balance: <span' +
           attr("class", (account.balance<0 ? "negative" : "positive")) +
           '>' +
           escapeXml(account.formattedBalance) +
           '</span></div>');
       }
 
-      context.w('</div>');
+      out.s('</div>');
     });
   };
 }

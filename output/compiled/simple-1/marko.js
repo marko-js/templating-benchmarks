@@ -5,24 +5,24 @@ module.exports = function create(__helpers) {
       escapeXml = __helpers.x,
       forEach = __helpers.f;
 
-  return function render(data, context) {
-    context.w('Hello ' +
+  return function render(data, out) {
+    out.s('Hello ' +
       escapeXml(data.name) +
       '! ');
 
     if (notEmpty(data.colors)) {
-      context.w('<ul>');
+      out.s('<ul>');
 
       forEach(data.colors, function(color) {
-        context.w('<li class="color">' +
+        out.s('<li class="color">' +
           escapeXml(color) +
           '</li>');
       });
 
-      context.w('</ul>');
+      out.s('</ul>');
     }
     else {
-      context.w('<div>No colors!</div>');
+      out.s('<div>No colors!</div>');
     }
   };
 }

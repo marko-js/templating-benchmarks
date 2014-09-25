@@ -4,8 +4,8 @@ module.exports = function create(__helpers) {
       notEmpty = __helpers.ne,
       util = require("../../helpers/util");
 
-  return function render(data, context) {
-    context.w(str(util.reverse(data.A)) +
+  return function render(data, out) {
+    out.s(str(util.reverse(data.A)) +
       str(util.reverse(data.B)) +
       str(util.reverse(data.C)) +
       str(util.reverse(data.D)) +

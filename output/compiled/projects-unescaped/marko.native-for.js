@@ -5,8 +5,8 @@ module.exports = function create(__helpers) {
       forLoop = __helpers.fl,
       attr = __helpers.a;
 
-  return function render(data, context) {
-    context.w('<html><head><title>' +
+  return function render(data, out) {
+    out.s('<html><head><title>' +
       str(data.title) +
       '</title></head><body><p>' +
       str(data.text) +
@@ -16,7 +16,7 @@ module.exports = function create(__helpers) {
       for (;__index<__length;__index++) {
         project=__array[__index];
 
-        context.w('<a' +
+        out.s('<a' +
           attr("href", str(project.url), false) +
           '>' +
           str(project.name) +
@@ -27,9 +27,9 @@ module.exports = function create(__helpers) {
     });
 
     if (empty(data.projects)) {
-      context.w('No projects');
+      out.s('No projects');
     }
 
-    context.w('</body></html>');
+    out.s('</body></html>');
   };
 }

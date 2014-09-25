@@ -7,11 +7,11 @@ module.exports = function create(__helpers) {
       attr = __helpers.a,
       escapeXmlAttr = __helpers.xa;
 
-  return function render(data, context) {
-    context.w('<!doctype html> <html lang="en"><head><meta charset="UTF-8"><title>Friends</title></head><body><div class="friends">');
+  return function render(data, out) {
+    out.s('<!doctype html> <html lang="en"><head><meta charset="UTF-8"><title>Friends</title></head><body><div class="friends">');
 
     forEach(data.friends, function(friend) {
-      context.w('<div class="friend"><ul><li>Name: ' +
+      out.s('<div class="friend"><ul><li>Name: ' +
         escapeXml(data.getFullNameRaptor(friend)) +
         '</li><li>Balance: ' +
         escapeXml(friend.balance) +
@@ -32,34 +32,34 @@ module.exports = function create(__helpers) {
         '</li>');
 
       if (notEmpty(friend.tags)) {
-        context.w('<li>Tags: <ul>');
+        out.s('<li>Tags: <ul>');
 
         forEach(friend.tags, function(tag) {
-          context.w('<li>' +
+          out.s('<li>' +
             escapeXml(tag) +
             '</li>');
         });
 
-        context.w('</ul></li>');
+        out.s('</ul></li>');
       }
 
       if (notEmpty(friend.friends)) {
-        context.w('<li>Friends: <ul>');
+        out.s('<li>Friends: <ul>');
 
         forEach(friend.friends, function(friend) {
-          context.w('<li>' +
+          out.s('<li>' +
             escapeXml(friend.name) +
             ' (' +
             escapeXml(friend.id) +
             ')</li>');
         });
 
-        context.w('</ul></li>');
+        out.s('</ul></li>');
       }
 
-      context.w('</ul></div>');
+      out.s('</ul></div>');
     });
 
-    context.w('</div></body></html>');
+    out.s('</div></body></html>');
   };
 }

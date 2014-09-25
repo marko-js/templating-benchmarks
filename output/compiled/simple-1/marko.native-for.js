@@ -5,28 +5,28 @@ module.exports = function create(__helpers) {
       escapeXml = __helpers.x,
       forLoop = __helpers.fl;
 
-  return function render(data, context) {
-    context.w('Hello ' +
+  return function render(data, out) {
+    out.s('Hello ' +
       escapeXml(data.name) +
       '! ');
 
     if (notEmpty(data.colors)) {
-      context.w('<ul>');
+      out.s('<ul>');
 
       forLoop(data.colors, function(__array,__index,__length,color) {
         for (;__index<__length;__index++) {
           color=__array[__index];
 
-          context.w('<li class="color">' +
+          out.s('<li class="color">' +
             escapeXml(color) +
             '</li>');
         }
       });
 
-      context.w('</ul>');
+      out.s('</ul>');
     }
     else {
-      context.w('<div>No colors!</div>');
+      out.s('<div>No colors!</div>');
     }
   };
 }
