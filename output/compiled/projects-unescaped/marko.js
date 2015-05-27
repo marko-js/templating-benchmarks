@@ -1,4 +1,4 @@
-module.exports = function create(__helpers) {
+function create(__helpers) {
   var str = __helpers.s,
       empty = __helpers.e,
       notEmpty = __helpers.ne,
@@ -6,14 +6,14 @@ module.exports = function create(__helpers) {
       attr = __helpers.a;
 
   return function render(data, out) {
-    out.s('<html><head><title>' +
+    out.w('<html><head><title>' +
       str(data.title) +
       '</title></head><body><p>' +
       str(data.text) +
       '</p>');
 
     forEach(data.projects, function(project) {
-      out.s('<a' +
+      out.w('<a' +
         attr("href", str(project.url), false) +
         '>' +
         str(project.name) +
@@ -23,9 +23,10 @@ module.exports = function create(__helpers) {
     });
 
     if (empty(data.projects)) {
-      out.s('No projects');
+      out.w('No projects');
     }
 
-    out.s('</body></html>');
+    out.w('</body></html>');
   };
 }
+(module.exports = require("marko").c(__filename)).c(create);

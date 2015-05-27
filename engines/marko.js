@@ -1,10 +1,12 @@
 var marko = require('marko');
 
+require('marko/compiler').defaultOptions.checkUpToDate = false;
+
 module.exports = {
     name: 'marko',
     ext: 'marko',
     render: function(template, data, callback) {
-        template.render(data, callback);
+        callback(null, template.renderSync(data));
     },
     load: function(src, templatePath, templateName, callback) {
         var template = marko.load(templatePath);

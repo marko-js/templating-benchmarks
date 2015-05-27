@@ -1,4 +1,4 @@
-module.exports = function create(__helpers) {
+function create(__helpers) {
   var str = __helpers.s,
       empty = __helpers.e,
       notEmpty = __helpers.ne,
@@ -8,10 +8,10 @@ module.exports = function create(__helpers) {
       escapeXmlAttr = __helpers.xa;
 
   return function render(data, out) {
-    out.s('<!doctype html> <html lang="en"><head><meta charset="UTF-8"><title>Friends</title></head><body><div class="friends">');
+    out.w('<!doctype html> <html lang="en"><head><meta charset="UTF-8"><title>Friends</title></head><body><div class="friends">');
 
     forEach(data.friends, function(friend) {
-      out.s('<div class="friend"><ul><li>Name: ' +
+      out.w('<div class="friend"><ul><li>Name: ' +
         escapeXml(data.getFullNameRaptor(friend)) +
         '</li><li>Balance: ' +
         escapeXml(friend.balance) +
@@ -32,34 +32,35 @@ module.exports = function create(__helpers) {
         '</li>');
 
       if (notEmpty(friend.tags)) {
-        out.s('<li>Tags: <ul>');
+        out.w('<li>Tags: <ul>');
 
         forEach(friend.tags, function(tag) {
-          out.s('<li>' +
+          out.w('<li>' +
             escapeXml(tag) +
             '</li>');
         });
 
-        out.s('</ul></li>');
+        out.w('</ul></li>');
       }
 
       if (notEmpty(friend.friends)) {
-        out.s('<li>Friends: <ul>');
+        out.w('<li>Friends: <ul>');
 
         forEach(friend.friends, function(friend) {
-          out.s('<li>' +
+          out.w('<li>' +
             escapeXml(friend.name) +
             ' (' +
             escapeXml(friend.id) +
             ')</li>');
         });
 
-        out.s('</ul></li>');
+        out.w('</ul></li>');
       }
 
-      out.s('</ul></div>');
+      out.w('</ul></div>');
     });
 
-    out.s('</div></body></html>');
+    out.w('</div></body></html>');
   };
 }
+(module.exports = require("marko").c(__filename)).c(create);

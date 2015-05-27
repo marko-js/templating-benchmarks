@@ -1,4 +1,4 @@
-module.exports = function create(__helpers) {
+function create(__helpers) {
   var str = __helpers.s,
       empty = __helpers.e,
       notEmpty = __helpers.ne,
@@ -6,23 +6,24 @@ module.exports = function create(__helpers) {
       forEach = __helpers.f;
 
   return function render(data, out) {
-    out.s('Hello ' +
+    out.w('Hello ' +
       escapeXml(data.name) +
       '! ');
 
     if (notEmpty(data.colors)) {
-      out.s('<ul>');
+      out.w('<ul>');
 
       forEach(data.colors, function(color) {
-        out.s('<li class="color">' +
+        out.w('<li class="color">' +
           escapeXml(color) +
           '</li>');
       });
 
-      out.s('</ul>');
+      out.w('</ul>');
     }
     else {
-      out.s('<div>No colors!</div>');
+      out.w('<div>No colors!</div>');
     }
   };
 }
+(module.exports = require("marko").c(__filename)).c(create);

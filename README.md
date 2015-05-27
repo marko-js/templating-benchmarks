@@ -49,48 +49,48 @@ Higher numbers are better.
                       RUNTIME PERFORMANCE
                       ===================
                       friends
-                   ✓ marko »    2,460 op/s (fastest)
-                    ✗ dust »      849 op/s (65.49% slower)
+                   ✓ marko »    3,258 op/s (fastest)
+                    ✗ dust »      912 op/s (72.01% slower)
 
                       if-expression
-                   ✓ marko »  198,050 op/s (fastest)
-                    ✗ dust »   51,630 op/s (73.93% slower)
+                   ✓ marko »  312,755 op/s (fastest)
+                    ✗ dust »   57,060 op/s (81.76% slower)
 
                       projects-escaped
-      ✓ marko (native-for) »   75,731 op/s (fastest)
-                   ✗ marko »   72,769 op/s (3.91% slower)
-              ✗ handlebars »   61,665 op/s (18.57% slower)
-                    ✗ dust »   59,188 op/s (21.84% slower)
+      ✓ marko (native-for) »   77,144 op/s (fastest)
+                   ✗ marko »   73,890 op/s (4.22% slower)
+              ✗ handlebars »   61,276 op/s (20.57% slower)
+                    ✗ dust »   30,421 op/s (60.57% slower)
 
                       projects-unescaped
-              ✓ handlebars »  235,905 op/s (fastest)
-      ✗ marko (native-for) »  208,526 op/s (11.61% slower)
-                   ✗ marko »  196,873 op/s (16.55% slower)
-                    ✗ dust »  149,956 op/s (36.43% slower)
+                   ✓ marko »  351,493 op/s (fastest)
+      ✗ marko (native-for) »  292,665 op/s (16.74% slower)
+              ✗ handlebars »  237,410 op/s (32.46% slower)
+                    ✗ dust »   97,639 op/s (72.22% slower)
 
                       reverse-helper
-                    ✓ dust »  315,557 op/s (fastest)
-                   ✗ marko »  275,330 op/s (12.75% slower)
+                   ✓ marko »  422,623 op/s (fastest)
+                    ✗ dust »  219,107 op/s (48.16% slower)
 
                       search-results
-      ✓ marko (native-for) »   33,214 op/s (fastest)
-                   ✗ marko »   28,187 op/s (15.14% slower)
-                    ✗ dust »   18,016 op/s (45.76% slower)
+                   ✓ marko »   29,314 op/s (fastest)
+      ✗ marko (native-for) »   27,459 op/s (6.33% slower)
+                    ✗ dust »   10,716 op/s (63.44% slower)
 
                       simple-1
-                     ✓ dot »  209,327 op/s (fastest)
-              ✗ handlebars »  150,459 op/s (28.12% slower)
-      ✗ marko (native-for) »  137,950 op/s (34.10% slower)
-                   ✗ marko »  129,936 op/s (37.93% slower)
-                    ✗ dust »  120,474 op/s (42.45% slower)
-                ✗ nunjucks »   86,023 op/s (58.90% slower)
-                    ✗ swig »   80,928 op/s (61.34% slower)
-                    ✗ jade »   45,410 op/s (78.31% slower)
-                  ✗ plates »   10,593 op/s (94.94% slower)
+                     ✓ dot »  208,839 op/s (fastest)
+                   ✗ marko »  196,332 op/s (5.99% slower)
+      ✗ marko (native-for) »  190,000 op/s (9.02% slower)
+              ✗ handlebars »  142,178 op/s (31.92% slower)
+                    ✗ dust »   88,343 op/s (57.70% slower)
+                    ✗ swig »   60,408 op/s (71.07% slower)
+                ✗ nunjucks »   43,312 op/s (79.26% slower)
+                    ✗ jade »   35,607 op/s (82.95% slower)
+                  ✗ plates »    8,577 op/s (95.89% slower)
 
                       simple-2
-                   ✓ marko »  206,458 op/s (fastest)
-                    ✗ dust »  166,185 op/s (19.51% slower)
+                   ✓ marko »  239,671 op/s (fastest)
+                    ✗ dust »  103,521 op/s (56.81% slower)
 ```
 <!-- </performance> -->
 
@@ -103,74 +103,74 @@ Lower numbers are better.
                       COMPILED SIZE (gzipped/uncompressed)
                       ====================================
                       friends
-                   ✓ marko »   437 bytes gzipped     866 bytes uncompressed
+                   ✓ marko »   472 bytes gzipped     915 bytes uncompressed
                                       (smallest)                 (smallest)
-                    ✗ dust »   494 bytes gzipped    1501 bytes uncompressed
-                                   11.54% larger              42.31% larger
+                    ✗ dust »   489 bytes gzipped    1387 bytes uncompressed
+                                    3.48% larger              34.03% larger
 
                       if-expression
-                   ✓ marko »   250 bytes gzipped     417 bytes uncompressed
+                   ✓ marko »   285 bytes gzipped     476 bytes uncompressed
                                       (smallest)                 (smallest)
-                    ✗ dust »   379 bytes gzipped     948 bytes uncompressed
-                                   34.04% larger              56.01% larger
+                    ✗ dust »   387 bytes gzipped    1023 bytes uncompressed
+                                   26.36% larger              53.47% larger
 
                       projects-escaped
-                   ✓ marko »   213 bytes gzipped     330 bytes uncompressed
+                   ✓ marko »   247 bytes gzipped     379 bytes uncompressed
                                       (smallest)                 (smallest)
-      ✗ marko (native-for) »   237 bytes gzipped     357 bytes uncompressed
-                                   10.13% larger               7.56% larger
-                    ✗ dust »   269 bytes gzipped     600 bytes uncompressed
-                                   20.82% larger              45.00% larger
-              ✗ handlebars »   519 bytes gzipped    1377 bytes uncompressed
-                                   58.96% larger              76.03% larger
+                    ✗ dust »   262 bytes gzipped     563 bytes uncompressed
+                                    5.73% larger              32.68% larger
+      ✗ marko (native-for) »   269 bytes gzipped     406 bytes uncompressed
+                                    8.18% larger               6.65% larger
+              ✗ handlebars »   547 bytes gzipped    1536 bytes uncompressed
+                                   54.84% larger              75.33% larger
 
                       projects-unescaped
-                   ✓ marko »   214 bytes gzipped     330 bytes uncompressed
+                   ✓ marko »   249 bytes gzipped     379 bytes uncompressed
                                       (smallest)                 (smallest)
-      ✗ marko (native-for) »   240 bytes gzipped     357 bytes uncompressed
-                                   10.83% larger               7.56% larger
-                    ✗ dust »   277 bytes gzipped     632 bytes uncompressed
-                                   22.74% larger              47.78% larger
-              ✗ handlebars »   497 bytes gzipped    1430 bytes uncompressed
-                                   56.94% larger              76.92% larger
+                    ✗ dust »   268 bytes gzipped     595 bytes uncompressed
+                                    7.09% larger              36.30% larger
+      ✗ marko (native-for) »   273 bytes gzipped     406 bytes uncompressed
+                                    8.79% larger               6.65% larger
+              ✗ handlebars »   526 bytes gzipped    1574 bytes uncompressed
+                                   52.66% larger              75.92% larger
 
                       reverse-helper
-                    ✓ dust »   135 bytes gzipped     308 bytes uncompressed
-                                      (smallest)              35.71% larger
-                   ✗ marko »   139 bytes gzipped     198 bytes uncompressed
-                                    2.88% larger                 (smallest)
+                    ✓ dust »   147 bytes gzipped     301 bytes uncompressed
+                                      (smallest)              17.94% larger
+                   ✗ marko »   169 bytes gzipped     247 bytes uncompressed
+                                   13.02% larger                 (smallest)
 
                       search-results
-                   ✓ marko »   500 bytes gzipped    1140 bytes uncompressed
+                   ✓ marko »   536 bytes gzipped    1189 bytes uncompressed
                                       (smallest)                 (smallest)
-      ✗ marko (native-for) »   540 bytes gzipped    1193 bytes uncompressed
-                                    7.41% larger               4.44% larger
-                    ✗ dust »   551 bytes gzipped    1573 bytes uncompressed
-                                    9.26% larger              27.53% larger
+                    ✗ dust »   545 bytes gzipped    1523 bytes uncompressed
+                                    1.65% larger              21.93% larger
+      ✗ marko (native-for) »   575 bytes gzipped    1242 bytes uncompressed
+                                    6.78% larger               4.27% larger
 
                       simple-1
-                   ✓ marko »   183 bytes gzipped     244 bytes uncompressed
+                   ✓ marko »   216 bytes gzipped     293 bytes uncompressed
                                       (smallest)                 (smallest)
-      ✗ marko (native-for) »   204 bytes gzipped     271 bytes uncompressed
-                                   10.29% larger               9.96% larger
-                     ✗ dot »   228 bytes gzipped     309 bytes uncompressed
-                                   19.74% larger              21.04% larger
-                    ✗ dust »   253 bytes gzipped     449 bytes uncompressed
-                                   27.67% larger              45.66% larger
-                    ✗ jade »   328 bytes gzipped     617 bytes uncompressed
-                                   44.21% larger              60.45% larger
-                ✗ nunjucks »   384 bytes gzipped     695 bytes uncompressed
-                                   52.34% larger              64.89% larger
-              ✗ handlebars »   427 bytes gzipped     814 bytes uncompressed
-                                   57.14% larger              70.02% larger
-                    ✗ swig »   464 bytes gzipped    1306 bytes uncompressed
-                                   60.56% larger              81.32% larger
+      ✗ marko (native-for) »   237 bytes gzipped     320 bytes uncompressed
+                                    8.86% larger               8.44% larger
+                    ✗ dust »   249 bytes gzipped     462 bytes uncompressed
+                                   13.25% larger              36.58% larger
+                    ✗ jade »   337 bytes gzipped     664 bytes uncompressed
+                                   35.91% larger              55.87% larger
+                     ✗ dot »   353 bytes gzipped     523 bytes uncompressed
+                                   38.81% larger              43.98% larger
+              ✗ handlebars »   441 bytes gzipped     849 bytes uncompressed
+                                   51.02% larger              65.49% larger
+                ✗ nunjucks »   448 bytes gzipped     910 bytes uncompressed
+                                   51.79% larger              67.80% larger
+                    ✗ swig »   544 bytes gzipped    2557 bytes uncompressed
+                                   60.29% larger              88.54% larger
 
                       simple-2
-                   ✓ marko »   219 bytes gzipped     435 bytes uncompressed
+                   ✓ marko »   255 bytes gzipped     484 bytes uncompressed
                                       (smallest)                 (smallest)
-                    ✗ dust »   275 bytes gzipped     716 bytes uncompressed
-                                   20.36% larger              39.25% larger
+                    ✗ dust »   268 bytes gzipped     648 bytes uncompressed
+                                    4.85% larger              25.31% larger
 ```
 <!-- </size> -->
 

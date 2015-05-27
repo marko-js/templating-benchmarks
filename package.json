@@ -14,19 +14,19 @@
   "license": "ISC",
   "dependencies": {
     "ansi": "^0.2.1",
+    "dot": "^1.0.2",
     "dustjs-helpers": "^1.2.0",
     "dustjs-linkedin": "^2.3.5",
     "handlebars": "^2.0.0-alpha.2",
     "jade": "^1.3.1",
+    "marko": "^2.5.0",
     "matcha": "^0.5.0",
     "nunjucks": "^1.0.5",
     "plates": "^0.4.9",
     "raptor-async": "^1.0.0",
     "raptor-polyfill": "^1.0.0",
-    "marko": "^1.1.24",
-    "uglify-js": "^2.4.13",
     "swig": "^1.3.2",
-    "dot": "^1.0.2"
+    "uglify-js": "^2.4.13"
   },
   "devDependencies": {}
 }
