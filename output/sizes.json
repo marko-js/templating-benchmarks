@@ -11,24 +11,24 @@
     },
     "if-expression": {
         "gzipped": {
-            "dust": 387,
+            "dust": 392,
             "marko": 285
         },
         "uncompressed": {
-            "dust": 1023,
+            "dust": 1043,
             "marko": 476
         }
     },
     "projects-escaped": {
         "gzipped": {
             "dust": 262,
-            "handlebars": 547,
+            "handlebars": 548,
             "marko": 247,
             "marko (native-for)": 269
         },
         "uncompressed": {
             "dust": 563,
-            "handlebars": 1536,
+            "handlebars": 1540,
             "marko": 379,
             "marko (native-for)": 406
         }
@@ -36,24 +36,24 @@
     "projects-unescaped": {
         "gzipped": {
             "dust": 268,
-            "handlebars": 526,
+            "handlebars": 521,
             "marko": 249,
             "marko (native-for)": 273
         },
         "uncompressed": {
             "dust": 595,
-            "handlebars": 1574,
+            "handlebars": 1556,
             "marko": 379,
             "marko (native-for)": 406
         }
     },
     "reverse-helper": {
         "gzipped": {
-            "dust": 147,
+            "dust": 151,
             "marko": 169
         },
         "uncompressed": {
-            "dust": 301,
+            "dust": 321,
             "marko": 247
         }
     },
@@ -73,7 +73,7 @@
         "gzipped": {
             "dot": 353,
             "dust": 249,
-            "handlebars": 441,
+            "handlebars": 418,
             "jade": 337,
             "marko": 216,
             "marko (native-for)": 237,
@@ -83,7 +83,7 @@
         "uncompressed": {
             "dot": 523,
             "dust": 462,
-            "handlebars": 849,
+            "handlebars": 818,
             "jade": 664,
             "marko": 293,
             "marko (native-for)": 320,
