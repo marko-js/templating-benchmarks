@@ -225,6 +225,6 @@ templates
 
 ## Adding a New Template Engine
 
-To register a new templating engine, simple create a new module under the `engines` directory and it will automatically be loaded. See existing engine modules for supported methods and properties.
+To register a new templating engine, simply create a new module under the `engines` directory and it will automatically be loaded. See existing engine modules for supported methods and properties.
 
 Pull Requests welcome!
