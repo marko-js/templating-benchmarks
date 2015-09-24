@@ -39,6 +39,12 @@ Template | Syntax | Streaming | Asynchronous | Auto-escape
 
 # Current Results
 
+The following results were collected with the following setup:
+
+- Node.js v4.1.1
+- MacBook Pro (Retina, 15-inch, Mid 2014)
+- Processor: 2.8 GHz Intel Core i7
+- Memory: 16 GB 1600 MHz DDR3
 
 ## Performance
 
@@ -49,48 +55,48 @@ Higher numbers are better.
                       RUNTIME PERFORMANCE
                       ===================
                       friends
-                   ✓ marko »    2,877 op/s (fastest)
-                    ✗ dust »      808 op/s (71.92% slower)
+                   ✓ marko »    4,352 op/s (fastest)
+                    ✗ dust »      930 op/s (78.63% slower)
 
                       if-expression
-                   ✓ marko »  304,633 op/s (fastest)
-                    ✗ dust »   48,105 op/s (84.21% slower)
+                   ✓ marko »  367,776 op/s (fastest)
+                    ✗ dust »   45,983 op/s (87.50% slower)
 
                       projects-escaped
-      ✓ marko (native-for) »   86,162 op/s (fastest)
-                   ✗ marko »   80,020 op/s (7.13% slower)
-              ✗ handlebars »   50,934 op/s (40.89% slower)
-                    ✗ dust »   33,381 op/s (61.26% slower)
+                   ✓ marko »   95,146 op/s (fastest)
+      ✗ marko (native-for) »   92,505 op/s (2.78% slower)
+              ✗ handlebars »   50,685 op/s (46.73% slower)
+                    ✗ dust »   44,989 op/s (52.72% slower)
 
                       projects-unescaped
-      ✓ marko (native-for) »  301,733 op/s (fastest)
-                   ✗ marko »  300,871 op/s (0.29% slower)
-              ✗ handlebars »  125,762 op/s (58.32% slower)
-                    ✗ dust »   75,857 op/s (74.86% slower)
+                   ✓ marko »  365,939 op/s (fastest)
+      ✗ marko (native-for) »  332,373 op/s (9.17% slower)
+              ✗ handlebars »  227,143 op/s (37.93% slower)
+                    ✗ dust »   87,574 op/s (76.07% slower)
 
                       reverse-helper
-                   ✓ marko »  440,843 op/s (fastest)
-                    ✗ dust »  256,473 op/s (41.82% slower)
+                   ✓ marko »  451,932 op/s (fastest)
+                    ✗ dust »  298,629 op/s (33.92% slower)
 
                       search-results
-      ✓ marko (native-for) »   36,505 op/s (fastest)
-                   ✗ marko »   32,536 op/s (10.87% slower)
-                    ✗ dust »   11,336 op/s (68.95% slower)
+                   ✓ marko »   38,032 op/s (fastest)
+      ✗ marko (native-for) »   32,919 op/s (13.44% slower)
+                    ✗ dust »   11,527 op/s (69.69% slower)
 
                       simple-1
-                     ✓ dot »  203,176 op/s (fastest)
-      ✗ marko (native-for) »  190,609 op/s (6.19% slower)
-                   ✗ marko »  178,322 op/s (12.23% slower)
-                    ✗ dust »   87,875 op/s (56.75% slower)
-              ✗ handlebars »   71,929 op/s (64.60% slower)
-                    ✗ swig »   52,927 op/s (73.95% slower)
-                    ✗ jade »   43,379 op/s (78.65% slower)
-                ✗ nunjucks »   29,190 op/s (85.63% slower)
-                  ✗ plates »   10,291 op/s (94.93% slower)
+                   ✓ marko »  238,128 op/s (fastest)
+      ✗ marko (native-for) »  233,120 op/s (2.10% slower)
+                     ✗ dot »  211,886 op/s (11.02% slower)
+              ✗ handlebars »  113,257 op/s (52.44% slower)
+                    ✗ dust »   74,620 op/s (68.66% slower)
+                    ✗ swig »   62,635 op/s (73.70% slower)
+                    ✗ jade »   43,807 op/s (81.60% slower)
+                ✗ nunjucks »   36,891 op/s (84.51% slower)
+                  ✗ plates »    9,911 op/s (95.84% slower)
 
                       simple-2
-                   ✓ marko »  275,953 op/s (fastest)
-                    ✗ dust »   93,964 op/s (65.95% slower)
+                   ✓ marko »  297,536 op/s (fastest)
+                    ✗ dust »  122,809 op/s (58.72% slower)
 ```
 <!-- </performance> -->
 
