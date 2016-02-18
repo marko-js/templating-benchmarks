@@ -4,11 +4,12 @@
     </head>
     <body>
         <p>${data.text}</p>
-        <for each="project in data.projects" for-loop="true">
-            <a href="${project.url}">${project.name}</a>
+        <for(var i=0, len=data.projects.length; i<len; i++)>
+            <var project=data.projects[i]/>
+            <a href=project.url>${project.name}</a>
             <p>${project.description}</p>
         </for>
-        <if test="empty(data.projects)">
+        <if(empty(data.projects))>
             No projects
         </if>
     </body>

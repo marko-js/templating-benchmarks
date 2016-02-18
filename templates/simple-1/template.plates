@@ -1,9 +1,0 @@
-<ul class="colors">
-    <li class="color">
-        <span class="name"></span>
-    </li>
-</ul>
-
-<div class="noColors">
-    No colors!
-</div>

@@ -1,13 +1,15 @@
-Hello {{name}}!
-   
-{{#if colors}}
-<ul>
-    {{#each colors}}
-    <li class="color">{{this}}</li>
-    {{/each}}
-</ul>
-{{else}}
-<div>
-    No colors!
+<div class="colors">
+    Hello {{name}}!
+
+    {{#if colors}}
+    <ul>
+        {{#each colors}}
+        <li class="color">{{this}}</li>
+        {{/each}}
+    </ul>
+    {{else}}
+    <div>
+        No colors!
+    </div>
+    {{/if}}
 </div>
-{{/if}}

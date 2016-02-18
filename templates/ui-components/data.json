@@ -1,0 +1,10 @@
+[
+    {
+        "name": "John Doe",
+        "colors": ["red", "green", "blue", "yellow", "orange", "pink", "black", "white", "beige", "brown", "cyan", "magenta"]
+    },
+    {
+        "name": "Jane Doe",
+        "colors": []
+    }
+]

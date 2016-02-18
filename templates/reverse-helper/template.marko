@@ -1,7 +1,9 @@
-<require module="../../helpers/util" var="util"/>
+<script marko-init>
+var reverse = require('../../helpers/util').reverse;
+</script>
 
-$!{util.reverse(data.A)}
-$!{util.reverse(data.B)}
-$!{util.reverse(data.C)}
-$!{util.reverse(data.D)}
-$!{util.reverse(data.E)}
+$!{reverse(data.A)}
+$!{reverse(data.B)}
+$!{reverse(data.C)}
+$!{reverse(data.D)}
+$!{reverse(data.E)}

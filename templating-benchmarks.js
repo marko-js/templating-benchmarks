@@ -1,18 +1,25 @@
+process.env.NODE_ENV = 'production';
+
 var async = require('raptor-async');
 var fs = require('fs');
 var nodePath = require('path');
 var UglifyJS = require("uglify-js");
 var zlib = require('zlib');
 
+require("babel-register")({
+    extensions: [".jsx"]
+});
+
 require('raptor-polyfill/string/endsWith');
 require('raptor-polyfill/string/startsWith');
+require('marko/node-require').install();
 
 var enginesDir = nodePath.join(__dirname, 'engines');
 
 var engines = fs.readdirSync(enginesDir)
     .map(function(filename) {
         if (filename.endsWith('.js')) {
-            return require(nodePath.join(enginesDir, filename));    
+            return require(nodePath.join(enginesDir, filename));
         }
     });
 
@@ -91,7 +98,7 @@ templatesFiles.forEach(function(groupName) {
 
                 var secondDot = filename.indexOf('.', firstDot+1);
                 var variant = null;
-                
+
                 if (secondDot !== -1) {
                     // This is a template variant
                     variant = filename.substring(firstDot+1, secondDot);
@@ -99,15 +106,15 @@ templatesFiles.forEach(function(groupName) {
 
                 var baseHtmlOutputFile = nodePath.join(outputHtmldDir, groupName);
                 try {
-                    fs.mkdirSync(baseHtmlOutputFile);    
+                    fs.mkdirSync(baseHtmlOutputFile);
                 } catch(e) {}
 
                 try {
-                    fs.mkdirSync(nodePath.join(outputCompiledDir, groupName));    
+                    fs.mkdirSync(nodePath.join(outputCompiledDir, groupName));
                 } catch(e) {}
 
                 try {
-                    fs.mkdirSync(nodePath.join(outputCompiledMinifiedDir, groupName));    
+                    fs.mkdirSync(nodePath.join(outputCompiledMinifiedDir, groupName));
                 } catch(e) {}
 
                 var outputFile = nodePath.join(baseHtmlOutputFile, engine.name + (variant ? '.' + variant : '') + '.html');
@@ -172,7 +179,7 @@ function warmup(callback) {
 
                         callback();
                     });
-                });    
+                });
             } else {
                 templateInfo.loadedTemplate = templateInfo.templateFile;
             }
@@ -201,7 +208,7 @@ function warmup(callback) {
                     });
                 }
             }
-            
+
 
             if (templateInfo.engine.compile) {
                 work.push(function(callback) {
@@ -216,11 +223,11 @@ function warmup(callback) {
                         // Save the minified version to disk
                         var minified;
                         try {
-                            minified = UglifyJS.minify(templateInfo.outputCompileFile).code;    
+                            minified = UglifyJS.minify(templateInfo.outputCompileFile).code;
                         } catch(e) {
                             throw new Error('Unable to minify "' + templateInfo.outputCompileFile + '". Exception: ' + (e.stack || e));
                         }
-                        
+
                         fs.writeFileSync(templateInfo.outputCompileMinifiedFile, minified, 'utf8');
 
                         zlib.gzip(minified, function(err, gzippedBuffer) {
@@ -238,9 +245,9 @@ function warmup(callback) {
                             callback();
                         });
 
-                        
+
                     });
-                });    
+                });
             }
         });
     });
@@ -268,13 +275,13 @@ templateGroups.forEach(function(templateGroup) {
 
         if (fast) {
             set('iterations', 10);
-            set('type', 'static');    
+            set('type', 'static');
         } else {
             set('iterations', 100);     // the number of times to run a given bench
             set('type', 'adaptive');    // or 'static' (see below)
-            set('mintime', 2000);        // when adaptive, the minimum time in ms a bench should     
+            set('mintime', 2000);        // when adaptive, the minimum time in ms a bench should
         }
-        
+
         templateGroup.templates.forEach(function(templateInfo) {
             bench(templateInfo.description, function(next) {
                 var data = templateGroup.data;
@@ -285,7 +292,7 @@ templateGroups.forEach(function(templateGroup) {
                         next(err);
                     } else {
                         setImmediate(function() {
-                            next(null);    
+                            next(null);
                         });
                     }
                 }
@@ -302,6 +309,6 @@ templateGroups.forEach(function(templateGroup) {
                     templateInfo.engine.render(template, templateGroup.data, done);
                 }
             });
-        });     
+        });
     });
 });

@@ -1,0 +1,11 @@
+each account in accounts
+    div
+        if account.accountStatus === 'closed'
+            div Your account has been closed!
+        else if account.accountStatus === 'suspended'
+            div Your account has been temporarily suspended
+        else
+            div
+                | Bank balance:
+                span(class=account.balance<0 ? 'negative' : 'positive')
+                    = account.formattedBalance

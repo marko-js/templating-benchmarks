@@ -1,0 +1,7 @@
+div.colors w-bind
+    - Hello ${data.name}!
+    ul if(notEmpty(data.colors))
+        li.color style="background-color: ${color}" for(color in data.colors)
+            ${color}
+    div else
+        - No colors!

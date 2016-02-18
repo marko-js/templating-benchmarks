@@ -6,7 +6,7 @@
 </head>
 <body>
     <div class="friends">
-        <div class="friend" for="friend in data.friends">
+        <div class="friend" for(friend in data.friends)>
             <ul>
                 <li>Name: ${data.getFullNameRaptor(friend)}</li>
                 <li>
@@ -19,7 +19,7 @@
                     Address: ${friend.address}
                 </li>
                 <li>
-                    Image: <img src="${friend.picture}">
+                    Image: <img src=friend.picture>
                 </li>
                 <li>
                     Company: ${friend.company}
@@ -30,18 +30,18 @@
                 <li>
                     About: ${friend.about}
                 </li>
-                <li if="notEmpty(friend.tags)">
+                <li if(notEmpty(friend.tags))>
                     Tags:
                     <ul>
-                        <li for="tag in friend.tags">
+                        <li for(tag in friend.tags)>
                             ${tag}
                         </li>
                     </ul>
                 </li>
-                <li if="notEmpty(friend.friends)">
+                <li if(notEmpty(friend.friends))>
                     Friends:
                     <ul>
-                        <li for="friend in friend.friends">
+                        <li for(friend in friend.friends)>
                             ${friend.name} (${friend.id})
                         </li>
                     </ul>

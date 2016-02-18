@@ -4,11 +4,11 @@
     </head>
     <body>
         <p>$!{data.text}</p>
-        <for each="project in data.projects">
+        <for(project in data.projects)>
             <a href="$!{project.url}">$!{project.name}</a>
             <p>$!{project.description}</p>
         </for>
-        <if test="empty(data.projects)">
+        <if(empty(data.projects))>
             No projects
         </if>
     </body>

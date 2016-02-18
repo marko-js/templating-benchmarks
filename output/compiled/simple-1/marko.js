@@ -3,27 +3,32 @@ function create(__helpers) {
       empty = __helpers.e,
       notEmpty = __helpers.ne,
       escapeXml = __helpers.x,
-      forEach = __helpers.f;
+      forEach = __helpers.f,
+      escapeXmlAttr = __helpers.xa;
 
   return function render(data, out) {
-    out.w('Hello ' +
+    out.w("<div class=\"colors\">Hello " +
       escapeXml(data.name) +
-      '! ');
+      "! ");
 
     if (notEmpty(data.colors)) {
-      out.w('<ul>');
+      out.w("<ul>");
 
       forEach(data.colors, function(color) {
-        out.w('<li class="color">' +
+        out.w("<li style=\"background-color: " +
+          escapeXmlAttr(color) +
+          "\" class=\"color\">" +
           escapeXml(color) +
-          '</li>');
+          "</li>");
       });
 
-      out.w('</ul>');
+      out.w("</ul>");
+    } else {
+      out.w("<div>No colors!</div>");
     }
-    else {
-      out.w('<div>No colors!</div>');
-    }
+
+    out.w("</div>");
   };
 }
+
 (module.exports = require("marko").c(__filename)).c(create);

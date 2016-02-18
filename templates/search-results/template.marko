@@ -1,5 +1,5 @@
 <div class="search-results-container">
-    
+
     <div class="searching" id="searching">
         <div class="wait-indicator-icon"/> Searching...
     </div>
@@ -9,7 +9,7 @@
             <span class="count"><span id="count">${data.totalCount}</span> results</span>
             <div class="view-modifiers">
                 <div class="view-select">
-                    View: 
+                    View:
                     <div class="view-icon view-icon-selected" id="viewIconGallery">
                         <i class="icon-th"/>
                     </div>
@@ -22,7 +22,7 @@
 
         <div id="resultsTarget">
             <div class="search-results view-${data.view}">
-                <div class="search-item" for="searchRecord in data.searchRecords">
+                <div class="search-item" for(searchRecord in data.searchRecords)>
                     <div class="search-item-container drop-shadow">
                         <div class="img-container">
                             <img src="${searchRecord.imgUrl}">
@@ -30,16 +30,16 @@
                         <h4 class="title">
                             <a href="${searchRecord.viewItemUrl}">${searchRecord.title}</a>
                         </h4>
-                        
+
                         ${searchRecord.description}
 
-                        <div if="searchRecord.featured">
+                        <div if(searchRecord.featured)>
                             Featured!
                         </div>
 
-                        <div if="notEmpty(searchRecord.sizes)">
+                        <div if(notEmpty(searchRecord.sizes))>
                             Sizes available:<ul>
-                                <li for="size in searchRecord.sizes">${size}</li>
+                                <li for(size in searchRecord.sizes)>${size}</li>
                             </ul>
                         </div>
                     </div>
