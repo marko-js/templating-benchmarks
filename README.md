@@ -1,7 +1,7 @@
 templating-benchmarks
 =====================
 
-This project provides a framework for running benchmarks against multiple templating languages under Node.js. The following templating engine modules are currently integrated:
+This project provides a framework for running benchmarks against multiple templating engines under Node.js. The following templating engine modules are currently integrated:
 
 Template | Syntax | Streaming | Asynchronous | Auto-escape
 ---- | ---- | ---- | ---- | ----
@@ -11,12 +11,12 @@ Template | Syntax | Streaming | Asynchronous | Auto-escape
 [jade](https://github.com/visionmedia/jade) | Short-hand HTML | ✖ | ✖ | ✔
 [marko](https://github.com/marko-js/marko) | HTML | ✔ | ✔ | ✔
 [nunjucks](http://mozilla.github.io/nunjucks/) | Text | ✖ | ✔ | ✖
+[react](https://facebook.github.io/react/)<sup>1</sup> | JSX | ✖ | ✖ | ✔
 [swig](http://mozilla.github.io/nunjucks/) | Text | ✖ | ✖ | ✔
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+NOTE 1: While React is not a "templating engine", it is commonly used to render HTML on the server so it has been included in this benchmark.
 
-**Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
+# Table of Contents
 
 - [Run Benchmarks](#run-benchmarks)
 - [Current Results](#current-results)
@@ -55,48 +55,50 @@ Higher numbers are better.
                       RUNTIME PERFORMANCE
                       ===================
                       friends
-                   ✓ marko »    4,352 op/s (fastest)
-                    ✗ dust »      930 op/s (78.63% slower)
+                   ✓ marko »    4,972 op/s (fastest)
+                    ✗ dust »      935 op/s (81.19% slower)
 
                       if-expression
-                   ✓ marko »  367,776 op/s (fastest)
-                    ✗ dust »   45,983 op/s (87.50% slower)
+                   ✓ marko »  429,859 op/s (fastest)
+                    ✗ jade »   26,653 op/s (93.80% slower)
 
                       projects-escaped
-                   ✓ marko »   95,146 op/s (fastest)
-      ✗ marko (native-for) »   92,505 op/s (2.78% slower)
-              ✗ handlebars »   50,685 op/s (46.73% slower)
-                    ✗ dust »   44,989 op/s (52.72% slower)
+      ✓ marko (native-for) »   92,337 op/s (fastest)
+                   ✗ marko »   91,965 op/s (0.40% slower)
+              ✗ handlebars »   58,469 op/s (36.68% slower)
+                    ✗ dust »   32,612 op/s (64.68% slower)
 
                       projects-unescaped
-                   ✓ marko »  365,939 op/s (fastest)
-      ✗ marko (native-for) »  332,373 op/s (9.17% slower)
-              ✗ handlebars »  227,143 op/s (37.93% slower)
-                    ✗ dust »   87,574 op/s (76.07% slower)
+      ✓ marko (native-for) »  394,733 op/s (fastest)
+                   ✗ marko »  376,945 op/s (4.51% slower)
+              ✗ handlebars »  168,980 op/s (57.19% slower)
+                    ✗ dust »   75,861 op/s (80.78% slower)
 
                       reverse-helper
-                   ✓ marko »  451,932 op/s (fastest)
-                    ✗ dust »  298,629 op/s (33.92% slower)
+                   ✓ marko »  413,162 op/s (fastest)
+                    ✗ dust »  235,926 op/s (42.90% slower)
 
                       search-results
-                   ✓ marko »   38,032 op/s (fastest)
-      ✗ marko (native-for) »   32,919 op/s (13.44% slower)
-                    ✗ dust »   11,527 op/s (69.69% slower)
+                   ✓ marko »   36,580 op/s (fastest)
+                    ✗ dust »   10,357 op/s (71.69% slower)
 
                       simple-1
-                   ✓ marko »  238,128 op/s (fastest)
-      ✗ marko (native-for) »  233,120 op/s (2.10% slower)
-                     ✗ dot »  211,886 op/s (11.02% slower)
-              ✗ handlebars »  113,257 op/s (52.44% slower)
-                    ✗ dust »   74,620 op/s (68.66% slower)
-                    ✗ swig »   62,635 op/s (73.70% slower)
-                    ✗ jade »   43,807 op/s (81.60% slower)
-                ✗ nunjucks »   36,891 op/s (84.51% slower)
-                  ✗ plates »    9,911 op/s (95.84% slower)
+                   ✓ marko »  187,729 op/s (fastest)
+                     ✗ dot »  183,161 op/s (2.43% slower)
+              ✗ handlebars »  104,634 op/s (44.26% slower)
+                    ✗ dust »   83,773 op/s (55.38% slower)
+                    ✗ swig »   54,866 op/s (70.77% slower)
+                    ✗ jade »   32,929 op/s (82.46% slower)
+                ✗ nunjucks »   32,306 op/s (82.79% slower)
+                   ✗ react »    3,651 op/s (98.06% slower)
 
                       simple-2
-                   ✓ marko »  297,536 op/s (fastest)
-                    ✗ dust »  122,809 op/s (58.72% slower)
+                   ✓ marko »  278,823 op/s (fastest)
+                    ✗ dust »  100,427 op/s (63.98% slower)
+
+                      ui-components
+                   ✓ marko »   30,146 op/s (fastest)
+                   ✗ react »    2,946 op/s (90.23% slower)
 ```
 <!-- </performance> -->
 
@@ -115,68 +117,72 @@ Lower numbers are better.
                                     3.48% larger              34.03% larger
 
                       if-expression
-                   ✓ marko »   285 bytes gzipped     476 bytes uncompressed
+                   ✓ marko »   281 bytes gzipped     469 bytes uncompressed
                                       (smallest)                 (smallest)
-                    ✗ dust »   392 bytes gzipped    1043 bytes uncompressed
-                                   27.30% larger              54.36% larger
+                    ✗ jade »   388 bytes gzipped    1057 bytes uncompressed
+                                   27.58% larger              55.63% larger
 
                       projects-escaped
                    ✓ marko »   247 bytes gzipped     379 bytes uncompressed
                                       (smallest)                 (smallest)
                     ✗ dust »   262 bytes gzipped     563 bytes uncompressed
                                     5.73% larger              32.68% larger
-      ✗ marko (native-for) »   269 bytes gzipped     406 bytes uncompressed
-                                    8.18% larger               6.65% larger
-              ✗ handlebars »   548 bytes gzipped    1540 bytes uncompressed
-                                   54.93% larger              75.39% larger
+      ✗ marko (native-for) »   271 bytes gzipped     407 bytes uncompressed
+                                    8.86% larger               6.88% larger
+              ✗ handlebars »   553 bytes gzipped    1551 bytes uncompressed
+                                   55.33% larger              75.56% larger
 
                       projects-unescaped
-                   ✓ marko »   249 bytes gzipped     379 bytes uncompressed
+                   ✓ marko »   250 bytes gzipped     380 bytes uncompressed
                                       (smallest)                 (smallest)
                     ✗ dust »   268 bytes gzipped     595 bytes uncompressed
-                                    7.09% larger              36.30% larger
-      ✗ marko (native-for) »   273 bytes gzipped     406 bytes uncompressed
-                                    8.79% larger               6.65% larger
-              ✗ handlebars »   521 bytes gzipped    1556 bytes uncompressed
-                                   52.21% larger              75.64% larger
+                                    6.72% larger              36.13% larger
+      ✗ marko (native-for) »   275 bytes gzipped     408 bytes uncompressed
+                                    9.09% larger               6.86% larger
+              ✗ handlebars »   530 bytes gzipped    1573 bytes uncompressed
+                                   52.83% larger              75.84% larger
 
                       reverse-helper
                     ✓ dust »   151 bytes gzipped     321 bytes uncompressed
-                                      (smallest)              23.05% larger
-                   ✗ marko »   169 bytes gzipped     247 bytes uncompressed
-                                   10.65% larger                 (smallest)
+                                      (smallest)              31.78% larger
+                   ✗ marko »   167 bytes gzipped     219 bytes uncompressed
+                                    9.58% larger                 (smallest)
 
                       search-results
                    ✓ marko »   536 bytes gzipped    1189 bytes uncompressed
                                       (smallest)                 (smallest)
                     ✗ dust »   545 bytes gzipped    1523 bytes uncompressed
                                     1.65% larger              21.93% larger
-      ✗ marko (native-for) »   575 bytes gzipped    1242 bytes uncompressed
-                                    6.78% larger               4.27% larger
 
                       simple-1
-                   ✓ marko »   216 bytes gzipped     293 bytes uncompressed
+                   ✓ marko »   251 bytes gzipped     369 bytes uncompressed
                                       (smallest)                 (smallest)
-      ✗ marko (native-for) »   237 bytes gzipped     320 bytes uncompressed
-                                    8.86% larger               8.44% larger
-                    ✗ dust »   249 bytes gzipped     462 bytes uncompressed
-                                   13.25% larger              36.58% larger
-                    ✗ jade »   337 bytes gzipped     664 bytes uncompressed
-                                   35.91% larger              55.87% larger
-                     ✗ dot »   353 bytes gzipped     523 bytes uncompressed
-                                   38.81% larger              43.98% larger
-              ✗ handlebars »   418 bytes gzipped     818 bytes uncompressed
-                                   48.33% larger              64.18% larger
-                ✗ nunjucks »   448 bytes gzipped     910 bytes uncompressed
-                                   51.79% larger              67.80% larger
-                    ✗ swig »   544 bytes gzipped    2557 bytes uncompressed
-                                   60.29% larger              88.54% larger
+                    ✗ dust »   255 bytes gzipped     493 bytes uncompressed
+                                    1.57% larger              25.15% larger
+                   ✗ react »   262 bytes gzipped     478 bytes uncompressed
+                                    4.20% larger              22.80% larger
+                    ✗ jade »   345 bytes gzipped     704 bytes uncompressed
+                                   27.25% larger              47.59% larger
+                     ✗ dot »   362 bytes gzipped     559 bytes uncompressed
+                                   30.66% larger              33.99% larger
+              ✗ handlebars »   434 bytes gzipped     880 bytes uncompressed
+                                   42.17% larger              58.07% larger
+                ✗ nunjucks »   466 bytes gzipped     991 bytes uncompressed
+                                   46.14% larger              62.76% larger
+                    ✗ swig »   558 bytes gzipped    2636 bytes uncompressed
+                                   55.02% larger              86.00% larger
 
                       simple-2
                    ✓ marko »   255 bytes gzipped     484 bytes uncompressed
                                       (smallest)                 (smallest)
                     ✗ dust »   268 bytes gzipped     648 bytes uncompressed
                                     4.85% larger              25.31% larger
+
+                      ui-components
+                   ✓ marko »   179 bytes gzipped     219 bytes uncompressed
+                                      (smallest)                 (smallest)
+                   ✗ react »   204 bytes gzipped     310 bytes uncompressed
+                                   12.25% larger              29.35% larger
 ```
 <!-- </size> -->
 
