@@ -41,7 +41,7 @@ NOTE 1: While React is not a "templating engine", it is commonly used to render 
 
 The following results were collected with the following setup:
 
-- Node.js v4.1.1
+- Node.js v5.10.1
 - MacBook Pro (Retina, 15-inch, Mid 2014)
 - Processor: 2.8 GHz Intel Core i7
 - Memory: 16 GB 1600 MHz DDR3
@@ -55,50 +55,50 @@ Higher numbers are better.
                       RUNTIME PERFORMANCE
                       ===================
                       friends
-                   ✓ marko »    4,972 op/s (fastest)
-                    ✗ dust »      935 op/s (81.19% slower)
+                   ✓ marko »    3,938 op/s (fastest)
+                    ✗ dust »      807 op/s (79.51% slower)
 
                       if-expression
-                   ✓ marko »  429,859 op/s (fastest)
-                    ✗ jade »   26,653 op/s (93.80% slower)
+                   ✓ marko »  365,090 op/s (fastest)
+                    ✗ jade »   24,640 op/s (93.25% slower)
 
                       projects-escaped
-      ✓ marko (native-for) »   92,337 op/s (fastest)
-                   ✗ marko »   91,965 op/s (0.40% slower)
-              ✗ handlebars »   58,469 op/s (36.68% slower)
-                    ✗ dust »   32,612 op/s (64.68% slower)
+      ✓ marko (native-for) »   80,722 op/s (fastest)
+                   ✗ marko »   80,626 op/s (0.12% slower)
+              ✗ handlebars »   49,628 op/s (38.52% slower)
+                    ✗ dust »   44,183 op/s (45.27% slower)
 
                       projects-unescaped
-      ✓ marko (native-for) »  394,733 op/s (fastest)
-                   ✗ marko »  376,945 op/s (4.51% slower)
-              ✗ handlebars »  168,980 op/s (57.19% slower)
-                    ✗ dust »   75,861 op/s (80.78% slower)
+      ✓ marko (native-for) »  358,746 op/s (fastest)
+                   ✗ marko »  330,644 op/s (7.83% slower)
+              ✗ handlebars »  154,299 op/s (56.99% slower)
+                    ✗ dust »   75,454 op/s (78.97% slower)
 
                       reverse-helper
-                   ✓ marko »  413,162 op/s (fastest)
-                    ✗ dust »  235,926 op/s (42.90% slower)
+                   ✓ marko »  360,835 op/s (fastest)
+                    ✗ dust »  275,400 op/s (23.68% slower)
 
                       search-results
-                   ✓ marko »   36,580 op/s (fastest)
-                    ✗ dust »   10,357 op/s (71.69% slower)
+                   ✓ marko »   33,887 op/s (fastest)
+                    ✗ dust »    9,523 op/s (71.90% slower)
 
                       simple-1
-                   ✓ marko »  187,729 op/s (fastest)
-                     ✗ dot »  183,161 op/s (2.43% slower)
-              ✗ handlebars »  104,634 op/s (44.26% slower)
-                    ✗ dust »   83,773 op/s (55.38% slower)
-                    ✗ swig »   54,866 op/s (70.77% slower)
-                    ✗ jade »   32,929 op/s (82.46% slower)
-                ✗ nunjucks »   32,306 op/s (82.79% slower)
-                   ✗ react »    3,651 op/s (98.06% slower)
+                   ✓ marko »  186,960 op/s (fastest)
+                     ✗ dot »  182,433 op/s (2.42% slower)
+              ✗ handlebars »   90,034 op/s (51.84% slower)
+                    ✗ dust »   87,160 op/s (53.38% slower)
+                    ✗ swig »   48,753 op/s (73.92% slower)
+                ✗ nunjucks »   35,671 op/s (80.92% slower)
+                    ✗ jade »   29,633 op/s (84.15% slower)
+                   ✗ react »    3,565 op/s (98.09% slower)
 
                       simple-2
-                   ✓ marko »  278,823 op/s (fastest)
-                    ✗ dust »  100,427 op/s (63.98% slower)
+                   ✓ marko »  288,573 op/s (fastest)
+                    ✗ dust »  109,311 op/s (62.12% slower)
 
                       ui-components
-                   ✓ marko »   30,146 op/s (fastest)
-                   ✗ react »    2,946 op/s (90.23% slower)
+                   ✓ marko »   55,855 op/s (fastest)
+                   ✗ react »    2,890 op/s (94.83% slower)
 ```
 <!-- </performance> -->
 
@@ -111,10 +111,10 @@ Lower numbers are better.
                       COMPILED SIZE (gzipped/uncompressed)
                       ====================================
                       friends
-                   ✓ marko »   472 bytes gzipped     915 bytes uncompressed
+                   ✓ marko »   470 bytes gzipped     914 bytes uncompressed
                                       (smallest)                 (smallest)
                     ✗ dust »   489 bytes gzipped    1387 bytes uncompressed
-                                    3.48% larger              34.03% larger
+                                    3.89% larger              34.10% larger
 
                       if-expression
                    ✓ marko »   281 bytes gzipped     469 bytes uncompressed

@@ -10,7 +10,7 @@ function create(__helpers) {
     forEach(data.accounts, function(account) {
       out.w("<div>");
 
-      if (account.accountStatus === 'closed') {
+      if (account.accountStatus === "closed") {
         out.w("<div>Your account has been closed!</div>");
       } else if (account.accountStatus === "suspended") {
         out.w("<div>Your account has been temporarily suspended</div>");

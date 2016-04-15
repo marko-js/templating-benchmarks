@@ -8,7 +8,7 @@ function create(__helpers) {
       escapeXmlAttr = __helpers.xa;
 
   return function render(data, out) {
-    out.w("<!doctype html> <html lang=\"en\"><head><meta charset=\"UTF-8\"><title>Friends</title></head><body><div class=\"friends\">");
+    out.w("<!doctype html><html lang=\"en\"><head><meta charset=\"UTF-8\"><title>Friends</title></head><body><div class=\"friends\">");
 
     forEach(data.friends, function(friend) {
       out.w("<div class=\"friend\"><ul><li>Name: " +

@@ -2,11 +2,11 @@
     "friends": {
         "gzipped": {
             "dust": 489,
-            "marko": 472
+            "marko": 470
         },
         "uncompressed": {
             "dust": 1387,
-            "marko": 915
+            "marko": 914
         }
     },
     "if-expression": {
