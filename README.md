@@ -9,7 +9,7 @@ Template | Syntax | Streaming | Asynchronous | Auto-escape
 [doT](https://github.com/olado/doT) | Text | ✖ | ✖ | ✖
 [handlebars](https://github.com/wycats/handlebars.js) | Text | ✖ | ✖ | ✔
 [jade](https://github.com/visionmedia/jade) | Short-hand HTML | ✖ | ✖ | ✔
-[marko](https://github.com/marko-js/marko) | HTML | ✔ | ✔ | ✔
+[marko](https://github.com/marko-js/marko) | HTML/Concise HTML | ✔ | ✔ | ✔
 [nunjucks](http://mozilla.github.io/nunjucks/) | Text | ✖ | ✔ | ✖
 [react](https://facebook.github.io/react/)<sup>1</sup> | JSX | ✖ | ✖ | ✔
 [swig](http://mozilla.github.io/nunjucks/) | Text | ✖ | ✖ | ✔
