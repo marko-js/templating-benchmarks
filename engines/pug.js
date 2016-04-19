@@ -1,16 +1,16 @@
-var jade = require('jade');
+var pug = require('pug');
 
 module.exports = {
-    name: 'jade',
-    ext: 'jade',
+    name: 'pug',
+    ext: 'pug',
     render: function(template, data, callback) {
         callback(null, template(data));
     },
     compile: function(src, templatePath, templateName, callback) {
-        var compiled = jade.compileClient(src);
+        var compiled = pug.compileClient(src);
         callback(null, compiled);
     },
     load: function(src, templatePath, templateName, callback) {
-        callback(null, jade.compile(src));
+        callback(null, pug.compile(src));
     }
 };
