@@ -8,9 +8,13 @@ function create(__helpers) {
 
   return function render(data, out) {
     out.w(str(reverse(data.A)) +
+      " " +
       str(reverse(data.B)) +
+      " " +
       str(reverse(data.C)) +
+      " " +
       str(reverse(data.D)) +
+      " " +
       str(reverse(data.E)));
   };
 }

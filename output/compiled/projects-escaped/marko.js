@@ -7,27 +7,29 @@ function create(__helpers) {
       attr = __helpers.a;
 
   return function render(data, out) {
-    out.w("<html><head><title>" +
+    out.w("<html> <head> <title>" +
       escapeXml(data.title) +
-      "</title></head><body><p>" +
+      "</title> </head> <body> <p>" +
       escapeXml(data.text) +
-      "</p>");
+      "</p> ");
 
     forEach(data.projects, function(project) {
-      out.w("<a" +
+      out.w(" <a" +
         attr("href", project.url) +
         ">" +
         escapeXml(project.name) +
-        "</a><p>" +
+        "</a> <p>" +
         escapeXml(project.description) +
-        "</p>");
+        "</p> ");
     });
 
+    out.w(" ");
+
     if (empty(data.projects)) {
-      out.w("No projects");
+      out.w(" No projects ");
     }
 
-    out.w("</body></html>");
+    out.w(" </body> </html>");
   };
 }
 

@@ -10,7 +10,7 @@ _output += "\n    <ul>\n        ";
 (function () {
   var __l = (((typeof _ctx.colors !== "undefined" && _ctx.colors !== null) ? ((typeof _ctx.colors !== "undefined" && _ctx.colors !== null) ? _ctx.colors : "") : ((typeof colors !== "undefined" && colors !== null) ? colors : "")) !== null ? ((typeof _ctx.colors !== "undefined" && _ctx.colors !== null) ? ((typeof _ctx.colors !== "undefined" && _ctx.colors !== null) ? _ctx.colors : "") : ((typeof colors !== "undefined" && colors !== null) ? colors : "")) : "" ), __len = (_utils.isArray(__l) || typeof __l === "string") ? __l.length : _utils.keys(__l).length;
   if (!__l) { return; }
-    var _ctx__loopcache08865883243270218 = { loop: _ctx.loop, color: _ctx.color, __k: _ctx.__k };
+    var _ctx__loopcache045044726645573974 = { loop: _ctx.loop, color: _ctx.color, __k: _ctx.__k };
     _ctx.loop = { first: false, index: 1, index0: 0, revindex: __len, revindex0: __len - 1, length: __len, last: false };
   _utils.each(__l, function (color, __k) {
     _ctx.color = color;
@@ -23,10 +23,10 @@ _output += _filters["e"]((((typeof _ctx.color !== "undefined" && _ctx.color !== 
 _output += "</li>\n        ";
     _ctx.loop.index += 1; _ctx.loop.index0 += 1; _ctx.loop.revindex -= 1; _ctx.loop.revindex0 -= 1;
   });
-  _ctx.loop = _ctx__loopcache08865883243270218.loop;
-  _ctx.color = _ctx__loopcache08865883243270218.color;
-  _ctx.__k = _ctx__loopcache08865883243270218.__k;
-  _ctx__loopcache08865883243270218 = undefined;
+  _ctx.loop = _ctx__loopcache045044726645573974.loop;
+  _ctx.color = _ctx__loopcache045044726645573974.color;
+  _ctx.__k = _ctx__loopcache045044726645573974.__k;
+  _ctx__loopcache045044726645573974 = undefined;
 })();
 _output += "\n    </ul>\n    ";
 } else {

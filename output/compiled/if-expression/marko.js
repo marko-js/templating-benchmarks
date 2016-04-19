@@ -8,21 +8,21 @@ function create(__helpers) {
 
   return function render(data, out) {
     forEach(data.accounts, function(account) {
-      out.w("<div>");
+      out.w("<div> ");
 
       if (account.accountStatus === "closed") {
-        out.w("<div>Your account has been closed!</div>");
+        out.w("<div> Your account has been closed! </div>");
       } else if (account.accountStatus === "suspended") {
-        out.w("<div>Your account has been temporarily suspended</div>");
+        out.w("<div> Your account has been temporarily suspended </div>");
       } else {
-        out.w("<div>Bank balance: <span" +
+        out.w("<div> Bank balance: <span" +
           classAttr(account.balance < 0 ? "negative" : "positive") +
           ">" +
           escapeXml(account.formattedBalance) +
-          "</span></div>");
+          "</span> </div>");
       }
 
-      out.w("</div>");
+      out.w(" </div>");
     });
   };
 }
