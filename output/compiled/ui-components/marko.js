@@ -7,11 +7,11 @@ function create(__helpers) {
       marko_colors = __loadTag(require("./components/marko-colors"));
 
   return function render(data, out) {
-    out.w("<div class=\"my-app\"> ");
+    out.w("<div class=\"my-app\">");
 
     marko_colors(data, out);
 
-    out.w(" </div>");
+    out.w("</div>");
   };
 }
 

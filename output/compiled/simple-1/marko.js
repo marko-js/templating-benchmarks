@@ -19,7 +19,7 @@ function create(__helpers) {
           escapeXmlAttr(color) +
           "\" class=\"color\">" +
           escapeXml(color) +
-          " </li>");
+          "</li>");
       });
 
       out.w("</ul>");
