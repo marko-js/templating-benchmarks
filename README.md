@@ -42,9 +42,9 @@ NOTE 1: While React is not a "templating engine", it is commonly used to render 
 The following results were collected with the following setup:
 
 - Node.js v5.10.1
-- MacBook Pro (Retina, 15-inch, Mid 2014)
-- Processor: 2.8 GHz Intel Core i7
-- Memory: 16 GB 1600 MHz DDR3
+- Acer Aspire V5
+- Processor: Intel Core i5-3337U @ 1.80 GHz
+- Memory: 8 GB
 
 ## Performance
 
@@ -55,49 +55,50 @@ Higher numbers are better.
                       RUNTIME PERFORMANCE
                       ===================
                       friends
-                   ✓ marko »    2,569 op/s (fastest)
-                    ✗ dust »      274 op/s (89.33% slower)
+                   ✓ marko »    3,229 op/s (fastest)
+                    ✗ dust »      443 op/s (86.28% slower)
 
                       if-expression
-                   ✓ marko »  131,313 op/s (fastest)
-                     ✗ pug »   44,568 op/s (66.06% slower)
+                   ✓ marko »  216,753 op/s (fastest)
+                     ✗ pug »   56,595 op/s (73.89% slower)
 
                       projects-escaped
-                   ✓ marko »   41,986 op/s (fastest)
-      ✗ marko (native-for) »   41,522 op/s (1.11% slower)
-              ✗ handlebars »   23,640 op/s (43.70% slower)
-                    ✗ dust »    9,196 op/s (78.10% slower)
+      ✓ marko (native-for) »   52,466 op/s (fastest)
+                   ✗ marko »   50,936 op/s (2.92% slower)
+              ✗ handlebars »   30,738 op/s (41.41% slower)
+                    ✗ dust »   12,450 op/s (76.27% slower)
 
                       projects-unescaped
-                   ✓ marko »  163,985 op/s (fastest)
-      ✗ marko (native-for) »  160,112 op/s (2.36% slower)
-              ✗ handlebars »   70,050 op/s (57.28% slower)
-                    ✗ dust »   38,321 op/s (76.63% slower)
+      ✓ marko (native-for) »  210,678 op/s (fastest)
+                   ✗ marko »  205,851 op/s (2.29% slower)
+              ✗ handlebars »   89,604 op/s (57.47% slower)
+                    ✗ dust »   45,622 op/s (78.35% slower)
 
                       reverse-helper
-                   ✓ marko »  167,674 op/s (fastest)
-                    ✗ dust »  103,403 op/s (38.33% slower)
+                   ✓ marko »  234,056 op/s (fastest)
+                    ✗ dust »  152,026 op/s (35.05% slower)
 
                       search-results
-                   ✓ marko »   20,525 op/s (fastest)
-                    ✗ dust »    5,437 op/s (73.51% slower)
+                   ✓ marko »   24,987 op/s (fastest)
+                    ✗ dust »    6,358 op/s (74.55% slower)
 
                       simple-1
-                     ✓ dot »   84,277 op/s (fastest)
-                   ✗ marko »   74,221 op/s (11.93% slower)
-              ✗ handlebars »   47,866 op/s (43.20% slower)
-                    ✗ dust »   38,667 op/s (54.12% slower)
-                    ✗ swig »   24,398 op/s (71.05% slower)
-                ✗ nunjucks »   13,944 op/s (83.45% slower)
-                   ✗ react »    1,756 op/s (97.92% slower)
+                     ✓ dot »  115,517 op/s (fastest)
+                   ✗ marko »  102,283 op/s (11.46% slower)
+                     ✗ pug »   93,125 op/s (19.38% slower)
+              ✗ handlebars »   56,543 op/s (51.05% slower)
+                    ✗ dust »   48,675 op/s (57.86% slower)
+                    ✗ swig »   32,942 op/s (71.48% slower)
+                ✗ nunjucks »   22,601 op/s (80.43% slower)
+                   ✗ react »    2,559 op/s (97.78% slower)
 
                       simple-2
-                   ✓ marko »   93,122 op/s (fastest)
-                    ✗ dust »   42,421 op/s (54.45% slower)
+                   ✓ marko »  160,011 op/s (fastest)
+                    ✗ dust »   60,635 op/s (62.11% slower)
 
                       ui-components
-                   ✓ marko »   23,066 op/s (fastest)
-                   ✗ react »    1,153 op/s (95.00% slower)
+                   ✓ marko »   32,938 op/s (fastest)
+                   ✗ react »    2,166 op/s (93.42% slower)
 ```
 <!-- </performance> -->
 
@@ -168,6 +169,8 @@ Lower numbers are better.
                                    46.27% larger              63.69% larger
                     ✗ swig »   558 bytes gzipped    2636 bytes uncompressed
                                    54.84% larger              85.96% larger
+                     ✗ pug »   788 bytes gzipped    1508 bytes uncompressed
+                                   68.02% larger              75.46% larger
 
                       simple-2
                    ✓ marko »   259 bytes gzipped     494 bytes uncompressed

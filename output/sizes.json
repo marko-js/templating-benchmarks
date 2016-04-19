@@ -75,6 +75,7 @@
             "react": 262,
             "marko": 252,
             "nunjucks": 469,
+            "pug": 788,
             "swig": 558
         },
         "uncompressed": {
@@ -84,6 +85,7 @@
             "react": 478,
             "marko": 370,
             "nunjucks": 1019,
+            "pug": 1508,
             "swig": 2636
         }
     },
