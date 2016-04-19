@@ -8,7 +8,7 @@ Template | Syntax | Streaming | Asynchronous | Auto-escape
 [dustjs-linkedin](https://github.com/linkedin/dustjs) | Text | ✔ | ✔ | ✔
 [doT](https://github.com/olado/doT) | Text | ✖ | ✖ | ✖
 [handlebars](https://github.com/wycats/handlebars.js) | Text | ✖ | ✖ | ✔
-[jade](https://github.com/visionmedia/jade) | Short-hand HTML | ✖ | ✖ | ✔
+[pug](https://github.com/pugjs/pug) | Short-hand HTML | ✖ | ✖ | ✔
 [marko](https://github.com/marko-js/marko) | HTML/Concise HTML | ✔ | ✔ | ✔
 [nunjucks](http://mozilla.github.io/nunjucks/) | Text | ✖ | ✔ | ✖
 [react](https://facebook.github.io/react/)<sup>1</sup> | JSX | ✖ | ✖ | ✔
