@@ -41,7 +41,7 @@ NOTE 1: While React is not a "templating engine", it is commonly used to render 
 
 The following results were collected with the following setup:
 
-- Node.js v5.10.1
+- Node.js v6.0.0
 - MacBook Pro (Retina, 15-inch, Mid 2014)
 - Processor: 2.8 GHz Intel Core i7
 - Memory: 16 GB 1600 MHz DDR3
@@ -55,50 +55,50 @@ Higher numbers are better.
                       RUNTIME PERFORMANCE
                       ===================
                       friends
-                   ✓ marko »    5,016 op/s (fastest)
-                    ✗ dust »    1,016 op/s (79.74% slower)
+                   ✓ marko »    4,796 op/s (fastest)
+                    ✗ dust »    1,034 op/s (78.44% slower)
 
                       if-expression
-                   ✓ marko »  417,709 op/s (fastest)
-                     ✗ pug »   99,765 op/s (76.12% slower)
+                   ✓ marko »  415,358 op/s (fastest)
+                     ✗ pug »  281,887 op/s (32.13% slower)
 
                       projects-escaped
-      ✓ marko (native-for) »   98,386 op/s (fastest)
-                   ✗ marko »   95,472 op/s (2.96% slower)
-              ✗ handlebars »   61,408 op/s (37.58% slower)
-                    ✗ dust »   52,269 op/s (46.87% slower)
+      ✓ marko (native-for) »  100,015 op/s (fastest)
+                   ✗ marko »   99,583 op/s (0.43% slower)
+              ✗ handlebars »   58,383 op/s (41.63% slower)
+                    ✗ dust »   44,827 op/s (55.18% slower)
 
                       projects-unescaped
-                   ✓ marko »  402,243 op/s (fastest)
-      ✗ marko (native-for) »  400,755 op/s (0.37% slower)
-              ✗ handlebars »  191,064 op/s (52.50% slower)
-                    ✗ dust »   90,895 op/s (77.40% slower)
+      ✓ marko (native-for) »  444,603 op/s (fastest)
+                   ✗ marko »  397,968 op/s (10.49% slower)
+              ✗ handlebars »  159,114 op/s (64.21% slower)
+                    ✗ dust »   86,164 op/s (80.62% slower)
 
                       reverse-helper
-                   ✓ marko »  485,411 op/s (fastest)
-                    ✗ dust »  332,088 op/s (31.59% slower)
+                   ✓ marko »  514,300 op/s (fastest)
+                    ✗ dust »  269,109 op/s (47.67% slower)
 
                       search-results
-                   ✓ marko »   40,769 op/s (fastest)
-                    ✗ dust »   12,187 op/s (70.11% slower)
+                   ✓ marko »   39,775 op/s (fastest)
+                    ✗ dust »   10,543 op/s (73.49% slower)
 
                       simple-1
-                   ✓ marko »  231,466 op/s (fastest)
-                     ✗ dot »  231,157 op/s (0.13% slower)
-                     ✗ pug »  207,316 op/s (10.43% slower)
-              ✗ handlebars »  134,111 op/s (42.06% slower)
-                    ✗ dust »  117,714 op/s (49.14% slower)
-                    ✗ swig »   63,700 op/s (72.48% slower)
-                ✗ nunjucks »   45,250 op/s (80.45% slower)
-                   ✗ react »    4,356 op/s (98.12% slower)
+                   ✓ marko »  234,384 op/s (fastest)
+                     ✗ pug »  229,040 op/s (2.28% slower)
+                     ✗ dot »  219,742 op/s (6.25% slower)
+              ✗ handlebars »  109,665 op/s (53.21% slower)
+                    ✗ dust »   92,114 op/s (60.70% slower)
+                    ✗ swig »   82,274 op/s (64.90% slower)
+                ✗ nunjucks »   35,635 op/s (84.80% slower)
+                   ✗ react »    4,801 op/s (97.95% slower)
 
                       simple-2
-                   ✓ marko »  344,518 op/s (fastest)
-                    ✗ dust »  142,329 op/s (58.69% slower)
+                   ✓ marko »  368,667 op/s (fastest)
+                    ✗ dust »  106,878 op/s (71.01% slower)
 
                       ui-components
-                   ✓ marko »   85,048 op/s (fastest)
-                   ✗ react »    3,694 op/s (95.66% slower)
+                   ✓ marko »   85,915 op/s (fastest)
+                   ✗ react »    4,076 op/s (95.26% slower)
 ```
 <!-- </performance> -->
 
