@@ -11,12 +11,14 @@
     },
     "if-expression": {
         "gzipped": {
+            "jade": 388,
             "marko": 281,
-            "pug": 1196
+            "pug": 1186
         },
         "uncompressed": {
+            "jade": 1057,
             "marko": 469,
-            "pug": 2801
+            "pug": 2784
         }
     },
     "projects-escaped": {
@@ -70,22 +72,24 @@
     "simple-1": {
         "gzipped": {
             "dot": 362,
-            "dust": 255,
-            "handlebars": 434,
+            "dust": 254,
+            "handlebars": 431,
+            "jade": 345,
             "react": 262,
             "marko": 251,
-            "nunjucks": 466,
-            "pug": 788,
+            "nunjucks": 465,
+            "pug": 793,
             "swig": 558
         },
         "uncompressed": {
             "dot": 559,
-            "dust": 493,
-            "handlebars": 880,
+            "dust": 491,
+            "handlebars": 877,
+            "jade": 704,
             "react": 478,
             "marko": 369,
             "nunjucks": 991,
-            "pug": 1508,
+            "pug": 1531,
             "swig": 2636
         }
     },
