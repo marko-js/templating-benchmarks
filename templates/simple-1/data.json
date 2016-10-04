@@ -1,10 +1,7 @@
-[
-    {
-        "name": "John Doe",
-        "colors": ["red", "green", "blue", "yellow", "orange", "pink", "black", "white", "beige", "brown", "cyan", "magenta"]
-    },
-    {
-        "name": "Jane Doe",
-        "colors": []
-    }
-]
+{
+    "name": "George Washington",
+    "messageCount": 999,
+    "colors": ["red", "green", "blue", "yellow", "orange", "pink", "black", "white", "beige", "brown", "cyan", "magenta"],
+    "primary": true,
+    "buttonLabel": "Welcome to the wonderful world of templating engines!"
+}

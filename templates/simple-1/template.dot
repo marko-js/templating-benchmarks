@@ -1,15 +1,18 @@
-<div class="colors">
-    Hello {{!it.name}}!
+<div class="simple-1" style="background-color: blue; border: 1px solid black">
+    <div class="colors">
+        <span class="hello">Hello {{!it.name}}! <strong>You have {{!it.messageCount}} messages!</strong></span>
 
-    {{? it.colors && it.colors.length }}
-    <ul>
-        {{~it.colors :color}}
-        <li class="color">{{!color}}</li>
-        {{~}}
-    </ul>
-    {{??}}
-    <div>
-        No colors!
+        {{? it.colors && it.colors.length }}
+        <ul>
+            {{~it.colors :color}}
+            <li class="color">{{!color}}</li>
+            {{~}}
+        </ul>
+        {{??}}
+        <div>
+            No colors!
+        </div>
+        {{?}}
     </div>
-    {{?}}
+    <button type="button" class="{{? it.primary }}primary{{??}}secondary{{?}}">Click me!</button>
 </div>

@@ -1,15 +1,18 @@
-<div class="colors">
-    Hello {{ name }}!
+<div class="simple-1" style="background-color: blue; border: 1px solid black">
+    <div class="colors">
+        <span class="hello">Hello {{ name }}! <strong>You have {{ messageCount }} messages!</strong></span>
 
-    {% if colors and colors.length %}
-    <ul>
-        {% for color in colors %}
-        <li class="color">{{ color }}</li>
-        {% endfor %}
-    </ul>
-    {% else %}
-    <div>
-        No colors!
+        {% if colors and colors.length %}
+        <ul>
+            {% for color in colors %}
+            <li class="color">{{ color }}</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <div>
+            No colors!
+        </div>
+        {% endif %}
     </div>
-    {% endif %}
+    <button type="button" class="{% if primary %}primary{% else %}secondary{% endif %}">Click me!</button>
 </div>

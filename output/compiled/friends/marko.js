@@ -1,56 +1,53 @@
-function create(__helpers) {
-  var str = __helpers.s,
-      empty = __helpers.e,
-      notEmpty = __helpers.ne,
-      escapeXml = __helpers.x,
-      forEach = __helpers.f,
-      attr = __helpers.a,
-      escapeXmlAttr = __helpers.xa;
+function create(__markoHelpers) {
+  var marko_forEach = __markoHelpers.f,
+      marko_escapeXml = __markoHelpers.x,
+      marko_attr = __markoHelpers.a,
+      marko_escapeXmlAttr = __markoHelpers.xa;
 
   return function render(data, out) {
     out.w("<!doctype html><html lang=\"en\"><head><meta charset=\"UTF-8\"><title>Friends</title></head><body><div class=\"friends\">");
 
-    forEach(data.friends, function(friend) {
+    marko_forEach(data.friends, function(friend) {
       out.w("<div class=\"friend\"><ul><li>Name: " +
-        escapeXml(data.getFullNameRaptor(friend)) +
+        marko_escapeXml(data.getFullNameRaptor(friend)) +
         "</li><li>Balance: " +
-        escapeXml(friend.balance) +
+        marko_escapeXml(friend.balance) +
         "</li><li>Age: " +
-        escapeXml(friend.age) +
+        marko_escapeXml(friend.age) +
         "</li><li>Address: " +
-        escapeXml(friend.address) +
+        marko_escapeXml(friend.address) +
         "</li><li>Image: <img" +
-        attr("src", friend.picture) +
+        marko_attr("src", friend.picture) +
         "></li><li>Company: " +
-        escapeXml(friend.company) +
+        marko_escapeXml(friend.company) +
         "</li><li>Email: <a href=\"mailto:" +
-        escapeXmlAttr(friend.email) +
+        marko_escapeXmlAttr(friend.email) +
         "\">" +
-        escapeXml(friend.email) +
+        marko_escapeXml(friend.email) +
         "</a></li><li>About: " +
-        escapeXml(friend.about) +
+        marko_escapeXml(friend.about) +
         "</li>");
 
-      if (notEmpty(friend.tags)) {
+      if (friend.tags.length) {
         out.w("<li>Tags: <ul>");
 
-        forEach(friend.tags, function(tag) {
+        marko_forEach(friend.tags, function(tag) {
           out.w("<li>" +
-            escapeXml(tag) +
+            marko_escapeXml(tag) +
             "</li>");
         });
 
         out.w("</ul></li>");
       }
 
-      if (notEmpty(friend.friends)) {
+      if (friend.friends.length) {
         out.w("<li>Friends: <ul>");
 
-        forEach(friend.friends, function(friend) {
+        marko_forEach(friend.friends, function(friend) {
           out.w("<li>" +
-            escapeXml(friend.name) +
+            marko_escapeXml(friend.name) +
             " (" +
-            escapeXml(friend.id) +
+            marko_escapeXml(friend.id) +
             ")</li>");
         });
 

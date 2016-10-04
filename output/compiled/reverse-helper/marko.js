@@ -1,17 +1,14 @@
-function create(__helpers) {
-  var str = __helpers.s,
-      empty = __helpers.e,
-      notEmpty = __helpers.ne,
-      escapeXml = __helpers.x;
+function create(__markoHelpers) {
+  var marko_str = __markoHelpers.s;
 
   var reverse = require('../../helpers/util').reverse;
 
   return function render(data, out) {
-    out.w(str(reverse(data.A)) +
-      str(reverse(data.B)) +
-      str(reverse(data.C)) +
-      str(reverse(data.D)) +
-      str(reverse(data.E)));
+    out.w(marko_str(reverse(data.A)) +
+      marko_str(reverse(data.B)) +
+      marko_str(reverse(data.C)) +
+      marko_str(reverse(data.D)) +
+      marko_str(reverse(data.E)));
   };
 }
 

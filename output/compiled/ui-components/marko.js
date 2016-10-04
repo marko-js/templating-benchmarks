@@ -1,10 +1,6 @@
-function create(__helpers) {
-  var str = __helpers.s,
-      empty = __helpers.e,
-      notEmpty = __helpers.ne,
-      escapeXml = __helpers.x,
-      __loadTag = __helpers.t,
-      marko_colors = __loadTag(require("./components/marko-colors"));
+function create(__markoHelpers) {
+  var marko_loadTag = __markoHelpers.t,
+      marko_colors = marko_loadTag(require("./components/marko-colors"));
 
   return function render(data, out) {
     out.w("<div class=\"my-app\">");

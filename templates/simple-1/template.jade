@@ -1,8 +1,11 @@
-div.colors
-    = 'Hello ' + name + '!'
-    if colors && colors.length
-        ul
-            each color in colors
-                li.color= color
-    if !colors || !colors.length
-        div No colors!
+div(class="simple-1", style="background-color: blue; border: 1px solid black")
+    div.colors
+        span.hello.
+            Hello #{name}! <strong>You have #{messageCount} messages!</strong>
+        if colors && colors.length
+            ul
+                each color in colors
+                    li.color= color
+        if !colors || !colors.length
+            div No colors!
+    button(type="button", class=primary ? 'primary' : 'secondary') Click me!

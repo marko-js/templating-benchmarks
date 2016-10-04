@@ -1,30 +1,27 @@
-function create(__helpers) {
-  var str = __helpers.s,
-      empty = __helpers.e,
-      notEmpty = __helpers.ne,
-      escapeXml = __helpers.x,
-      attr = __helpers.a;
+function create(__markoHelpers) {
+  var marko_escapeXml = __markoHelpers.x,
+      marko_attr = __markoHelpers.a;
 
   return function render(data, out) {
     out.w("<html><head><title>" +
-      escapeXml(data.title) +
+      marko_escapeXml(data.title) +
       "</title></head><body><p>" +
-      escapeXml(data.text) +
+      marko_escapeXml(data.text) +
       "</p>");
 
     for (var i=0, len=data.projects.length; i < len; i++) {
       var project = data.projects[i];
 
       out.w("<a" +
-        attr("href", project.url) +
+        marko_attr("href", project.url) +
         ">" +
-        escapeXml(project.name) +
+        marko_escapeXml(project.name) +
         "</a><p>" +
-        escapeXml(project.description) +
+        marko_escapeXml(project.description) +
         "</p>");
     }
 
-    if (empty(data.projects)) {
+    if (!data.projects.length) {
       out.w("No projects");
     }
 

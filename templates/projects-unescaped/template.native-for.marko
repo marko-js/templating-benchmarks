@@ -9,7 +9,7 @@
             <a href="$!{project.url}">$!{project.name}</a>
             <p>$!{project.description}</p>
         </for>
-        <if(empty(data.projects))>
+        <if(!data.projects.length)>
             No projects
         </if>
     </body>

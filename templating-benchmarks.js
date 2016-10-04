@@ -61,6 +61,10 @@ templatesFiles.forEach(function(groupName) {
             return;
         }
 
+        // if (groupName !== 'simple-1') {
+        //     return;
+        // }
+
         var group = templateGroupsLookup[groupName] || (templateGroupsLookup[groupName] = {
             name: groupName,
             templates: [],

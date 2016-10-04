@@ -7,10 +7,10 @@ module.exports = {
         callback(null, template(data));
     },
     compile: function(src, templatePath, templateName, callback) {
-        var compiled = pug.compileClient(src);
+        var compiled = pug.compileClient(src, { compileDebug: false });
         callback(null, compiled);
     },
     load: function(src, templatePath, templateName, callback) {
-        callback(null, pug.compile(src));
+        callback(null, pug.compile(src, { compileDebug: false }));
     }
 };

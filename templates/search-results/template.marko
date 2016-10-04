@@ -37,7 +37,7 @@
                             Featured!
                         </div>
 
-                        <div if(notEmpty(searchRecord.sizes))>
+                        <div if(searchRecord.sizes && searchRecord.sizes.length)>
                             Sizes available:<ul>
                                 <li for(size in searchRecord.sizes)>${size}</li>
                             </ul>

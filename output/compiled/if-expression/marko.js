@@ -1,13 +1,10 @@
-function create(__helpers) {
-  var str = __helpers.s,
-      empty = __helpers.e,
-      notEmpty = __helpers.ne,
-      escapeXml = __helpers.x,
-      forEach = __helpers.f,
-      classAttr = __helpers.ca;
+function create(__markoHelpers) {
+  var marko_forEach = __markoHelpers.f,
+      marko_escapeXml = __markoHelpers.x,
+      marko_classAttr = __markoHelpers.ca;
 
   return function render(data, out) {
-    forEach(data.accounts, function(account) {
+    marko_forEach(data.accounts, function(account) {
       out.w("<div>");
 
       if (account.accountStatus === "closed") {
@@ -16,9 +13,9 @@ function create(__helpers) {
         out.w("<div>Your account has been temporarily suspended</div>");
       } else {
         out.w("<div>Bank balance: <span" +
-          classAttr(account.balance < 0 ? "negative" : "positive") +
+          marko_classAttr(account.balance < 0 ? "negative" : "positive") +
           ">" +
-          escapeXml(account.formattedBalance) +
+          marko_escapeXml(account.formattedBalance) +
           "</span></div>");
       }
 

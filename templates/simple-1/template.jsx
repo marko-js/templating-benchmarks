@@ -21,9 +21,14 @@ function renderColors(colors) {
 
 module.exports = React.createClass({
     render() {
-        return <div className="colors">
-            Hello {this.props.name}
-            {renderColors(this.props.colors)}
+        var style = {backgroundColor: 'blue', border: '1px solid black'};
+
+        return <div className="simple-1" style={style}>
+            <div className="colors">
+                <span className="hello">Hello {this.props.name}! <strong>You have {this.props.messageCount} messages!</strong></span>
+                {renderColors(this.props.colors)}
+            </div>,
+            <button type="button" className="{this.props.primary ? 'primary' : 'secondary'}">Click me!</button>
         </div>;
     }
 });

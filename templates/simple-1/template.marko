@@ -1,7 +1,10 @@
-div.colors
-    - Hello ${data.name}!
-    ul if(notEmpty(data.colors))
-        li.color style="background-color: ${color}" for(color in data.colors)
-            ${color}
-    div else
-        - No colors!
+div class="simple-1" style="background-color: blue; border: 1px solid black"
+    div.colors
+        span.hello
+            - Hello ${data.name}! <strong>You have ${data.messageCount} messages!</strong>
+        ul if(data.colors.length)
+            li.color style="background-color: ${color}" for(color in data.colors)
+                ${color}
+        div else
+            - No colors!
+    button type="button" class=(data.primary ? 'primary' : 'secondary') - ${data.buttonLabel}

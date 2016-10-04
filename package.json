@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/.bin/matcha templating-benchmarks.js --reporter ./reporter.js --expose-gc"
+    "test": "markoc . --clean && NODE_ENV=production node_modules/.bin/matcha templating-benchmarks.js --reporter ./reporter.js --expose-gc"
   },
   "repository": {
     "type": "git",
@@ -26,7 +26,7 @@
     "marko": "^3.0.0-alpha.1",
     "marko-widgets": "^6.0.0-alpha.1",
     "matcha": "^0.6.0",
-    "nunjucks": "^1.3.4",
+    "nunjucks": "^2.5.2",
     "plates": "^0.4.11",
     "pug": "^2.0.0-alpha6",
     "raptor-async": "^1.1.2",

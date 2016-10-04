@@ -30,7 +30,7 @@
                 <li>
                     About: ${friend.about}
                 </li>
-                <li if(notEmpty(friend.tags))>
+                <li if(friend.tags.length)>
                     Tags:
                     <ul>
                         <li for(tag in friend.tags)>
@@ -38,7 +38,7 @@
                         </li>
                     </ul>
                 </li>
-                <li if(notEmpty(friend.friends))>
+                <li if(friend.friends.length)>
                     Friends:
                     <ul>
                         <li for(friend in friend.friends)>
