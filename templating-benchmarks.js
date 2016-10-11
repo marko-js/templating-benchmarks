@@ -1,3 +1,5 @@
+'use strict';
+
 process.env.NODE_ENV = 'production';
 
 var async = require('raptor-async');
@@ -71,14 +73,11 @@ templatesFiles.forEach(function(groupName) {
             data: {}
         });
 
+        var extensions = Object.keys(enginesByExt);
+
         var groupFilenames = fs.readdirSync(groupDir);
         groupFilenames.forEach(function(filename) {
             if (filename.charAt(0) === '.' || (!filename.startsWith('template') && !filename.startsWith('data'))) {
-                return;
-            }
-
-            if (filename.startsWith('template') && filename.endsWith('.js')) {
-                // Skip compiled files
                 return;
             }
 
@@ -90,22 +89,30 @@ templatesFiles.forEach(function(groupName) {
                 group.data = JSON.parse(fs.readFileSync(path, 'utf8'));
             } else {
                 // Should be a template
-                var firstDot = filename.indexOf('.');
-                var lastDot = filename.lastIndexOf('.');
-                var ext = filename.substring(lastDot + 1);
 
-                var engine = enginesByExt[ext];
+                var engine;
+                var filenameNoExt;
+
+                for(let i=0; i<extensions.length; i++) {
+                    var ext = extensions[i];
+                    if (filename.endsWith(ext)) {
+                        engine = enginesByExt[ext];
+                        filenameNoExt = filename.slice(0, 0 - (ext.length+1));
+                        break;
+                    }
+                }
+
                 if (!engine) {
-                    console.log('No templating engine found for "' + filename + '". Ignoring file');
                     return;
                 }
 
-                var secondDot = filename.indexOf('.', firstDot+1);
+                var dotIndex = filenameNoExt.indexOf('.');
+
                 var variant = null;
 
-                if (secondDot !== -1) {
+                if (dotIndex !== -1) {
                     // This is a template variant
-                    variant = filename.substring(firstDot+1, secondDot);
+                    variant = filenameNoExt.substring(dotIndex+1);
                 }
 
                 var baseHtmlOutputFile = nodePath.join(outputHtmldDir, groupName);
@@ -163,7 +170,6 @@ function warmup(callback) {
     var sizes = {};
     var work = [];
 
-
     templateGroups.forEach(function(templateGroup) {
         var sizeInfo = sizes[templateGroup.name] = {
             gzipped: {},
@@ -181,7 +187,7 @@ function warmup(callback) {
 
                         templateInfo.loadedTemplate = template;
 
-                        callback();
+                        setImmediate(callback);
                     });
                 });
             } else {
@@ -197,8 +203,12 @@ function warmup(callback) {
                             var template = templateInfo.loadedTemplate;
                             var outputFile = templateInfo.getHtmlOutputFile(i);
                             templateInfo.engine.render(template, data, function(err, output) {
+                                if (err) {
+                                    return callback(err);
+                                }
+
                                 fs.writeFileSync(outputFile, output, 'utf8');
-                                callback(err);
+                                setImmediate(callback);
                             });
                         });
                     });
@@ -206,13 +216,15 @@ function warmup(callback) {
                     work.push(function(callback) {
                         var template = templateInfo.loadedTemplate;
                         templateInfo.engine.render(template, data, function(err, output) {
+                            if (err) {
+                                return callback(err);
+                            }
                             fs.writeFileSync(templateInfo.outputFile, output, 'utf8');
-                            callback(err);
+                            setImmediate(callback);
                         });
                     });
                 }
             }
-
 
             if (templateInfo.engine.compile) {
                 work.push(function(callback) {
@@ -220,6 +232,10 @@ function warmup(callback) {
                     templateInfo.engine.compile(src, templateInfo.templateFile, templateInfo.compileName, function(err, output) {
                         if (err) {
                             return callback(err);
+                        }
+
+                        if (!output) {
+                            return callback();
                         }
 
                         fs.writeFileSync(templateInfo.outputCompileFile, output, 'utf8');
@@ -291,13 +307,15 @@ templateGroups.forEach(function(templateGroup) {
                 var data = templateGroup.data;
                 var template = templateInfo.loadedTemplate;
 
-                function done(err) {
+                function done(err, html) {
+                    if (!html) {
+                        return next('Invalid HTML output');
+                    }
+
                     if (err) {
                         next(err);
                     } else {
-                        setImmediate(function() {
-                            next(null);
-                        });
+                        setImmediate(next);
                     }
                 }
 

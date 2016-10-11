@@ -8,8 +8,8 @@ module.exports = function(runner, utils) {
 
     var color = utils.color;
     var humanize = utils.humanize;
-    
-    
+
+
 
     function removeColors(str) {
         return str.replace(/\033\[[0-9;]*m/g, '');
@@ -31,13 +31,13 @@ module.exports = function(runner, utils) {
         var padding;
 
         var padSize = 27;
-        
+
         var winner = options && options.winner;
 
         var actualLen = withoutColors.length;
 
         if (actualLen < padSize) {
-            
+
 
             if (winner != null) {
                 actualLen += 2; // space and symbol
@@ -45,7 +45,7 @@ module.exports = function(runner, utils) {
             padding = new Array(padSize - actualLen).join(' ');
         }
 
-        
+
 
         var symbol = '';
         if (winner === true) {
@@ -91,8 +91,6 @@ module.exports = function(runner, utils) {
 
             Object.keys(gzippedSizes).forEach(function(template) {
                 var uncompressedSize = uncompressedSizes[template];
-
-                
 
                 var templateSizeInfo = {
                     template: template,
@@ -147,7 +145,7 @@ module.exports = function(runner, utils) {
 
                 var perLeftCol = '';
                 var perRightCol = '';
-                
+
 
                 if (i !== 0) {
                     perLeftCol = color(percentLarger + '% larger', 'red');
@@ -165,7 +163,7 @@ module.exports = function(runner, utils) {
             }
             sizeLine();
 
-            
+
         });
     }
 
@@ -220,7 +218,7 @@ module.exports = function(runner, utils) {
                 var bench = benches[i];
                 var ops = bench.stats.ops;
                 var opsFormatted = humanize(bench.stats.ops.toFixed(0));
-                
+
 
                 var label;
 
@@ -243,7 +241,7 @@ module.exports = function(runner, utils) {
 
             performanceLine();
         }
-        
+
     });
 
     runner.on('bench start', function (bench) {
