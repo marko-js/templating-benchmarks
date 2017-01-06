@@ -1,15 +1,10 @@
-function create(__markoHelpers) {
-  var marko_str = __markoHelpers.s;
+var marko_template = module.exports = require("marko/html").t(__filename);
 
-  var reverse = require('../../helpers/util').reverse;
 
-  return function render(data, out) {
-    out.w(marko_str(reverse(data.A)) +
-      marko_str(reverse(data.B)) +
-      marko_str(reverse(data.C)) +
-      marko_str(reverse(data.D)) +
-      marko_str(reverse(data.E)));
-  };
+var reverse = require('../../helpers/util').reverse;
+
+function render(data, out) {
+  out.w("<$!{reverse(data.A)}></$!{reverse(data.A)}><$!{reverse(data.B)}></$!{reverse(data.B)}><$!{reverse(data.C)}></$!{reverse(data.C)}><$!{reverse(data.D)}></$!{reverse(data.D)}><$!{reverse(data.E)}></$!{reverse(data.E)}>");
 }
 
-(module.exports = require("marko").c(__filename)).c(create);
+marko_template._ = render;

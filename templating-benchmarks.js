@@ -18,12 +18,36 @@ require('marko/node-require').install();
 
 var enginesDir = nodePath.join(__dirname, 'engines');
 
+var enabledGroups = null;
+var enabledEngines = null;
+
+// enabledGroups = ['simple-1'];
+// enabledEngines = ['pug', 'marko'];
+
 var engines = fs.readdirSync(enginesDir)
+    .filter(function(filename) {
+        if (enabledEngines != null) {
+            var engine = filename;
+            var ext = nodePath.extname(filename);
+            if (ext) {
+                engine = filename.slice(0, 0 - ext.length);
+            }
+
+            return enabledEngines.indexOf(engine) !== -1;
+        } else {
+            return true;
+        }
+
+        return filename.indexOf('pug') !== -1 || filename.indexOf('marko') !== -1;
+    })
     .map(function(filename) {
         if (filename.endsWith('.js')) {
             return require(nodePath.join(enginesDir, filename));
         }
     });
+
+
+
 
 var enginesByExt = {};
 engines.forEach(function(engine) {
@@ -63,9 +87,9 @@ templatesFiles.forEach(function(groupName) {
             return;
         }
 
-        // if (groupName !== 'simple-1') {
-        //     return;
-        // }
+        if (enabledGroups && enabledGroups.indexOf(groupName) === -1) {
+            return;
+        }
 
         var group = templateGroupsLookup[groupName] || (templateGroupsLookup[groupName] = {
             name: groupName,

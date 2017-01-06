@@ -1,14 +1,16 @@
-function create(__markoHelpers) {
-  var marko_loadTag = __markoHelpers.t,
-      marko_colors = marko_loadTag(require("./components/marko-colors"));
+var marko_template = module.exports = require("marko/html").t(__filename),
+    marko_loadTemplate = require("marko/runtime/helper-loadTemplate"),
+    marko_colors_template = marko_loadTemplate(require.resolve("./components/marko-colors")),
+    marko_helpers = require("marko/runtime/html/helpers"),
+    marko_loadTag = marko_helpers.t,
+    marko_colors_tag = marko_loadTag(marko_colors_template);
 
-  return function render(data, out) {
-    out.w("<div class=\"my-app\">");
+function render(data, out) {
+  out.w("<div class=\"my-app\">");
 
-    marko_colors(data, out);
+  marko_colors_tag(data, out);
 
-    out.w("</div>");
-  };
+  out.w("</div>");
 }
 
-(module.exports = require("marko").c(__filename)).c(create);
+marko_template._ = render;

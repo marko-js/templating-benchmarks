@@ -1,7 +1,11 @@
+<script>
+    module.exports = {
+    };
+</script>
 div.colors w-bind
-    - Hello ${data.name}!
+    -- Hello ${data.name}!
     ul if(data.colors.length)
         li.color style="background-color: ${color}" for(color in data.colors)
-            ${color}
+            -- ${color}
     div else
-        - No colors!
+        -- No colors!
