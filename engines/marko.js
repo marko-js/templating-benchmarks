@@ -6,7 +6,7 @@ module.exports = {
     name: 'marko',
     ext: 'marko',
     render: function(template, data, callback) {
-        callback(null, template.renderSync(data));
+        callback(null, template.renderToString(data));
     },
     load: function(src, templatePath, templateName, callback) {
         var template = marko.load(templatePath);
