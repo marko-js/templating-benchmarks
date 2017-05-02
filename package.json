@@ -22,7 +22,7 @@
     "dot": "^1.0.3",
     "dustjs-helpers": "^1.7.2",
     "dustjs-linkedin": "^2.7.2",
-    "handlebars": "^4.0.5",
+    "handlebars": "^4.0.8",
     "jade": "^1.11.0",
     "marko": "^4.0.0-beta.13",
     "matcha": "^0.7.0",
