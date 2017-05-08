@@ -24,7 +24,7 @@
     "dustjs-linkedin": "^2.7.2",
     "handlebars": "^4.0.5",
     "jade": "^1.11.0",
-    "marko": "^4.0.0-beta.13",
+    "marko": "^4.2.8",
     "matcha": "^0.7.0",
     "nunjucks": "^3.0.0",
     "plates": "^0.4.11",

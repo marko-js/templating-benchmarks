@@ -1,3 +1,6 @@
+// Compiled using marko@4.2.8 - DO NOT EDIT
+"use strict";
+
 var marko_template = module.exports = require("marko/html").t(__filename),
     marko_helpers = require("marko/runtime/html/helpers"),
     marko_forEach = marko_helpers.f,
@@ -5,10 +8,12 @@ var marko_template = module.exports = require("marko/html").t(__filename),
     marko_attr = marko_helpers.a,
     marko_escapeXmlAttr = marko_helpers.xa,
     marko_loadTag = marko_helpers.t,
-    await_reorderer_tag = marko_loadTag(require("marko/taglibs/async/await-reorderer-tag")),
-    init_widgets_tag = marko_loadTag(require("marko/widgets/taglib/init-widgets-tag"));
+    init_components_tag = marko_loadTag(require("marko/components/taglib/init-components-tag")),
+    await_reorderer_tag = marko_loadTag(require("marko/taglibs/async/await-reorderer-tag"));
 
-function render(data, out) {
+function render(input, out) {
+  var data = input;
+
   out.w("<!doctype html><html lang=\"en\"><head><meta charset=\"UTF-8\"><title>Friends</title></head><body><div class=\"friends\">");
 
   marko_forEach(data.friends, function(friend) {
@@ -63,11 +68,18 @@ function render(data, out) {
 
   out.w("</div>");
 
-  await_reorderer_tag({}, out);
+  init_components_tag({}, out);
 
-  init_widgets_tag({}, out);
+  await_reorderer_tag({}, out);
 
   out.w("</body></html>");
 }
 
 marko_template._ = render;
+
+marko_template.meta = {
+    tags: [
+      "marko/components/taglib/init-components-tag",
+      "marko/taglibs/async/await-reorderer-tag"
+    ]
+  };

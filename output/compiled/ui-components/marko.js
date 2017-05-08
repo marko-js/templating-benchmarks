@@ -1,3 +1,6 @@
+// Compiled using marko@4.2.8 - DO NOT EDIT
+"use strict";
+
 var marko_template = module.exports = require("marko/html").t(__filename),
     marko_loadTemplate = require("marko/runtime/helper-loadTemplate"),
     marko_colors_template = marko_loadTemplate(require.resolve("./components/marko-colors")),
@@ -5,7 +8,9 @@ var marko_template = module.exports = require("marko/html").t(__filename),
     marko_loadTag = marko_helpers.t,
     marko_colors_tag = marko_loadTag(marko_colors_template);
 
-function render(data, out) {
+function render(input, out) {
+  var data = input;
+
   out.w("<div class=\"my-app\">");
 
   marko_colors_tag(data, out);
@@ -14,3 +19,9 @@ function render(data, out) {
 }
 
 marko_template._ = render;
+
+marko_template.meta = {
+    tags: [
+      "./components/marko-colors"
+    ]
+  };

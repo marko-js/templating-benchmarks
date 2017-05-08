@@ -1,9 +1,14 @@
+// Compiled using marko@4.2.8 - DO NOT EDIT
+"use strict";
+
 var marko_template = module.exports = require("marko/html").t(__filename),
     marko_helpers = require("marko/runtime/html/helpers"),
     marko_escapeXml = marko_helpers.x,
     marko_forEach = marko_helpers.f;
 
-function render(data, out) {
+function render(input, out) {
+  var data = input;
+
   out.w("<div><h1 class=\"header\">" +
     marko_escapeXml(data.header) +
     "</h1><h2 class=\"header2\">" +
@@ -28,3 +33,5 @@ function render(data, out) {
 }
 
 marko_template._ = render;
+
+marko_template.meta = {};
