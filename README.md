@@ -55,53 +55,53 @@ Higher numbers are better.
                       RUNTIME PERFORMANCE
                       ===================
                       friends
-                   ✓ marko »    4,301 op/s (fastest)
-                    ✗ dust »      879 op/s (79.56% slower)
+                   ✓ marko »    4,166 op/s (fastest)
+                    ✗ dust »      812 op/s (80.51% slower)
 
                       if-expression
-                   ✓ marko »  533,709 op/s (fastest)
-                     ✗ pug »  344,010 op/s (35.54% slower)
-                    ✗ jade »   46,419 op/s (91.30% slower)
+                   ✓ marko »  530,165 op/s (fastest)
+                     ✗ pug »  331,756 op/s (37.42% slower)
+                    ✗ jade »   42,380 op/s (92.01% slower)
 
                       projects-escaped
-      ✓ marko (native-for) »  102,139 op/s (fastest)
-                   ✗ marko »  100,347 op/s (1.75% slower)
-              ✗ handlebars »   57,562 op/s (43.64% slower)
-                    ✗ dust »   42,501 op/s (58.39% slower)
+      ✓ marko (native-for) »  101,834 op/s (fastest)
+                   ✗ marko »  100,794 op/s (1.02% slower)
+              ✗ handlebars »   56,701 op/s (44.32% slower)
+                    ✗ dust »   40,939 op/s (59.80% slower)
 
                       projects-unescaped
-      ✓ marko (native-for) »  460,329 op/s (fastest)
-                   ✗ marko »  432,482 op/s (6.05% slower)
-              ✗ handlebars »  152,276 op/s (66.92% slower)
-                    ✗ dust »   94,979 op/s (79.37% slower)
+      ✓ marko (native-for) »  482,533 op/s (fastest)
+                   ✗ marko »  453,447 op/s (6.03% slower)
+              ✗ handlebars »  138,242 op/s (71.35% slower)
+                    ✗ dust »   92,244 op/s (80.88% slower)
 
                       reverse-helper
-                   ✓ marko »  607,768 op/s (fastest)
-                    ✗ dust »  304,793 op/s (49.85% slower)
+                   ✓ marko »  647,571 op/s (fastest)
+                    ✗ dust »  322,467 op/s (50.20% slower)
 
                       search-results
-                   ✓ marko »   40,351 op/s (fastest)
-                    ✗ dust »   10,190 op/s (74.75% slower)
+                   ✓ marko »   41,992 op/s (fastest)
+                    ✗ dust »   10,424 op/s (75.18% slower)
 
                       simple-1
-                     ✓ pug »  288,262 op/s (fastest)
-                   ✗ marko »  282,387 op/s (2.04% slower)
-                     ✗ dot »  267,316 op/s (7.27% slower)
-              ✗ handlebars »  121,964 op/s (57.69% slower)
-                    ✗ dust »   98,719 op/s (65.75% slower)
-                    ✗ swig »   87,299 op/s (69.72% slower)
-                    ✗ jade »   46,289 op/s (83.94% slower)
-                ✗ nunjucks »   33,016 op/s (88.55% slower)
-                     ✗ vue »    9,629 op/s (96.66% slower)
-                   ✗ react »    4,252 op/s (98.52% slower)
+                     ✓ pug »  364,950 op/s (fastest)
+                   ✗ marko »  345,324 op/s (5.38% slower)
+                     ✗ dot »  266,017 op/s (27.11% slower)
+              ✗ handlebars »  130,998 op/s (64.11% slower)
+                    ✗ dust »   98,432 op/s (73.03% slower)
+                    ✗ swig »   87,621 op/s (75.99% slower)
+                    ✗ jade »   47,118 op/s (87.09% slower)
+                ✗ nunjucks »   36,522 op/s (89.99% slower)
+                     ✗ vue »    9,524 op/s (97.39% slower)
+                   ✗ react »    4,930 op/s (98.65% slower)
 
                       simple-2
-                   ✓ marko »  423,506 op/s (fastest)
-                    ✗ dust »  112,470 op/s (73.44% slower)
+                   ✓ marko »  435,509 op/s (fastest)
+                    ✗ dust »  112,961 op/s (74.06% slower)
 
                       ui-components
-                   ✓ marko »   86,548 op/s (fastest)
-                   ✗ react »    4,031 op/s (95.34% slower)
+                   ✓ marko »   87,183 op/s (fastest)
+                   ✗ react »    4,487 op/s (94.85% slower)
 ```
 <!-- </performance> -->
 
@@ -122,10 +122,10 @@ Lower numbers are better.
                       if-expression
                    ✓ marko »   341 bytes gzipped     670 bytes uncompressed
                                       (smallest)                 (smallest)
-                    ✗ jade »   388 bytes gzipped    1057 bytes uncompressed
-                                   12.11% larger              36.61% larger
-                     ✗ pug »   906 bytes gzipped    2146 bytes uncompressed
-                                   62.36% larger              68.78% larger
+                    ✗ jade »   388 bytes gzipped    1049 bytes uncompressed
+                                   12.11% larger              36.13% larger
+                     ✗ pug »   905 bytes gzipped    2138 bytes uncompressed
+                                   62.32% larger              68.66% larger
 
                       projects-escaped
                     ✓ dust »   262 bytes gzipped     554 bytes uncompressed
@@ -161,23 +161,23 @@ Lower numbers are better.
 
                       simple-1
                    ✓ react »   395 bytes gzipped     850 bytes uncompressed
-                                      (smallest)               5.29% larger
+                                      (smallest)               6.00% larger
                     ✗ dust »   413 bytes gzipped     884 bytes uncompressed
-                                    4.36% larger               8.94% larger
+                                    4.36% larger               9.62% larger
                    ✗ marko »   486 bytes gzipped     950 bytes uncompressed
-                                   18.72% larger              15.26% larger
-                     ✗ dot »   494 bytes gzipped     805 bytes uncompressed
-                                   20.04% larger                 (smallest)
-                    ✗ jade »   523 bytes gzipped    1124 bytes uncompressed
-                                   24.47% larger              28.38% larger
+                                   18.72% larger              15.89% larger
+                     ✗ dot »   489 bytes gzipped     799 bytes uncompressed
+                                   19.22% larger                 (smallest)
+                    ✗ jade »   524 bytes gzipped    1116 bytes uncompressed
+                                   24.62% larger              28.41% larger
+                ✗ nunjucks »   608 bytes gzipped    1385 bytes uncompressed
+                                   35.03% larger              42.31% larger
               ✗ handlebars »   620 bytes gzipped    1498 bytes uncompressed
-                                   36.29% larger              46.26% larger
-                ✗ nunjucks »   631 bytes gzipped    1428 bytes uncompressed
-                                   37.40% larger              43.63% larger
-                    ✗ swig »   757 bytes gzipped    3380 bytes uncompressed
-                                   47.82% larger              76.18% larger
-                     ✗ pug »  1048 bytes gzipped    2312 bytes uncompressed
-                                   62.31% larger              65.18% larger
+                                   36.29% larger              46.66% larger
+                    ✗ swig »   756 bytes gzipped    3378 bytes uncompressed
+                                   47.75% larger              76.35% larger
+                     ✗ pug »  1047 bytes gzipped    2304 bytes uncompressed
+                                   62.27% larger              65.32% larger
 
                       simple-2
                     ✓ dust »   267 bytes gzipped     639 bytes uncompressed

@@ -267,7 +267,7 @@ function warmup(callback) {
                         // Save the minified version to disk
                         var minified;
                         try {
-                            minified = UglifyJS.minify(templateInfo.outputCompileFile).code;
+                            minified = UglifyJS.minify(output).code;
                         } catch(e) {
                             throw new Error('Unable to minify "' + templateInfo.outputCompileFile + '". Exception: ' + (e.stack || e));
                         }

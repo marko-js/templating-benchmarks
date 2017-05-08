@@ -13,12 +13,12 @@
         "gzipped": {
             "jade": 388,
             "marko": 341,
-            "pug": 906
+            "pug": 905
         },
         "uncompressed": {
-            "jade": 1057,
+            "jade": 1049,
             "marko": 670,
-            "pug": 2146
+            "pug": 2138
         }
     },
     "projects-escaped": {
@@ -71,26 +71,26 @@
     },
     "simple-1": {
         "gzipped": {
-            "dot": 494,
+            "dot": 489,
             "dust": 413,
             "handlebars": 620,
-            "jade": 523,
+            "jade": 524,
             "react": 395,
             "marko": 486,
-            "nunjucks": 631,
-            "pug": 1048,
-            "swig": 757
+            "nunjucks": 608,
+            "pug": 1047,
+            "swig": 756
         },
         "uncompressed": {
-            "dot": 805,
+            "dot": 799,
             "dust": 884,
             "handlebars": 1498,
-            "jade": 1124,
+            "jade": 1116,
             "react": 850,
             "marko": 950,
-            "nunjucks": 1428,
-            "pug": 2312,
-            "swig": 3380
+            "nunjucks": 1385,
+            "pug": 2304,
+            "swig": 3378
         }
     },
     "simple-2": {
