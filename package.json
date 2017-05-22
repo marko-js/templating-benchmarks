@@ -19,7 +19,7 @@
     "babel-preset-react": "^6.5.0",
     "babel-register": "^6.5.2",
     "cross-env": "^5.0.0",
-    "dot": "^1.0.3",
+    "dot": "^1.1.2",
     "dustjs-helpers": "^1.7.2",
     "dustjs-linkedin": "^2.7.2",
     "handlebars": "^4.0.5",
