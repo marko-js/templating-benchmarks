@@ -1,0 +1,19 @@
+<div class="simple-1" style="background-color: blue; border: 1px solid black">
+    <div class="colors">
+        <span class="hello">Hello {{name}}! <strong>You have {{messageCount}} messages!</strong></span>
+
+        {{if colors.length}}
+        <ul>
+            {{each colors}}
+               <li class="color">{{.}}</li>
+            {{/}}
+        </ul>
+        {{/}}
+        {{unless colors.length}}
+        <div>
+            No colors!
+        </div>
+        {{/}}
+    </div>
+    <button type="button" class="{{if primary}}primary{{/}}{{unless primary}}secondary{{/}}">Click me!</button>
+</div>

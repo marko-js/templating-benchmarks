@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>{{escape title}}</title>
+    </head>
+    <body>
+        <p>{{escape text}}</p>
+        {{each projects}}
+            <a href="{{escape url}}">{{escape name}}</a>
+            <p>{{escape description}}</p>
+        {{/}}
+        {{unless projects.length}}
+            No projects
+        {{/}}
+    </body>
+</html>
