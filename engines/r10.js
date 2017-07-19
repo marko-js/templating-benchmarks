@@ -12,7 +12,7 @@ module.exports = {
         callback(null, template(data));
     },
     compile: function(src, templatePath, templateName, callback) {
-        callback(null, r10.precompile(src));
+        callback(null, 'var template=' + r10.precompile(src));
     },
     load: function(src, templatePath, templateName, callback) {
         callback(null, r10.compile(src));
