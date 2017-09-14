@@ -35,7 +35,7 @@
     "react-dom": "^15.4.2",
     "swig": "^1.4.2",
     "uglify-js": "^3.0.0",
-    "vue": "^2.0.1",
+    "vue": "^2.4.4",
     "vue-server-renderer": "^2.0.1"
   }
 }
