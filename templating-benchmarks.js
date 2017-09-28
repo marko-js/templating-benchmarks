@@ -303,7 +303,7 @@ function warmup(callback) {
     });
 }
 
-var only = null; //'if-expression';
+var only = process.env.ONLY || null;
 var fast = false;
 
 templateGroups.forEach(function(templateGroup) {
