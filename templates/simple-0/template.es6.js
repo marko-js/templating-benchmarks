@@ -1,8 +1,4 @@
 
-class BespokeTemplate {
-  exec(info) {
-    return `Hello ${info.name}! <strong>You have ${info.messageCount} messages! ${info.colors}`;
-  }
-}
-
-module.exports = new BespokeTemplate();
+module.exports = (data) => {
+  return `Hello ${data.name}! <strong>You have ${data.messageCount} messages! ${data.colors}`;
+};
