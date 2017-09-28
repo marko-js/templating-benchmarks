@@ -6,7 +6,7 @@
 
     <div id="resultsContainer">
         <div class="hd">
-            <span class="count"><span id="count">${data.totalCount}</span> results</span>
+            <span class="count"><span id="count">${input.totalCount}</span> results</span>
             <div class="view-modifiers">
                 <div class="view-select">
                     View:
@@ -21,8 +21,8 @@
         </div>
 
         <div id="resultsTarget">
-            <div class="search-results view-${data.view}">
-                <div class="search-item" for(searchRecord in data.searchRecords)>
+            <div class="search-results view-${input.view}">
+                <div class="search-item" for(searchRecord in input.searchRecords)>
                     <div class="search-item-container drop-shadow">
                         <div class="img-container">
                             <img src="${searchRecord.imgUrl}">

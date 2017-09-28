@@ -1,8 +1,8 @@
-// Compiled using marko@4.2.8 - DO NOT EDIT
+// Compiled using marko@4.4.28 - DO NOT EDIT
 "use strict";
 
-var marko_template = module.exports = require("marko/html").t(__filename),
-    marko_helpers = require("marko/runtime/html/helpers"),
+var marko_template = module.exports = require("marko/dist/html").t(__filename),
+    marko_helpers = require("marko/dist/runtime/html/helpers"),
     marko_escapeXml = marko_helpers.x,
     marko_str = marko_helpers.s,
     marko_escapeXmlAttr = marko_helpers.xa,
@@ -17,15 +17,15 @@ function render(input, out) {
       color__len;
 
   out.w("<div class=\"simple-1\" style=\"background-color: blue; border: 1px solid black\"><div class=\"colors\"><span class=\"hello\">Hello " +
-    marko_escapeXml(data.name) +
+    marko_escapeXml(input.name) +
     "! <strong>You have " +
-    marko_str(data.messageCount) +
+    marko_str(input.messageCount) +
     " messages!</strong></span>");
 
-  if (data.colors.length) {
+  if (input.colors.length) {
     out.w("<ul>");
 
-    for (color__i = 0, color__array = data.colors, color__len = color__array && color__array.length; color__i < color__len; color__i++) {
+    for (color__i = 0, color__array = input.colors, color__len = color__array && color__array.length; color__i < color__len; color__i++) {
       color = color__array[color__i];
 
       out.w("<li style=\"background-color: " +
@@ -41,9 +41,9 @@ function render(input, out) {
   }
 
   out.w("</div><button type=\"button\"" +
-    marko_classAttr(data.primary ? "primary" : "secondary") +
+    marko_classAttr(input.primary ? "primary" : "secondary") +
     ">" +
-    marko_escapeXml(data.buttonLabel) +
+    marko_escapeXml(input.buttonLabel) +
     "</button></div>");
 }
 

@@ -1,24 +1,29 @@
-// Compiled using marko@4.2.8 - DO NOT EDIT
+// Compiled using marko@4.4.28 - DO NOT EDIT
 "use strict";
 
-var marko_template = module.exports = require("marko/html").t(__filename),
-    marko_helpers = require("marko/runtime/html/helpers"),
+var marko_template = module.exports = require("marko/dist/html").t(__filename),
+    marko_helpers = require("marko/dist/runtime/html/helpers"),
+    marko_loadTag = marko_helpers.t,
+    component_globals_tag = marko_loadTag(require("marko/dist/components/taglib/component-globals-tag")),
     marko_forEach = marko_helpers.f,
     marko_escapeXml = marko_helpers.x,
     marko_attr = marko_helpers.a,
     marko_escapeXmlAttr = marko_helpers.xa,
-    marko_loadTag = marko_helpers.t,
-    init_components_tag = marko_loadTag(require("marko/components/taglib/init-components-tag")),
-    await_reorderer_tag = marko_loadTag(require("marko/taglibs/async/await-reorderer-tag"));
+    init_components_tag = marko_loadTag(require("marko/dist/components/taglib/init-components-tag")),
+    await_reorderer_tag = marko_loadTag(require("marko/dist/taglibs/async/await-reorderer-tag"));
 
 function render(input, out) {
   var data = input;
 
-  out.w("<!doctype html><html lang=\"en\"><head><meta charset=\"UTF-8\"><title>Friends</title></head><body><div class=\"friends\">");
+  out.w("<!doctype html><html lang=\"en\"><head><meta charset=\"UTF-8\"><title>Friends</title></head><body>");
 
-  marko_forEach(data.friends, function(friend) {
+  component_globals_tag({}, out);
+
+  out.w("<div class=\"friends\">");
+
+  marko_forEach(input.friends, function(friend) {
     out.w("<div class=\"friend\"><ul><li>Name: " +
-      marko_escapeXml(data.getFullNameRaptor(friend)) +
+      marko_escapeXml(input.getFullNameRaptor(friend)) +
       "</li><li>Balance: " +
       marko_escapeXml(friend.balance) +
       "</li><li>Age: " +
@@ -79,7 +84,8 @@ marko_template._ = render;
 
 marko_template.meta = {
     tags: [
-      "marko/components/taglib/init-components-tag",
-      "marko/taglibs/async/await-reorderer-tag"
+      "marko/dist/components/taglib/component-globals-tag",
+      "marko/dist/components/taglib/init-components-tag",
+      "marko/dist/taglibs/async/await-reorderer-tag"
     ]
   };

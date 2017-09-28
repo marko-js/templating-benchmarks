@@ -1,8 +1,9 @@
-<script>
-    module.exports = {
-    };
-</script>
-div.colors w-bind
+class {
+  onMount() {
+    console.log('Mounted!');
+  }
+}
+div.colors
     -- Hello ${data.name}!
     ul if(data.colors.length)
         li.color style="background-color: ${color}" for(color in data.colors)

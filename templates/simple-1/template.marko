@@ -1,10 +1,10 @@
 div class="simple-1" style="background-color: blue; border: 1px solid black"
     div.colors
         span.hello
-            -- Hello ${data.name}! <strong>You have $!{data.messageCount} messages!</strong>
-        ul if(data.colors.length)
-            li.color style="background-color: ${color}" for(color in data.colors | array)
+            -- Hello ${input.name}! <strong>You have $!{input.messageCount} messages!</strong>
+        ul if(input.colors.length)
+            li.color style="background-color: ${color}" for(color in input.colors | array)
                 -- ${color}
         div else
             -- No colors!
-    button type="button" class=(data.primary ? 'primary' : 'secondary') -- ${data.buttonLabel}
+    button type="button" class=(input.primary ? 'primary' : 'secondary') -- ${input.buttonLabel}

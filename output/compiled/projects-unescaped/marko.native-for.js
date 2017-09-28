@@ -1,19 +1,24 @@
-// Compiled using marko@4.2.8 - DO NOT EDIT
+// Compiled using marko@4.4.28 - DO NOT EDIT
 "use strict";
 
-var marko_template = module.exports = require("marko/html").t(__filename),
-    marko_helpers = require("marko/runtime/html/helpers"),
+var marko_template = module.exports = require("marko/dist/html").t(__filename),
+    marko_helpers = require("marko/dist/runtime/html/helpers"),
     marko_str = marko_helpers.s,
     marko_loadTag = marko_helpers.t,
-    init_components_tag = marko_loadTag(require("marko/components/taglib/init-components-tag")),
-    await_reorderer_tag = marko_loadTag(require("marko/taglibs/async/await-reorderer-tag"));
+    component_globals_tag = marko_loadTag(require("marko/dist/components/taglib/component-globals-tag")),
+    init_components_tag = marko_loadTag(require("marko/dist/components/taglib/init-components-tag")),
+    await_reorderer_tag = marko_loadTag(require("marko/dist/taglibs/async/await-reorderer-tag"));
 
 function render(input, out) {
   var data = input;
 
   out.w("<html><head><title>" +
     marko_str(data.title) +
-    "</title></head><body><p>" +
+    "</title></head><body>");
+
+  component_globals_tag({}, out);
+
+  out.w("<p>" +
     marko_str(data.text) +
     "</p>");
 
@@ -45,7 +50,8 @@ marko_template._ = render;
 
 marko_template.meta = {
     tags: [
-      "marko/components/taglib/init-components-tag",
-      "marko/taglibs/async/await-reorderer-tag"
+      "marko/dist/components/taglib/component-globals-tag",
+      "marko/dist/components/taglib/init-components-tag",
+      "marko/dist/taglibs/async/await-reorderer-tag"
     ]
   };

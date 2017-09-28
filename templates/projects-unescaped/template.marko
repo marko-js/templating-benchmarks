@@ -1,14 +1,14 @@
 <html>
     <head>
-        <title>$!{data.title}</title>
+        <title>$!{input.title}</title>
     </head>
     <body>
-        <p>$!{data.text}</p>
-        <for(project in data.projects)>
+        <p>$!{input.text}</p>
+        <for(project in input.projects)>
             <a href="$!{project.url}">$!{project.name}</a>
             <p>$!{project.description}</p>
         </for>
-        <if(!data.projects.length)>
+        <if(!input.projects.length)>
             No projects
         </if>
     </body>

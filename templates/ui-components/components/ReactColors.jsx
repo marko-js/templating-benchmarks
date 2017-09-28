@@ -19,11 +19,15 @@ function renderColors(colors) {
     }
 }
 
-module.exports = React.createClass({
+module.exports = class extends React.Component {
+    componentDidMount() {
+        console.log('Mounted!')
+    }
+
     render() {
         return <div className="colors">
             Hello {this.props.name}
             {renderColors(this.props.colors)}
         </div>;
     }
-});
+};
