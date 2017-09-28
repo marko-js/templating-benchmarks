@@ -69,6 +69,16 @@
             "marko": 1505
         }
     },
+    "simple-0": {
+        "gzipped": {
+            "dust": 173,
+            "marko": 213
+        },
+        "uncompressed": {
+            "dust": 234,
+            "marko": 345
+        }
+    },
     "simple-1": {
         "gzipped": {
             "dot": 491,
