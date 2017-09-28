@@ -24,6 +24,7 @@
     "dustjs-linkedin": "^2.7.2",
     "handlebars": "^4.0.5",
     "jade": "^1.11.0",
+    "lodash.template": "^4.4.0",
     "marko": "^4.4.28",
     "matcha": "^0.7.0",
     "nunjucks": "^3.0.0",
