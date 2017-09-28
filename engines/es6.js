@@ -1,5 +1,3 @@
-var template = require('lodash.template');
-
 module.exports = {
     name: 'es6',
     ext: 'es6.js',
