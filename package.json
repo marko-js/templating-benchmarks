@@ -29,7 +29,7 @@
     "matcha": "^0.7.0",
     "nunjucks": "^3.0.0",
     "plates": "^0.4.11",
-    "pug": "^2.0.0-alpha6",
+    "pug": "^2.0.2",
     "raptor-async": "^1.1.2",
     "raptor-polyfill": "^1.0.2",
     "react": "^15.4.2",
