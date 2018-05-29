@@ -14,7 +14,8 @@ if(runtime.contextOrFrameLookup(context, frame, "colors") && runtime.memberLooku
 output += "\n        <ul>\n            ";
 frame = frame.push();
 var t_3 = runtime.contextOrFrameLookup(context, frame, "colors");
-if(t_3) {var t_2 = t_3.length;
+if(t_3) {t_3 = runtime.fromIterator(t_3);
+var t_2 = t_3.length;
 for(var t_1=0; t_1 < t_3.length; t_1++) {
 var t_4 = t_3[t_1];
 frame.set("color", t_4);

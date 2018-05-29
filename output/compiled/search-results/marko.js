@@ -1,13 +1,17 @@
-// Compiled using marko@4.4.28 - DO NOT EDIT
+// Compiled using marko@4.10.0 - DO NOT EDIT
 "use strict";
 
 var marko_template = module.exports = require("marko/dist/html").t(__filename),
+    marko_componentType = "/templating-benchmarks$0.0.0/templates/search-results/template.marko",
+    components_helpers = require("marko/dist/components/helpers"),
+    marko_renderer = components_helpers.r,
+    marko_defineComponent = components_helpers.c,
     marko_helpers = require("marko/dist/runtime/html/helpers"),
     marko_escapeXml = marko_helpers.x,
     marko_forEach = marko_helpers.f,
     marko_escapeXmlAttr = marko_helpers.xa;
 
-function render(input, out) {
+function render(input, out, __component, component, state) {
   var data = input;
 
   out.w("<div class=\"search-results-container\"><div class=\"searching\" id=\"searching\"><div class=\"wait-indicator-icon\"></div> Searching...</div><div id=\"resultsContainer\"><div class=\"hd\"><span class=\"count\"><span id=\"count\">" +
@@ -48,6 +52,13 @@ function render(input, out) {
   out.w("</div></div></div></div>");
 }
 
-marko_template._ = render;
+marko_template._ = marko_renderer(render, {
+    ae_: true,
+    _l_: marko_componentType
+  });
 
-marko_template.meta = {};
+marko_template.Component = marko_defineComponent({}, marko_template._);
+
+marko_template.meta = {
+    id: "/templating-benchmarks$0.0.0/templates/search-results/template.marko"
+  };

@@ -1,7 +1,11 @@
-// Compiled using marko@4.4.28 - DO NOT EDIT
+// Compiled using marko@4.10.0 - DO NOT EDIT
 "use strict";
 
 var marko_template = module.exports = require("marko/dist/html").t(__filename),
+    marko_componentType = "/templating-benchmarks$0.0.0/templates/friends/template.marko",
+    components_helpers = require("marko/dist/components/helpers"),
+    marko_renderer = components_helpers.r,
+    marko_defineComponent = components_helpers.c,
     marko_helpers = require("marko/dist/runtime/html/helpers"),
     marko_loadTag = marko_helpers.t,
     component_globals_tag = marko_loadTag(require("marko/dist/components/taglib/component-globals-tag")),
@@ -12,7 +16,7 @@ var marko_template = module.exports = require("marko/dist/html").t(__filename),
     init_components_tag = marko_loadTag(require("marko/dist/components/taglib/init-components-tag")),
     await_reorderer_tag = marko_loadTag(require("marko/dist/taglibs/async/await-reorderer-tag"));
 
-function render(input, out) {
+function render(input, out, __component, component, state) {
   var data = input;
 
   out.w("<!doctype html><html lang=\"en\"><head><meta charset=\"UTF-8\"><title>Friends</title></head><body>");
@@ -75,14 +79,20 @@ function render(input, out) {
 
   init_components_tag({}, out);
 
-  await_reorderer_tag({}, out);
+  await_reorderer_tag({}, out, __component, "24");
 
   out.w("</body></html>");
 }
 
-marko_template._ = render;
+marko_template._ = marko_renderer(render, {
+    ae_: true,
+    _l_: marko_componentType
+  });
+
+marko_template.Component = marko_defineComponent({}, marko_template._);
 
 marko_template.meta = {
+    id: "/templating-benchmarks$0.0.0/templates/friends/template.marko",
     tags: [
       "marko/dist/components/taglib/component-globals-tag",
       "marko/dist/components/taglib/init-components-tag",

@@ -1,126 +1,130 @@
 {
     "friends": {
         "gzipped": {
-            "dust": 489,
-            "marko": 667
+            "dust": 488,
+            "marko": 775
         },
         "uncompressed": {
-            "dust": 1378,
-            "marko": 1887
+            "dust": 1362,
+            "marko": 2307
         }
     },
     "if-expression": {
         "gzipped": {
-            "jade": 388,
-            "marko": 344,
+            "ejs": 480,
+            "jade": 387,
+            "marko": 462,
             "pug": 905
         },
         "uncompressed": {
+            "ejs": 1013,
             "jade": 1049,
-            "marko": 680,
+            "marko": 1104,
             "pug": 2138
         }
     },
     "projects-escaped": {
         "gzipped": {
-            "dust": 262,
-            "handlebars": 558,
-            "marko": 432,
-            "marko (native-for)": 445
+            "dust": 261,
+            "handlebars": 565,
+            "marko": 551,
+            "marko (native-for)": 571
         },
         "uncompressed": {
-            "dust": 554,
-            "handlebars": 1594,
-            "marko": 1182,
-            "marko (native-for)": 1182
+            "dust": 547,
+            "handlebars": 1564,
+            "marko": 1619,
+            "marko (native-for)": 1641
         }
     },
     "projects-unescaped": {
         "gzipped": {
-            "dust": 268,
-            "handlebars": 535,
-            "marko": 419,
-            "marko (native-for)": 433
+            "dust": 266,
+            "handlebars": 543,
+            "marko": 541,
+            "marko (native-for)": 561
         },
         "uncompressed": {
-            "dust": 586,
-            "handlebars": 1626,
-            "marko": 1125,
-            "marko (native-for)": 1125
+            "dust": 579,
+            "handlebars": 1596,
+            "marko": 1566,
+            "marko (native-for)": 1588
         }
     },
     "reverse-helper": {
         "gzipped": {
             "dust": 147,
-            "marko": 246
+            "marko": 361
         },
         "uncompressed": {
-            "dust": 312,
-            "marko": 524
+            "dust": 311,
+            "marko": 950
         }
     },
     "search-results": {
         "gzipped": {
             "dust": 544,
-            "marko": 597
+            "marko": 711
         },
         "uncompressed": {
-            "dust": 1514,
-            "marko": 1505
+            "dust": 1501,
+            "marko": 1931
         }
     },
     "simple-0": {
         "gzipped": {
-            "dust": 173,
-            "marko": 213
+            "dust": 172,
+            "marko": 325
         },
         "uncompressed": {
-            "dust": 234,
-            "marko": 345
+            "dust": 233,
+            "marko": 759
         }
     },
     "simple-1": {
         "gzipped": {
             "dot": 491,
-            "dust": 413,
-            "handlebars": 617,
-            "jade": 524,
-            "react": 395,
-            "marko": 485,
-            "nunjucks": 599,
-            "pug": 1047,
-            "swig": 756
+            "dust": 412,
+            "ejs": 585,
+            "handlebars": 621,
+            "jade": 522,
+            "react": 392,
+            "marko": 597,
+            "nunjucks": 604,
+            "pug": 1046,
+            "swig": 782
         },
         "uncompressed": {
-            "dot": 803,
-            "dust": 884,
-            "handlebars": 1492,
+            "dot": 783,
+            "dust": 868,
+            "ejs": 1204,
+            "handlebars": 1489,
             "jade": 1116,
-            "react": 850,
-            "marko": 956,
+            "react": 842,
+            "marko": 1370,
             "nunjucks": 1367,
-            "pug": 2304,
-            "swig": 3378
+            "pug": 2303,
+            "swig": 3334
         }
     },
     "simple-2": {
         "gzipped": {
             "dust": 267,
-            "marko": 311
+            "marko": 437
         },
         "uncompressed": {
-            "dust": 639,
-            "marko": 739
+            "dust": 635,
+            "marko": 1153
         }
     },
     "ui-components": {
         "gzipped": {
             "react": 204,
-            "marko": 274
+            "marko": 386
         },
         "uncompressed": {
             "react": 310,
-            "marko": 559
+            "marko": 990
         }
     }
 }
