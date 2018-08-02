@@ -31,7 +31,7 @@
     "plates": "^0.4.11",
     "pug": "^2.0.0-alpha6",
     "raptor-async": "^1.1.2",
-    "raptor-polyfill": "^1.0.2",
+    "raptor-polyfill": "^1.1.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "swig": "^1.4.2",
