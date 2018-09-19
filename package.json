@@ -33,7 +33,7 @@
     "raptor-async": "^1.1.2",
     "raptor-polyfill": "^1.0.2",
     "react": "^16.5.2",
-    "react-dom": "^15.4.2",
+    "react-dom": "^16.5.2",
     "swig": "^1.4.2",
     "uglify-js": "^3.0.0",
     "vue": "^2.0.1",
