@@ -1,7 +1,7 @@
 'use strict';
 var React = require('react');
 
-function renderColor(color) {
+const renderColor = (color) => {React.memo((color) => {
     var style = {
         backgroundColor: color
     };
@@ -9,17 +9,17 @@ function renderColor(color) {
     return <li className="color" style={style}>
             {color}
         </li>
-}
+})};
 
-function renderColors(colors) {
+const renderColors = (colors) => {React.memo((colors) => {
     if (colors.length) {
         return (<ul>{colors.map(renderColor)}</ul>);
     } else {
         return <div>No colors!</div>
     }
-}
+})};
 
-module.exports = React.createClass({
+module.exports = class extends React.PureComponent {
     render() {
         var style = {backgroundColor: 'blue', border: '1px solid black'};
 
@@ -31,4 +31,4 @@ module.exports = React.createClass({
             <button type="button" className="{this.props.primary ? 'primary' : 'secondary'}">Click me!</button>
         </div>;
     }
-});
+};
